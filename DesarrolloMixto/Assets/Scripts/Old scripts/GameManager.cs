@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     public GameObject[] Terrains;
     public Vector3 instancePosition;
     private Vector3 instanceRotation;
+    [HideInInspector] public int auxInstance = -1;
     // Use this for initialization
     void Awake()
     {
@@ -19,26 +20,50 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       if (Input.GetKeyDown(KeyCode.Alpha1))
+       if (auxInstance == 0)
        {
             Instantiate(Terrains[0], instancePosition, Quaternion.Euler(instanceRotation));          
        }
-       else if (Input.GetKeyDown(KeyCode.Alpha2))
+       else if (auxInstance == 1)
        {
 
             Instantiate(Terrains[1], instancePosition, Quaternion.Euler(instanceRotation));
             instanceRotation.y -= 90; 
        }
-       else if (Input.GetKeyDown(KeyCode.Alpha3))
+       else if (auxInstance == 2)
        {
 
             Instantiate(Terrains[2], instancePosition, Quaternion.Euler(instanceRotation));
             instanceRotation.y += 90;
        }
-
-        if (instanceRotation.y <= -360 || instanceRotation.y >= 360)
+        else if (auxInstance == 3)
         {
-            instanceRotation.y = 0;
+
+            Instantiate(Terrains[3], instancePosition, Quaternion.Euler(instanceRotation));
+            instanceRotation.y -= 180;
+        }
+        else if (auxInstance == 4)
+        {
+
+            Instantiate(Terrains[4], instancePosition, Quaternion.Euler(instanceRotation));
+            instanceRotation.y += 180;
+
+
+        }
+
+        if (auxInstance != -1)
+        {
+            auxInstance = -1;
+        }
+
+        if (instanceRotation.y <= -360 )
+        {
+            instanceRotation.y += 360;
+        }
+        if (instanceRotation.y >= 360)
+        {
+            instanceRotation.y -= 360;
+
         }
     }
 }
