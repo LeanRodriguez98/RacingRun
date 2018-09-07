@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FallTerrain : MonoBehaviour {
-    public GameObject startTerrain;
     public float fallSpeed;
     private Vector3 position;
     private float time;
@@ -15,7 +14,7 @@ public class FallTerrain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        time += Time.deltaTime * 0.01f;
+        time += Time.deltaTime;
 
         if (transform.position.y > 0)
         {

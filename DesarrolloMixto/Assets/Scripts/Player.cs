@@ -20,49 +20,22 @@ public class Player : MonoBehaviour {
 
     public Weapon WeaponLeft;
     public Weapon WeaponRight;
-    public TurnCollider leftCollider;
-    public TurnCollider rightCollider;
-    private Quaternion rotation;
-    private Quaternion auxRotation;
-
+    public float MaxSpeed;
     private Rigidbody rb;
-    private float time;
+    private float Speed;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rotation = auxRotation = transform.rotation;
     }
 
     private void Update()
     {
-        time += Time.deltaTime * 0.01f;
-        rb.AddForce(-transform.right * time);
-
-        if (leftCollider.Collider())
+        if (Speed < MaxSpeed)
         {
-            auxRotation.y -= 90;
+            Speed += Time.deltaTime/5;
         }
-
-        if (rightCollider.Collider())
-        {
-            auxRotation.y += 90;
-
-        }
-
-        if (rotation.y < auxRotation.y)
-        {
-            Debug.Log(1);
-            rotation.y += Time.deltaTime * 5;
-            transform.rotation = rotation;
-        }
-
-        if (rotation.y > auxRotation.y)
-        {
-            Debug.Log(1);
-
-            rotation.y += Time.deltaTime * 5;
-            transform.rotation = rotation;
-        }
+        rb.AddForce(-transform.right * Speed);
+      
 
         if (InputManager.instance.Fire())
         {

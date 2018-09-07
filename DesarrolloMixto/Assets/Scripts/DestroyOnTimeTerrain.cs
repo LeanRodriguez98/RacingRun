@@ -10,10 +10,8 @@ public class DestroyOnTimeTerrain : MonoBehaviour {
     {
         if (other.tag == "Car")
         {
-            Destroy(gameObject, 2);
-
+            Destroy(transform.parent.parent.gameObject, 3);
         }
-
     }
 
     

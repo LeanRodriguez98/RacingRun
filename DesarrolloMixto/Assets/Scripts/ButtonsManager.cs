@@ -19,10 +19,14 @@ public class ButtonsManager : MonoBehaviour
     public void instancieTerrain()
     {
        
-        GameManager.instancie.auxInstance = Random.Range(0, GameManager.instancie.Terrains.Length-1);
+        GameManager.instancie.auxInstance = Random.Range(0, GameManager.instancie.Terrains.Length);
     }
 
+    public void instancieTerrain1()
+    {
 
+        GameManager.instancie.auxInstance = 0;
+    }
 
 
 
