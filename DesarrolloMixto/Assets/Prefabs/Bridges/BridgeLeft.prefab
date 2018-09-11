@@ -22,7 +22,7 @@ GameObject:
   m_Layer: 0
   m_Name: P2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -85,7 +85,7 @@ GameObject:
   m_Layer: 0
   m_Name: P0
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -185,7 +185,7 @@ GameObject:
   m_Layer: 0
   m_Name: P1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -200,7 +200,7 @@ GameObject:
   m_Layer: 0
   m_Name: P3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -504,8 +504,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 3, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 3}
+  m_Size: {x: 4, y: 3, z: 1}
+  m_Center: {x: 0, y: 0, z: 2.5}
 --- !u!65 &65547057440013450
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -585,4 +585,4 @@ MonoBehaviour:
   p1: {fileID: 1834184568526272}
   p2: {fileID: 1009658448962072}
   p3: {fileID: 1937008953911498}
-  CurveSmoothness: 1
+  CurveSmoothness: 12

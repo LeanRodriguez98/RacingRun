@@ -22,25 +22,23 @@ public class BezierTurn : MonoBehaviour {
     {
         if (other.tag == "CarCenter")
         {
-            Player.instance.
-                bezierTurn
-                = this;
+            Player.instance.bezierTurn = this;
             TurnOn();
         }
     }
 
-    public Vector3 CalculateCubicBezierPoint()
+    public Vector3 CalculateCubicBezierPoint( float speed)
     {
         if (t >= 1)
             TurnOff();
-       p = ((1 - t) * (1 - t) * (1 - t)) * p0.transform.position + 3 * ((1 - t) * (1 - t)) * t * p1.transform.position + 3 * (1 - t) * (t * t) * p2.transform.position + (t * t * t) * p3.transform.position;
-       t += Time.deltaTime / CurveSmoothness;
+        p = CalculatePoint();
+        t += Time.deltaTime * speed / CurveSmoothness;       
         return p;
     }
 
     public Vector3 LookAtPoint()
     {
-        p = ((1 - t) * (1 - t) * (1 - t)) * p0.transform.position + 3 * ((1 - t) * (1 - t)) * t * p1.transform.position + 3 * (1 - t) * (t * t) * p2.transform.position + (t * t * t) * p3.transform.position;
+        p = CalculatePoint();
         return p;
     }
     private void TurnOn()
@@ -52,4 +50,11 @@ public class BezierTurn : MonoBehaviour {
     {
         Player.instance.State = Player.States.Forward;
     }
+
+    private Vector3 CalculatePoint()
+    {
+        p = ((1 - t) * (1 - t) * (1 - t)) * p0.transform.position + 3 * ((1 - t) * (1 - t)) * t * p1.transform.position + 3 * (1 - t) * (t * t) * p2.transform.position + (t * t * t) * p3.transform.position;
+        return p;
+    }
+   
 }
