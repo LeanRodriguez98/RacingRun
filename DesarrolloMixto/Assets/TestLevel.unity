@@ -173,7 +173,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116816608
 GameObject:
@@ -309,7 +309,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &389230078
 GameObject:
@@ -328,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &389230079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ RectTransform:
   - {fileID: 1782198926}
   - {fileID: 116816609}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -482,12 +482,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 390649873}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -1.9000001, z: 8.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1774948558}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &390649878
 MonoBehaviour:
@@ -541,7 +541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &608053128
 Prefab:
@@ -580,7 +580,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4681632998029824, guid: 3d727d3876b2a5343a00a582021a49a6, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1839081870615474, guid: 3d727d3876b2a5343a00a582021a49a6, type: 2}
       propertyPath: m_IsActive
@@ -671,7 +671,7 @@ Transform:
   m_Children:
   - {fileID: 647156878}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &796634890
 Prefab:
@@ -710,13 +710,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4593695551446856, guid: df0d4e630a353a44bb528b7153179cbd, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114074781614097786, guid: df0d4e630a353a44bb528b7153179cbd,
         type: 2}
       propertyPath: obstacle
       value: 
       objectReference: {fileID: 214590755}
+    - target: {fileID: 1657202035215834, guid: df0d4e630a353a44bb528b7153179cbd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df0d4e630a353a44bb528b7153179cbd, type: 2}
   m_IsPrefabParent: 0
@@ -884,7 +888,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4819286222600594, guid: 405b3468bd3f5e64db7b81eb1825383f, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1359759596607562, guid: 405b3468bd3f5e64db7b81eb1825383f, type: 2}
       propertyPath: m_IsActive
@@ -930,7 +934,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4408379310288866, guid: b8d38d6d95cf65b4a9da5e3e47affde2, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533267807580434, guid: b8d38d6d95cf65b4a9da5e3e47affde2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8d38d6d95cf65b4a9da5e3e47affde2, type: 2}
@@ -1009,6 +1017,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1692974825}
+--- !u!4 &1774948558 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4464822397618220, guid: 4d88e4709b9fa4a4099256c7f086d07a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1878389675}
 --- !u!1 &1782198925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,7 +1191,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1830654204
 MonoBehaviour:
@@ -1232,7 +1245,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4574290457671288, guid: 8dd669b076bf22b489131e88387179c2, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1865798819994474, guid: 8dd669b076bf22b489131e88387179c2, type: 2}
       propertyPath: m_IsActive
@@ -1278,12 +1291,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4464822397618220, guid: 4d88e4709b9fa4a4099256c7f086d07a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114491425815119340, guid: 4d88e4709b9fa4a4099256c7f086d07a,
         type: 2}
       propertyPath: AcelerationMultipler
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 54117475442787104, guid: 4d88e4709b9fa4a4099256c7f086d07a,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d88e4709b9fa4a4099256c7f086d07a, type: 2}
@@ -1325,7 +1343,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4967468973168384, guid: 10d5f895a16c04247b2cae0da7f3499f, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1833767161408752, guid: 10d5f895a16c04247b2cae0da7f3499f, type: 2}
       propertyPath: m_IsActive

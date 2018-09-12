@@ -23,6 +23,7 @@ public class CameraFollow : MonoBehaviour {
             cameraPosition.z = Player.transform.position.z + cameraOffset.z;
             transform.position = cameraPosition;
             transform.rotation = Quaternion.Euler(cameraRotation.x, cameraRotation.y, cameraRotation.z);
+          //  transform.eulerAngles = Player.transform.rotation.eulerAngles;
         }
         
     }
