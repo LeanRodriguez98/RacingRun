@@ -20,39 +20,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       if (auxInstance == 0)
-       {
-            Instantiate(Terrains[0], instancePosition, Quaternion.Euler(instanceRotation));          
-       }
-       else if (auxInstance == 1)
-       {
-
-            Instantiate(Terrains[1], instancePosition, Quaternion.Euler(instanceRotation));
-            instanceRotation.y -= 90; 
-       }
-       else if (auxInstance == 2)
-       {
-
-            Instantiate(Terrains[2], instancePosition, Quaternion.Euler(instanceRotation));
-            instanceRotation.y += 90;
-       }
-        else if (auxInstance == 3)
-        {
-
-            Instantiate(Terrains[3], instancePosition, Quaternion.Euler(instanceRotation));
-            instanceRotation.y -= 180;
-        }
-        else if (auxInstance == 4)
-        {
-
-            Instantiate(Terrains[4], instancePosition, Quaternion.Euler(instanceRotation));
-            instanceRotation.y += 180;
-
-
-        }
+    
 
         if (auxInstance != -1)
         {
+            Instantiate(Terrains[auxInstance], instancePosition, Quaternion.Euler(instanceRotation));
+            instanceRotation.y += Terrains[auxInstance].GetComponent<BridgeData>().EndBridgeRotation;
             auxInstance = -1;
         }
 

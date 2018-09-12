@@ -22,8 +22,7 @@ public class InputManager : MonoBehaviour {
     
     private void Start()
     {
-        input = new InputPC();
-       
+        input = new InputPC();       
     }
 
     public bool Fire()

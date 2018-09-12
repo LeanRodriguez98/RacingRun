@@ -18,7 +18,7 @@ public class InstanciateAcelerationBridges : MonoBehaviour {
         {
             auxIntanciateTime += Time.deltaTime;
 
-            if (auxIntanciateTime > intanciateTime)
+            if (auxIntanciateTime >= intanciateTime)
             {
                 auxIntanciateTime = 0;
                 cantBridgesToInstance--;

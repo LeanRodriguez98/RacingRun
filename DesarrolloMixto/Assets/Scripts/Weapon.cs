@@ -4,19 +4,19 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Weapon : MonoBehaviour {
-
-    Pool bulletPool;
-   // RaycastHit hit;
+    Pool bulletPool;    
     Vector3 direction;
-    public void Fire() {
+    public void Fire(GameObject obstacle) {
         bulletPool = PoolManager.instance.GetPool("BulletPool");
         GameObject gameObjectInstance = bulletPool.UseObj();
         gameObjectInstance.transform.position = transform.position;
 
-        //if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000000))
-          //  direction = hit.point;
+        direction = obstacle.transform.position - transform.position;
+        direction.Normalize();
 
 
-        gameObjectInstance.GetComponent<Bullet>().Fire(-transform.right/*direction.normalized*/);
-    }  
+        gameObjectInstance.GetComponent<Bullet>().Fire(direction);
+    }
+
+   
 }

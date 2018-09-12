@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour {
     Vector3 dir;
     float maxLifeTime = 2.5f;
     float timer;
-
+    public int bulletDamage;
 	// Update is called once per frame
 	void Update () {
         transform.position += dir;
@@ -23,12 +23,14 @@ public class Bullet : MonoBehaviour {
         timer = 0;
         dir = _dir;
     }
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        Damageable damageable = collision.collider.GetComponent<Damageable>();
+        Damageable damageable = other.GetComponent<Damageable>();
         if (damageable!= null)
         {
-            damageable.SetDamage(10);
+
+            damageable.SetDamage(bulletDamage);
         }
     }
+   
 }

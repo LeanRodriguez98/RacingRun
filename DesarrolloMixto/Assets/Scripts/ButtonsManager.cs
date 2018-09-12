@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class ButtonsManager : MonoBehaviour
 {
+    private GameManager gamemanagerInstance;
+
+    private void Start()
+    {
+        gamemanagerInstance = GameManager.instancie;
+    }
 
 
-  
 
     public void Test()
     {
@@ -18,14 +23,14 @@ public class ButtonsManager : MonoBehaviour
 
     public void instancieTerrain()
     {
-       
-        GameManager.instancie.auxInstance = Random.Range(0, GameManager.instancie.Terrains.Length);
+
+        gamemanagerInstance.auxInstance = Random.Range(0, gamemanagerInstance.Terrains.Length);
     }
 
     public void instancieTerrain1()
     {
 
-        GameManager.instancie.auxInstance = 0;
+        gamemanagerInstance.auxInstance = 0;
     }
 
 

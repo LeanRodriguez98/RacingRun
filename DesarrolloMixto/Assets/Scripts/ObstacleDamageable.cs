@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamageable : Damageable
+public class ObstacleDamageable : Damageable
 {
-    private Enemy enemy;
+    private Obstacle obstacle;
     void Start()
     {
-        enemy = GetComponent<Enemy>();
+        obstacle = GetComponent<Obstacle>();
     }   
 
     public override void SetDamage(int damage)
     {
-        enemy.life -= damage;
+        obstacle.life -= damage;
+
     }
 }

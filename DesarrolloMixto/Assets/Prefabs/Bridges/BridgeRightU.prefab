@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4819286222600594}
   - component: {fileID: 114152215808136888}
+  - component: {fileID: 114944983447169956}
   m_Layer: 0
   m_Name: BridgeRightU
   m_TagString: Untagged
@@ -762,3 +763,15 @@ MonoBehaviour:
   p2: {fileID: 1221143284303322}
   p3: {fileID: 1051253777874964}
   CurveSmoothness: 12
+--- !u!114 &114944983447169956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1359759596607562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7e77b54b9d160488a0a4dcf78139e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndBridgeRotation: 0

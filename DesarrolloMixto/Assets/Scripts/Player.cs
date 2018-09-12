@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    private Rigidbody rb;
     private float Speed;
     public enum States { Forward, Turn };
     public States State;
-    public BezierTurn bezierTurn;
+    [HideInInspector]public BezierTurn bezierTurn;
     public Weapon WeaponLeft;
     public Weapon WeaponRight;
     public float MaxSpeed;
     public float AcelerationMultipler;
+    [HideInInspector]public GameObject ObstacleToShoot = null;
     #region Singleton
     public static Player instance;
     private void Awake()
@@ -30,7 +30,6 @@ public class Player : MonoBehaviour {
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         State = States.Forward;
     }
 
@@ -95,10 +94,11 @@ public class Player : MonoBehaviour {
 
     private void Fire()
     {
-        if (InputManager.instance.Fire())
+        if (ObstacleToShoot != null)
         {
-            WeaponLeft.Fire();
-            WeaponRight.Fire();
+            WeaponLeft.Fire(ObstacleToShoot);
+            WeaponRight.Fire(ObstacleToShoot);
+            ObstacleToShoot = null;
         }
     }
 }
