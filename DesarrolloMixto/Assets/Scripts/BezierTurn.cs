@@ -12,19 +12,32 @@ public class BezierTurn : MonoBehaviour {
     public GameObject p2;
     public GameObject p3;
     public int CurveSmoothness;
+    public TurnInput turnInput;
+    public enum Direction {left,right};
+    public Direction directionTurn;
 
     private void Awake()
     {
         player = Player.instance;
+        turnInput = TurnInput.instance;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
+
         if (other.tag == "CarCenter")
+            Debug.Log("now");
+
+        if (directionTurn == Direction.left && turnInput.TurnLeft() || directionTurn == Direction.right && turnInput.TurnRight())
         {
-            Player.instance.bezierTurn = this;
-            TurnOn();
+            if (other.tag == "CarCenter")
+            {
+                Player.instance.bezierTurn = this;
+                p0.transform.position = Player.instance.transform.position;
+                TurnOn();
+            }
         }
+        
     }
 
     public Vector3 CalculateCubicBezierPoint( float speed)
