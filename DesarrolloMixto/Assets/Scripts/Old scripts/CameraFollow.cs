@@ -1,30 +1,32 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+public class CameraFollow : MonoBehaviour
+{ 
 
-public class CameraFollow : MonoBehaviour {
-    public Vector3 cameraOffset;
-    public Vector3 cameraRotation;
-    private Vector3 cameraPosition;
-    public GameObject Player;
-    // Use this for initialization
-    void Start()
-    {
-        cameraPosition = transform.position;
-    }
+    public Transform target;
+    public float distance;
+    public float height;
+    public float damping;
+    public bool smoothRotation;
+    public bool followBehind;
+    public float rotationDamping;
 
-    // Update is called once per frame
     void Update()
     {
-        if (Player != null)
+        Vector3 wantedPosition;
+        if (followBehind)
+            wantedPosition = target.TransformPoint(0, height, -distance);
+        else
+            wantedPosition = target.TransformPoint(0, height, distance);
+
+        transform.position = Vector3.Lerp(transform.position, wantedPosition, Time.deltaTime * damping);
+
+        if (smoothRotation)
         {
-            cameraPosition.x = Player.transform.position.x + cameraOffset.x;
-            cameraPosition.y = Player.transform.position.y + cameraOffset.y;
-            cameraPosition.z = Player.transform.position.z + cameraOffset.z;
-            transform.position = cameraPosition;
-            transform.rotation = Quaternion.Euler(cameraRotation.x, cameraRotation.y, cameraRotation.z);
-          //  transform.eulerAngles = Player.transform.rotation.eulerAngles;
+            Quaternion wantedRotation = Quaternion.LookRotation(target.position - transform.position, target.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, wantedRotation, Time.deltaTime * rotationDamping);
         }
-        
+        else
+            transform.LookAt(target, target.up);
     }
 }

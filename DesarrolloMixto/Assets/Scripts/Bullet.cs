@@ -28,7 +28,6 @@ public class Bullet : MonoBehaviour {
         Damageable damageable = other.GetComponent<Damageable>();
         if (damageable!= null)
         {
-
             damageable.SetDamage(bulletDamage);
         }
     }

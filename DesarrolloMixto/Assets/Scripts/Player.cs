@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-    private float Speed;
     public enum States { Forward, Turn };
     public States State;
     [HideInInspector]public BezierTurn bezierTurn;
@@ -13,7 +12,10 @@ public class Player : MonoBehaviour {
     public Weapon WeaponRight;
     public float MaxSpeed;
     public float AcelerationMultipler;
+    public int weaponClip;
     [HideInInspector]public GameObject ObstacleToShoot = null;
+    public int life;
+    public Slider lifeBar;
     #region Singleton
     public static Player instance;
     private void Awake()
@@ -27,16 +29,19 @@ public class Player : MonoBehaviour {
         instance = this;
     }
     #endregion
-
+    private float Speed;
+    private int auxLife;
     private void Start()
     {
         State = States.Forward;
+        auxLife = life;
     }
 
     private void Update()
     {
         Movement();
         Fire();
+        UpdateLifeBar();        
     }
 
     private void Movement()
@@ -94,11 +99,34 @@ public class Player : MonoBehaviour {
 
     private void Fire()
     {
-        if (ObstacleToShoot != null)
+        if (ObstacleToShoot != null && weaponClip > 0)
         {
             WeaponLeft.Fire(ObstacleToShoot);
             WeaponRight.Fire(ObstacleToShoot);
+            weaponClip--;
             ObstacleToShoot = null;
+        }
+    }
+
+    private void UpdateLifeBar()
+    {
+        if (life > auxLife)        
+            life = auxLife;
+        lifeBar.value = life / auxLife;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "AmmoPickUp")
+        {
+            weaponClip++;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "LifePickUp")
+        {
+            life += 10;
+            Destroy(other.gameObject);
         }
     }
 }
