@@ -7,9 +7,11 @@ public class InstanciateAcelerationBridges : MonoBehaviour {
     public int cantBridgesToInstance;
     public float intanciateTime;
     private float auxIntanciateTime;
+    private GameManager gamemanagerInstance;
     // Use this for initialization
     void Start () {
         auxIntanciateTime = 0;
+        gamemanagerInstance = GameManager.instance;
     }
 	
 	// Update is called once per frame
@@ -22,7 +24,8 @@ public class InstanciateAcelerationBridges : MonoBehaviour {
             {
                 auxIntanciateTime = 0;
                 cantBridgesToInstance--;
-                GameManager.instancie.auxInstance = 0;
+                Instantiate(aceletarionBridge, gamemanagerInstance.instancePosition, Quaternion.Euler(gamemanagerInstance.instanceRotation));
+                gamemanagerInstance.instanceRotation.y += aceletarionBridge.GetComponent<BridgeData>().EndBridgeRotation;
             }
         }
 	}

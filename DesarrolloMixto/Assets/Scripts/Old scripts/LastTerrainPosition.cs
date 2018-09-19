@@ -6,8 +6,8 @@ public class LastTerrainPosition : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GameManager.instancie.instancePosition.x = transform.position.x;
-        GameManager.instancie.instancePosition.z = transform.position.z;
+        GameManager.instance.instancePosition.x = transform.position.x;
+        GameManager.instance.instancePosition.z = transform.position.z;
     }
 	
 	// Update is called once per frame

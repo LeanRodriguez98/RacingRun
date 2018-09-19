@@ -22,5 +22,6 @@ public class Obstacle : MonoBehaviour {
     void OnMouseDown()
     {
         playerInstance.ObstacleToShoot = this.gameObject;
+        Debug.Log("obj");
     }
 }

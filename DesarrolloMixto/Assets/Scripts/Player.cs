@@ -101,6 +101,7 @@ public class Player : MonoBehaviour {
     {
         if (ObstacleToShoot != null && weaponClip > 0)
         {
+            Debug.Log("shoot");
             WeaponLeft.Fire(ObstacleToShoot);
             WeaponRight.Fire(ObstacleToShoot);
             weaponClip--;
@@ -113,6 +114,10 @@ public class Player : MonoBehaviour {
         if (life > auxLife)        
             life = auxLife;
         lifeBar.value = life / auxLife;
+        if (life <= 0)        
+            Destroy(gameObject);
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -127,6 +132,17 @@ public class Player : MonoBehaviour {
         {
             life += 10;
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Obstacle")
+        {
+            life -= 10;
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "DeadCollider")
+        {
+            Destroy(gameObject);
         }
     }
 }

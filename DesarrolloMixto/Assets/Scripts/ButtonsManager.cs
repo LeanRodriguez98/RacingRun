@@ -10,7 +10,7 @@ public class ButtonsManager : MonoBehaviour
 
     private void Start()
     {
-        gamemanagerInstance = GameManager.instancie;
+        gamemanagerInstance = GameManager.instance;
     }
 
 

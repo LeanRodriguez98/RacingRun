@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    public static GameManager instancie;
     public GameObject[] Terrains;
     public Vector3 instancePosition;
-    private Vector3 instanceRotation;
+    public Vector3 instanceRotation;
     [HideInInspector] public int auxInstance = -1;
-    // Use this for initialization
-    void Awake()
+
+    #region Singleton
+    public static GameManager instance;
+    private void Awake()
     {
-        instancie = this;
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+        instance = this;
     }
+    #endregion
+    // Use this for initialization
+    
     void Start () {
         instanceRotation = Vector3.zero;
         instancePosition.y = 5;
