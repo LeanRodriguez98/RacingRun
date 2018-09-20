@@ -27,26 +27,36 @@ public class TurnInput : MonoBehaviour {
         else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             finalX = Input.mousePosition.x;
-            TurnLeft();
-            TurnRight();
-            initialX = finalX = 0;
-        }  
+            Invoke("ResetXPositions",0.5f);
+        }
+       
+
     }
 
     public bool TurnLeft()
     {
-        if (initialX > finalX)        
-            return true;        
+        if (initialX > finalX)
+        {
+            Debug.Log("Left");
+
+            return true;
+        }
         return false;
     }
 
     public bool TurnRight()
     {
         if (initialX < finalX)
-            return true;        
+        {
+            Debug.Log("Right");
+            return true;
+        }
         return false;
     }
 
-  
+    private void ResetXPositions()
+    {
+        initialX = finalX = 0;
+    }
 }
 

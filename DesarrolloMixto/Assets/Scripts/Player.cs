@@ -25,7 +25,6 @@ public class Player : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
         instance = this;
     }
     #endregion
@@ -41,7 +40,14 @@ public class Player : MonoBehaviour {
     {
         Movement();
         Fire();
-        UpdateLifeBar();        
+        UpdateLifeBar();    
+        
+
+        //swipee
+        //tengo algun bezier en connection conmigo
+        //chequeo si el lado al que doble es el que quiero.
+        //lo muevo
+
     }
 
     private void Movement()

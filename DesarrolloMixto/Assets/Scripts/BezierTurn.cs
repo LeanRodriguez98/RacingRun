@@ -24,14 +24,20 @@ public class BezierTurn : MonoBehaviour {
 
     public void OnTriggerStay(Collider other)
     {
-
-        if (other.tag == "CarCenter")
+        //che player, estoy colisionando con vos
+      /*  if (other.tag == "CarCenter")
+        {
             Debug.Log("now");
 
-        if (directionTurn == Direction.left && turnInput.TurnLeft() || directionTurn == Direction.right && turnInput.TurnRight())
+            Debug.Log("directionTurn: " + directionTurn);
+        }*/
+
+        if ((directionTurn == Direction.left && turnInput.TurnLeft()) || (directionTurn == Direction.right && turnInput.TurnRight()))
         {
             if (other.tag == "CarCenter")
             {
+                //Debug.Log("HELLO DUDE " + directionTurn);
+
                 Player.instance.bezierTurn = this;
                 p0.transform.position = Player.instance.transform.position;
                 TurnOn();

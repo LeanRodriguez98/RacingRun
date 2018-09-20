@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 { 
 
-    public Transform target;
+    private Transform target;
     public float distance;
     public float height;
     public float damping;
@@ -14,6 +14,7 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         playerInstance = Player.instance;
+        target = playerInstance.transform;
     }
     void Update()
     {
