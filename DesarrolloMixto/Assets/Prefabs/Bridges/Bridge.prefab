@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4815120823367594}
   - component: {fileID: 65560008380145368}
   - component: {fileID: 114075744622586370}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4455683743010672}
   - component: {fileID: 65853090761551668}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HitBoxCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1500675059408694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4496134263546324}

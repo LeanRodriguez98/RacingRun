@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 4849762925427680}
   - component: {fileID: 114641905246057968}
   - component: {fileID: 65483057683142024}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurnColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4030116151084358}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4951076787407126}
   - component: {fileID: 65602639995292822}
   - component: {fileID: 114422030951124872}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4206275372322998}
   - component: {fileID: 65057826940293710}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DeadCollider
   m_TagString: DeadCollider
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4298729671212962}
   - component: {fileID: 65893692045581810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HitBoxCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4172242523745232}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4229004189101320}
   - component: {fileID: 65652081502222726}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HitBoxCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4918582337931266}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -341,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4077738651276956}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P0
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -687,7 +687,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514055457800686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4507148646244058}

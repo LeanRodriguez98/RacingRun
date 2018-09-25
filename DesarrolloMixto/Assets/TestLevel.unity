@@ -1378,6 +1378,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 1533267807580434, guid: b8d38d6d95cf65b4a9da5e3e47affde2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d38d6d95cf65b4a9da5e3e47affde2, type: 2}
   m_IsPrefabAsset: 0
@@ -1770,7 +1774,7 @@ GameObject:
   - component: {fileID: 1857406848}
   - component: {fileID: 1857406847}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1826,7 +1830,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: MainMenu
 --- !u!222 &1857406848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1881,12 +1885,12 @@ Prefab:
     - target: {fileID: 114491425815119340, guid: 4d88e4709b9fa4a4099256c7f086d07a,
         type: 2}
       propertyPath: MaxSpeed
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114491425815119340, guid: 4d88e4709b9fa4a4099256c7f086d07a,
         type: 2}
       propertyPath: AcelerationMultipler
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d88e4709b9fa4a4099256c7f086d07a, type: 2}

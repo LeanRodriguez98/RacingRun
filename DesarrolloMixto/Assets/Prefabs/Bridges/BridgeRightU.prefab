@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4980075995033302}
   - component: {fileID: 65819789790385208}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HitBoxCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4954839727423956}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4913404265602562}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P0
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4127223261427138}
   - component: {fileID: 65470128581053628}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HitBoxCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4213690805319784}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4301806857466526}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 4686179574545192}
   - component: {fileID: 114899546757287162}
   - component: {fileID: 65990770707104576}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurnColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 4357126797158744}
   - component: {fileID: 114540601759367426}
   - component: {fileID: 65074435347917692}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TurnColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 4080967077263250}
   - component: {fileID: 65245845027487880}
   - component: {fileID: 114422677968155720}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4619132136900040}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4471402306271446}
   - component: {fileID: 65692651830067152}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 'HitBoxCollider '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4944455254718450}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -406,7 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4534730373323042}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -421,7 +421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4918621694447656}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P0
   m_TagString: Untagged
   m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
@@ -437,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4059455757038838}
   - component: {fileID: 65856979710143570}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DeadCollider
   m_TagString: DeadCollider
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4919399405334820}
   - component: {fileID: 65525504403610030}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DeadCollider
   m_TagString: DeadCollider
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341963087057588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4648901435605176}
