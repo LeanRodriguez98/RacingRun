@@ -14,7 +14,6 @@ public class TurnInput : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
         instance = this;
     }
     #endregion

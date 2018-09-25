@@ -17,13 +17,13 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
         instance = this;
     }
     #endregion
     // Use this for initialization
     
     void Start () {
+        Application.targetFrameRate = 60;
         instanceRotation = Vector3.zero;
         instancePosition.y = 5;
 	}
