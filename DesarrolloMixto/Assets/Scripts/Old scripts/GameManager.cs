@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public GameObject[] Terrains;
+    public GameObject OptionsPanel;
     public Vector3 instancePosition;
     public Vector3 instanceRotation;
-    [HideInInspector] public int auxInstance = -1;
 
     #region Singleton
     public static GameManager instance;
@@ -32,14 +32,17 @@ public class GameManager : MonoBehaviour {
 	void Update () {
     
 
-        if (auxInstance != -1)
-        {
-            Instantiate(Terrains[auxInstance], instancePosition, Quaternion.Euler(instanceRotation));
-            instanceRotation.y += Terrains[auxInstance].GetComponent<BridgeData>().EndBridgeRotation;
-            auxInstance = -1;
-        }
+        
+    }
 
-        if (instanceRotation.y <= -360 )
+    public void Instanciator(int index)
+    {
+        
+        Instantiate(Terrains[index], instancePosition, Quaternion.Euler(instanceRotation));
+        instanceRotation.y += Terrains[index].GetComponent<BridgeData>().EndBridgeRotation;
+        
+
+        if (instanceRotation.y <= -360)
         {
             instanceRotation.y += 360;
         }

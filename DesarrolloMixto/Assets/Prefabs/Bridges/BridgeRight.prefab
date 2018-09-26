@@ -369,6 +369,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1971072180876274
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4547138037694998}
+  - component: {fileID: 65313589880208536}
+  - component: {fileID: 114321430140661682}
+  m_Layer: 2
+  m_Name: PanelActivator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1981695205788322
 GameObject:
   m_ObjectHideFlags: 1
@@ -588,8 +605,22 @@ Transform:
   - {fileID: 4298729671212962}
   - {fileID: 4229004189101320}
   - {fileID: 4206275372322998}
+  - {fileID: 4547138037694998}
   m_Father: {fileID: 4574290457671288}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4547138037694998
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971072180876274}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.9193, z: -17.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4507148646244058}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4574290457671288
 Transform:
@@ -1131,6 +1162,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65313589880208536
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971072180876274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 1, z: 4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65340832731298224
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1303,6 +1346,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c54a106f6f733b48973fed8183b96b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114321430140661682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971072180876274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d893a5715e590d4aa47f81cd46164fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonsPanel: {fileID: 0}
 --- !u!114 &114354049404500482
 MonoBehaviour:
   m_ObjectHideFlags: 1

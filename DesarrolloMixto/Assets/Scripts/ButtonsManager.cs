@@ -7,10 +7,23 @@ using UnityEngine.SceneManagement;
 public class ButtonsManager : MonoBehaviour
 {
     private GameManager gamemanagerInstance;
-
+    private GameObject ButtonsPanel;
+    private int optionOneIndex;
+    private int optionTwoIndex;
+    public Text OptionOneText;
+    public Text OptionTwoText;
     private void Start()
     {
         gamemanagerInstance = GameManager.instance;
+        ButtonsPanel = gamemanagerInstance.OptionsPanel;
+        SelectOptions();
+    }
+    private void SelectOptions()
+    {
+        optionOneIndex = Random.Range(0, gamemanagerInstance.Terrains.Length);
+        OptionOneText.text = gamemanagerInstance.Terrains[optionOneIndex].name;
+        optionTwoIndex = Random.Range(0, gamemanagerInstance.Terrains.Length);
+        OptionTwoText.text = gamemanagerInstance.Terrains[optionTwoIndex].name;
     }
     public void LoadScene(string name)
     {
@@ -27,19 +40,28 @@ public class ButtonsManager : MonoBehaviour
     }
 
 
+    public void OptionOneButton()
+    {
+        gamemanagerInstance.Instanciator(optionOneIndex);
+        ButtonsPanel.SetActive(false);
+        SelectOptions();
+    }
+
+
+    public void OptionTwoButton()
+    {
+        gamemanagerInstance.Instanciator(optionTwoIndex);
+        ButtonsPanel.SetActive(false);
+        SelectOptions();
+    }
+
+
     public void instancieTerrain()
     {
-
-        gamemanagerInstance.auxInstance = Random.Range(0, gamemanagerInstance.Terrains.Length);
+        gamemanagerInstance.Instanciator(Random.Range(0, gamemanagerInstance.Terrains.Length));
+        ButtonsPanel.SetActive(false);
     }
-
-    public void instancieTerrain1()
-    {
-
-        gamemanagerInstance.auxInstance = 0;
-    }
-
-
+    
 
     public void Exit()
     {

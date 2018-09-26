@@ -15,7 +15,6 @@ public class Player : MonoBehaviour {
     public int weaponClip;
     [HideInInspector]public GameObject ObstacleToShoot = null;
     public int life;
-    public Slider lifeBar;
     #region Singleton
     public static Player instance;
     private void Awake()
@@ -119,7 +118,7 @@ public class Player : MonoBehaviour {
     {
         if (life > auxLife)        
             life = auxLife;
-        lifeBar.value = life / auxLife;
+       // lifeBar.value = life / auxLife;
         if (life <= 0)        
             Destroy(gameObject);
 
