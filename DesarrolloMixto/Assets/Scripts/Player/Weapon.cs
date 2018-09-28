@@ -6,16 +6,11 @@ using UnityEngine.AI;
 public class Weapon : MonoBehaviour {
     Pool bulletPool;    
     Vector3 direction;
-    public void Fire(GameObject obstacle) {
+    public void Fire(Vector3 Direction) {
         bulletPool = PoolManager.instance.GetPool("BulletPool");
         GameObject gameObjectInstance = bulletPool.UseObj();
         gameObjectInstance.transform.position = transform.position;
-
-        direction = obstacle.transform.position - transform.position;
-        direction.Normalize();
-
-
-        gameObjectInstance.GetComponent<Bullet>().Fire(direction);
+        gameObjectInstance.GetComponent<Bullet>().Fire(Direction);
     }
 
    

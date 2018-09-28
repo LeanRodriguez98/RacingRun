@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InstanciateAcelerationBridges : MonoBehaviour {
+public class TutorialBridgesInstanciator : MonoBehaviour {
     public GameObject aceletarionBridge;
 
     public int cantBridgesToInstance;
@@ -14,7 +14,7 @@ public class InstanciateAcelerationBridges : MonoBehaviour {
     void Start () {
         auxIntanciateTime = 0;
         gamemanagerInstance = GameManager.instance;
-        firstBridge = gamemanagerInstance.Terrains[Random.Range(0, gamemanagerInstance.Terrains.Length)];
+        firstBridge = gamemanagerInstance.Bridges[Random.Range(0, gamemanagerInstance.Bridges.Length)];
     }
 	
 	// Update is called once per frame
