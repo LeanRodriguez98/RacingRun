@@ -29,6 +29,11 @@ public class Player : MonoBehaviour {
     #endregion
     private float Speed;
     private int auxLife;
+
+
+
+
+
     private void Start()
     {
         State = States.Forward;
@@ -57,6 +62,7 @@ public class Player : MonoBehaviour {
                 if (Speed < MaxSpeed)
                     Speed += Time.deltaTime * AcelerationMultipler;                
                 transform.position += transform.forward * Speed * Time.deltaTime;
+                transform.Translate(Input.acceleration.x * Speed *Time.deltaTime,0,0);
 
                 break;
             case States.Turn:
@@ -124,6 +130,8 @@ public class Player : MonoBehaviour {
 
         
     }
+
+   
 
     private void OnTriggerEnter(Collider other)
     {

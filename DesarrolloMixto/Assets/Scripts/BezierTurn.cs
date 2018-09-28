@@ -6,7 +6,7 @@ public class BezierTurn : MonoBehaviour {
 
     private float t = 0;
     private Vector3 p;
-    public Player player;
+    public Player playerInstance;
     public GameObject p0;
     public GameObject p1;
     public GameObject p2;
@@ -18,7 +18,7 @@ public class BezierTurn : MonoBehaviour {
 
     private void Awake()
     {
-        player = Player.instance;
+        playerInstance = Player.instance;
         turnInput = TurnInput.instance;
     }
 
@@ -32,8 +32,8 @@ public class BezierTurn : MonoBehaviour {
             Debug.Log("directionTurn: " + directionTurn);
         }*/
 
-        if ((directionTurn == Direction.left && turnInput.TurnLeft()) || (directionTurn == Direction.right && turnInput.TurnRight()))
-        {
+        //if ((directionTurn == Direction.left && turnInput.TurnLeft()) || (directionTurn == Direction.right && turnInput.TurnRight()))
+      //  {
             if (other.tag == "CarCenter")
             {
                 //Debug.Log("HELLO DUDE " + directionTurn);
@@ -42,7 +42,7 @@ public class BezierTurn : MonoBehaviour {
                 p0.transform.position = Player.instance.transform.position;
                 TurnOn();
             }
-        }
+     //   }
         
     }
 

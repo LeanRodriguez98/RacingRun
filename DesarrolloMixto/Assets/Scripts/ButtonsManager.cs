@@ -12,10 +12,18 @@ public class ButtonsManager : MonoBehaviour
     private int optionTwoIndex;
     public Text OptionOneText;
     public Text OptionTwoText;
+
+    public GameObject turnBezierLeft;
+    public GameObject turnBezierRight;
+
+    public Player playerInstance;
+
     private void Start()
     {
         gamemanagerInstance = GameManager.instance;
         ButtonsPanel = gamemanagerInstance.OptionsPanel;
+        playerInstance = Player.instance;
+
         SelectOptions();
     }
     private void SelectOptions()
@@ -37,6 +45,16 @@ public class ButtonsManager : MonoBehaviour
     public void Test()
     {
         Debug.Log("TEST");
+    }
+
+
+    public void InstancieteBezierLeft()
+    {
+        Instantiate(turnBezierLeft, playerInstance.transform.position + (playerInstance.transform.forward * 3), Quaternion.Euler(playerInstance.transform.rotation.x, playerInstance.transform.rotation.y, playerInstance.transform.rotation.z)); 
+    }
+    public void InstancieteBezierRight()
+    {
+        Instantiate(turnBezierRight, playerInstance.transform.position + (playerInstance.transform.forward * 5), Quaternion.Euler(playerInstance.transform.rotation.x, playerInstance.transform.rotation.y, playerInstance.transform.rotation.z));
     }
 
 
