@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-    public enum States { Forward, Turn };
+    public enum States { Forward, Turn, Crashed };
+    public enum CrashStates {Up, Stay, Down };
     public States State;
+    public CrashStates CrashState;
     [HideInInspector]public BezierTurn bezierTurn;
     public Weapon WeaponLeft;
     public Weapon WeaponRight;
@@ -26,11 +28,11 @@ public class Player : MonoBehaviour {
         instance = this;
     }
     #endregion
-    private float Speed;
+    public float Speed;
     private int auxLife;
-
-
-
+    private Vector3 crashRotation;
+    private bool stuned;
+    float StayTime;
 
 
     private void Start()
@@ -56,6 +58,43 @@ public class Player : MonoBehaviour {
     {
         switch (State)
         {
+            case States.Crashed:
+
+                switch (CrashState)
+                {
+                    case CrashStates.Up:
+                        crashRotation.x += Time.deltaTime * AcelerationMultipler * 20;
+                        if (crashRotation.x > 10)
+                        {
+                            CrashState = CrashStates.Stay;
+                            StayTime=2;
+                        }
+                        break;
+                    case CrashStates.Stay:
+                        StayTime -= Time.deltaTime;
+                        if (StayTime <= 0)
+                        {
+                            CrashState = CrashStates.Down;
+                        }
+                        break;
+                    case CrashStates.Down:
+                        crashRotation.x -= Time.deltaTime * AcelerationMultipler * 30;
+                        if (crashRotation.x < 0)
+                        {
+                            State = States.Forward;
+                            StayTime = 2;
+                            CrashState = CrashStates.Up;
+                            crashRotation.x = 0;
+                        }
+                        break;                   
+                }
+
+                transform.eulerAngles = crashRotation;
+                if(Speed > 1)
+                Speed -= Time.deltaTime * AcelerationMultipler * 5;
+                transform.position += transform.forward * (Speed/2) * Time.deltaTime;
+
+                break;
             case States.Forward:
                 if (Speed < MaxSpeed)
                     Speed += Time.deltaTime * AcelerationMultipler;                
@@ -64,6 +103,8 @@ public class Player : MonoBehaviour {
 
                 break;
             case States.Turn:
+                if (Speed < MaxSpeed)
+                    Speed += Time.deltaTime * AcelerationMultipler;
                 Vector3 pos;
                 pos.x = bezierTurn.CalculateCubicBezierPoint(Speed).x;
                 pos.y = transform.position.y;
@@ -72,7 +113,6 @@ public class Player : MonoBehaviour {
                 transform.LookAt(new Vector3(bezierTurn.LookAtPoint().x , transform.position.y , bezierTurn.LookAtPoint().z));     
                 if(State == States.Forward)
                     FixCarAngle();
-
                 break;
            
         }        
@@ -127,7 +167,6 @@ public class Player : MonoBehaviour {
     {
         if (life > auxLife)        
             life = auxLife;
-       // lifeBar.value = life / auxLife;
         if (life <= 0)        
             Destroy(gameObject);
 
@@ -153,6 +192,8 @@ public class Player : MonoBehaviour {
         if (other.gameObject.tag == "Obstacle")
         {
             life -= 10;
+            State = States.Crashed;
+            crashRotation = transform.eulerAngles;
             Destroy(other.gameObject);
         }
 

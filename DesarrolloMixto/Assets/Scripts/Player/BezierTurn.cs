@@ -48,6 +48,7 @@ public class BezierTurn : MonoBehaviour {
     }
     private void TurnOn()
     {
+        if (Player.instance.State == Player.States.Forward)
         Player.instance.State = Player.States.Turn;
     }
 

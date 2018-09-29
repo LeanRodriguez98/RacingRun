@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 
 
     Vector3 dir;
-    float maxLifeTime = 2.5f;
+    float maxLifeTime = 1;
     float timer;
     public int bulletDamage;
 	// Update is called once per frame
@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour {
         if (damageable!= null)
         {
             damageable.SetDamage(bulletDamage);
+            Debug.Log("\"damageable\"");
         }
     }
    
