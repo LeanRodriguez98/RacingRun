@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
         playerInstance = Player.instance;
         target = playerInstance.transform;
     }
-    void Update()
+    void LateUpdate()
     {
         if (playerInstance != null)
         {
@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour
             else
                 wantedPosition = target.TransformPoint(0, height, distance);
 
-            transform.position = Vector3.Lerp(transform.position, wantedPosition, Time.deltaTime * damping);
+            transform.position = wantedPosition;// Vector3.Lerp(transform.position, wantedPosition, Time.deltaTime * damping);
 
             if (smoothRotation)
             {

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     
     void Start () {
+       // QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
         instanceRotation = Vector3.zero;
         instancePosition.y = 5;
