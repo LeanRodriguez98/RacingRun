@@ -66,14 +66,7 @@ public class ButtonsManager : MonoBehaviour
 
     }
 
-    public void LeftFire()
-    {
-        playerInstance.LeftFire();
-    }
-    public void RightFire()
-    {
-        playerInstance.RightFire();
-    }
+
 
     private void FixTurnAngle()
     {

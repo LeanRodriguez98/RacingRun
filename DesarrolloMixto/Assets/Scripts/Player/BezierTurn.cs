@@ -17,6 +17,8 @@ public class BezierTurn : MonoBehaviour {
     private void Awake()
     {
         playerInstance = Player.instance;
+        transform.LookAt(new Vector3(playerInstance.transform.position.x, transform.position.y, playerInstance.transform.position.z));
+        Destroy(gameObject, 3);
     }
 
     public void OnTriggerStay(Collider other)

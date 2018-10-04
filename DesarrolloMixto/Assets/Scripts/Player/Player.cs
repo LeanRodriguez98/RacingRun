@@ -10,11 +10,9 @@ public class Player : MonoBehaviour {
     public States State;
     public CrashStates CrashState;
     [HideInInspector]public BezierTurn bezierTurn;
-    public Weapon WeaponLeft;
-    public Weapon WeaponRight;
+
     public float MaxSpeed;
     public float AcelerationMultipler;
-    public int weaponClip;
     public int life;
     #region Singleton
     public static Player instance;
@@ -146,22 +144,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void LeftFire()
-    {
-        if (weaponClip > 0)
-        {
-            WeaponLeft.Fire(transform.forward);
-            weaponClip--;
-        }
-    }
-    public void RightFire()
-    {
-        if (weaponClip > 0)
-        {
-            WeaponRight.Fire(transform.forward);
-            weaponClip--;
-        }
-    }
+ 
 
     private void UpdateLifeBar()
     {
@@ -177,12 +160,6 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "AmmoPickUp")
-        {
-            weaponClip++;
-            Destroy(other.gameObject);
-        }
-
         if (other.gameObject.tag == "LifePickUp")
         {
             life += 10;
@@ -197,9 +174,5 @@ public class Player : MonoBehaviour {
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.tag == "DeadCollider")
-        {
-            Destroy(gameObject);
-        }
     }
 }
