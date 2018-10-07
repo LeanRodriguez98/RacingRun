@@ -17,7 +17,8 @@ public class BezierTurn : MonoBehaviour {
     private void Awake()
     {
         playerInstance = Player.instance;
-        transform.LookAt(new Vector3(playerInstance.transform.position.x, transform.position.y, playerInstance.transform.position.z));
+        //transform.LookAt(new Vector3(playerInstance.transform.position.x, transform.position.y, playerInstance.transform.position.z));
+        //transform.Rotate(playerInstance.transform.eulerAngles);
         Destroy(gameObject, 3);
     }
 
@@ -62,7 +63,9 @@ public class BezierTurn : MonoBehaviour {
 
     private Vector3 CalculatePoint()
     {
-        p = ((1 - t) * (1 - t) * (1 - t)) * p0.transform.position + 3 * ((1 - t) * (1 - t)) * t * p1.transform.position + 3 * (1 - t) * (t * t) * p2.transform.position + (t * t * t) * p3.transform.position;
+        p = ((1 - t) * (1 - t) * (1 - t)) * p0.transform.position + 3 * ((1 - t) * (1 - t)) *
+            t * p1.transform.position + 3 * (1 - t) * (t * t) * p2.transform.position + 
+            (t * t * t) * p3.transform.position;
         return p;
     }
    

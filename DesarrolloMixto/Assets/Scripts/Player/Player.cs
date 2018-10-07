@@ -31,12 +31,13 @@ public class Player : MonoBehaviour {
     private Vector3 crashRotation;
     private bool stuned;
     float StayTime;
-
-
+    private Vector3 centredRotation;
+    
     private void Start()
     {
         State = States.Forward;
         auxLife = life;
+        centredRotation = transform.eulerAngles;
     }
 
     private void Update()
@@ -95,10 +96,14 @@ public class Player : MonoBehaviour {
                 break;
             case States.Forward:
                 if (Speed < MaxSpeed)
-                    Speed += Time.deltaTime * AcelerationMultipler;                
+                    Speed += Time.deltaTime * AcelerationMultipler;
                 transform.position += transform.forward * Speed * Time.deltaTime;
                 transform.Translate(Input.acceleration.x * Speed *Time.deltaTime,0,0);
-
+               /* if ((transform.eulerAngles.y - centredRotation.y) < 10 && Input.acceleration.x > 0)                
+                    transform.Rotate(0, Input.acceleration.x * Speed * Time.deltaTime * 30, 0);
+                if ((centredRotation.y - transform.eulerAngles.y) < 10 && Input.acceleration.x < 0)
+                    transform.Rotate(0, Input.acceleration.x * Speed * Time.deltaTime * 30, 0);
+*/
                 break;
             case States.Turn:
                 if (Speed < MaxSpeed)
@@ -140,7 +145,7 @@ public class Player : MonoBehaviour {
             }
 
             transform.eulerAngles = fixedRotation;
-
+           // centredRotation = fixedRotation;
         }
     }
 

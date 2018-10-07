@@ -14,7 +14,7 @@ public class TutorialBridgesInstanciator : MonoBehaviour {
     void Start () {
         auxIntanciateTime = 0;
         gamemanagerInstance = GameManager.instance;
-        firstBridge = gamemanagerInstance.Bridges[Random.Range(0, gamemanagerInstance.Bridges.Length)];
+        firstBridge = gamemanagerInstance.currentBridges[Random.Range(0, gamemanagerInstance.currentBridges.Length)];
     }
 	
 	// Update is called once per frame
