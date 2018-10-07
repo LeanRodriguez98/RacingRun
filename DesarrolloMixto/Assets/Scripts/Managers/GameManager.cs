@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public GameObject[] currentBridges;
     [HideInInspector] public Vector3 instancePosition;
     [HideInInspector] public Vector3 instanceRotation;
-    public float points = 0;
+    [HideInInspector] public float points = 0;
     #region Singleton
     public static GameManager instance;
 
