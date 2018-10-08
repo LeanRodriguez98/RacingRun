@@ -38,6 +38,7 @@ public class Player : MonoBehaviour {
         State = States.Forward;
         auxLife = life;
         centredRotation = transform.eulerAngles;
+        
     }
 
     private void Update()
