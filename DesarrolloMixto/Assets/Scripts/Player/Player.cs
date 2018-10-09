@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
     public States State;
     public CrashStates CrashState;
     [HideInInspector]public BezierTurn bezierTurn;
-
+    private int coins;
     public float MaxSpeed;
     public float AcelerationMultipler;
     public int life;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
         State = States.Forward;
         auxLife = life;
         centredRotation = transform.eulerAngles;
-        
+        coins = 0;
     }
 
     private void Update()
@@ -169,7 +169,7 @@ public class Player : MonoBehaviour {
         if (other.gameObject.tag == "LifePickUp")
         {
             life += 10;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.tag == "Obstacle")
@@ -177,7 +177,13 @@ public class Player : MonoBehaviour {
             life -= 10;
             State = States.Crashed;
             crashRotation = transform.eulerAngles;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.tag == "Nut")
+        {
+            coins++;
+            other.gameObject.SetActive(false);
         }
 
     }
