@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
     public enum States { Forward, Turn, Crashed };
-    public enum CrashStates {Up, Stay, Down };
+    public enum CrashStates { Up, Stay, Down };
     public States State;
     public CrashStates CrashState;
-    [HideInInspector]public BezierTurn bezierTurn;
-    private int coins;
+    [HideInInspector] public BezierTurn bezierTurn;
+    [HideInInspector] public int coins;
     public float MaxSpeed;
     public float AcelerationMultipler;
     public int life;

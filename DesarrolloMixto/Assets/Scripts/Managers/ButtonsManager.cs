@@ -8,10 +8,8 @@ public class ButtonsManager : MonoBehaviour
 {
 
 
-    public GameObject turnBezierLeft;
-    public GameObject turnBezierRight;
-
-    public Player playerInstance;
+    public GameObject PausePanel;
+    [HideInInspector]public Player playerInstance;
 
     private Vector3 turnRotation;
     private ButtonsManager instance;
@@ -36,8 +34,24 @@ public class ButtonsManager : MonoBehaviour
 
     }
 
+    public void Pause()
+    {
+        if (Time.timeScale != 0)
+        {
+            Time.timeScale = 0;
+            PausePanel.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            PausePanel.SetActive(false);
+        }
+        
+    }
+
     public void LoadScene(string name)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(name);
     }
     public void Restart()
@@ -51,20 +65,7 @@ public class ButtonsManager : MonoBehaviour
     }
 
 
-    public void InstancieteBezierLeft()
-    {
-        Instantiate(turnBezierLeft, playerInstance.transform.position + (playerInstance.transform.forward * 4), Quaternion.Euler(turnRotation));
-        turnRotation.y -= 90;
-        FixTurnAngle();
 
-    }
-    public void InstancieteBezierRight()
-    {
-        Instantiate(turnBezierRight, playerInstance.transform.position + (playerInstance.transform.forward * 4), Quaternion.Euler(turnRotation));
-        turnRotation.y += 90;
-        FixTurnAngle();
-
-    }
 
 
 
