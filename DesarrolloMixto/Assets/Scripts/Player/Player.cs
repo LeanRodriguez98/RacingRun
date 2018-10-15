@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
     public States State;
     public CrashStates CrashState;
     [HideInInspector] public BezierTurn bezierTurn;
-    [HideInInspector] public int coins;
+    [HideInInspector] public int nuts;
     public float MaxSpeed;
     public float AcelerationMultipler;
     public int life;
@@ -31,26 +31,18 @@ public class Player : MonoBehaviour {
     private Vector3 crashRotation;
     private bool stuned;
     float StayTime;
-    private Vector3 centredRotation;
-    
+    public Animator animations;
     private void Start()
     {
         State = States.Forward;
         auxLife = life;
-        centredRotation = transform.eulerAngles;
-        coins = 0;
+        nuts = 0;
     }
 
     private void Update()
     {
         Movement();
         UpdateLifeBar();    
-        
-
-        //swipee
-        //tengo algun bezier en connection conmigo
-        //chequeo si el lado al que doble es el que quiero.
-        //lo muevo
 
     }
 
@@ -58,9 +50,9 @@ public class Player : MonoBehaviour {
     {
         switch (State)
         {
-            case States.Crashed:
+           // case States.Crashed:
 
-                switch (CrashState)
+               /* switch (CrashState)
                 {
                     case CrashStates.Up:
                         crashRotation.x += Time.deltaTime * AcelerationMultipler * 20;
@@ -94,7 +86,7 @@ public class Player : MonoBehaviour {
                 Speed -= Time.deltaTime * AcelerationMultipler * 5;
                 transform.position += transform.forward * (Speed/2) * Time.deltaTime;
 
-                break;
+                break;*/
             case States.Forward:
                 if (Speed < MaxSpeed)
                     Speed += Time.deltaTime * AcelerationMultipler;
@@ -175,15 +167,27 @@ public class Player : MonoBehaviour {
         if (other.gameObject.tag == "Obstacle")
         {
             life -= 10;
-            State = States.Crashed;
-            crashRotation = transform.eulerAngles;
+            //State = States.Crashed;
+            //crashRotation = transform.eulerAngles;
+            animations.SetTrigger("Crash");
             other.gameObject.SetActive(false);
+
         }
 
         if (other.gameObject.tag == "Nut")
         {
-            coins++;
+            nuts++;
             other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.tag == "TurnRight")
+        {
+            animations.SetTrigger("TurnRight");
+        }
+
+        if (other.gameObject.tag == "TurnLeft")
+        {
+            animations.SetTrigger("TurnLeft");
         }
 
     }

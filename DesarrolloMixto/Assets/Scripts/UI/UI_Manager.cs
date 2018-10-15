@@ -30,7 +30,7 @@ public class UI_Manager : MonoBehaviour {
         if (playerInstance != null)
         {
             playerLife = playerInstance.life;
-            playerConis = playerInstance.coins;
+            playerConis = playerInstance.nuts;
         }
 
         if (playerScore != score)
