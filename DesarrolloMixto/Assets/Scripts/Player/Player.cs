@@ -27,16 +27,19 @@ public class Player : MonoBehaviour {
     }
     #endregion
     public float Speed;
+
     private int auxLife;
     private Vector3 crashRotation;
     private bool stuned;
     float StayTime;
     public Animator animations;
+    
     private void Start()
     {
         State = States.Forward;
         auxLife = life;
         nuts = 0;
+        StoreManager.instance.playerInstance = this;
     }
 
     private void Update()

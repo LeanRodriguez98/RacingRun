@@ -20,17 +20,20 @@ public class StoreManager : MonoBehaviour {
     #endregion
     [HideInInspector] public int loadedNuts;
     [HideInInspector] public int nuts = 0;
-    private Player playerInstance = Player.instance;
+    [HideInInspector] public Player playerInstance;
     private string sceneName;
 
     void Start ()
     {
         SetNuts();
         sceneName = SceneManager.GetActiveScene().name;
+        nuts = nuts + loadedNuts;
+        PlayerPrefs.SetInt("Nuts", nuts);
     }
 	
 	void Update ()
     {
+        if (playerInstance != null)
         if (nuts != playerInstance.nuts)
             nuts = playerInstance.nuts;
 
@@ -40,7 +43,8 @@ public class StoreManager : MonoBehaviour {
             nuts = nuts + loadedNuts;
             PlayerPrefs.SetInt("Nuts", nuts);
         }
-    }     
+
+    }
 
     private void SetNuts()
     {

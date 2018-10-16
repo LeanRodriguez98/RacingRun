@@ -65,9 +65,15 @@ public class ButtonsManager : MonoBehaviour
     }
 
 
+    public void TurnOff(GameObject go)
+    {
+        go.SetActive(false);
+    }
 
-
-
+    public void TurnOn(GameObject go)
+    {
+        go.SetActive(true);
+    }
 
     private void FixTurnAngle()
     {
