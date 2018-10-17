@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
         State = States.Forward;
         auxLife = life;
         nuts = 0;
+        if (StoreManager.instance != null)
         StoreManager.instance.playerInstance = this;
     }
 
@@ -151,8 +152,8 @@ public class Player : MonoBehaviour {
     {
         if (life > auxLife)        
             life = auxLife;
-        if (life <= 0)        
-            Destroy(gameObject);
+        if (life <= 0)
+            gameObject.SetActive(false);
 
         
     }
@@ -174,6 +175,7 @@ public class Player : MonoBehaviour {
             //crashRotation = transform.eulerAngles;
             animations.SetTrigger("Crash");
             other.gameObject.SetActive(false);
+            Handheld.Vibrate();
 
         }
 

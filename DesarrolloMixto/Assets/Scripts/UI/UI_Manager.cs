@@ -4,19 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour {
-
+    public static UI_Manager instance;
     public Text lifeText;
     public Text scoreText;
     public Text coinsText;
-    private int playerScore;
+    [HideInInspector]public int playerScore;
     private int score;
     private int playerLife;
     private int life;
-    private int playerConis;
+    [HideInInspector] public int playerConis;
     private int coins;
     private Player playerInstance;
     private GameManager gameManagerInstance;
 
+    public GameObject gameOverPanel;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start () {
         playerInstance = Player.instance;
@@ -25,31 +30,40 @@ public class UI_Manager : MonoBehaviour {
     }
 
     void Update () {
-        if (gameManagerInstance != null)
-            playerScore = (int)gameManagerInstance.points;
-        if (playerInstance != null)
+        if (playerInstance.gameObject.activeSelf)
         {
-            playerLife = playerInstance.life;
-            playerConis = playerInstance.nuts;
-        }
 
-        if (playerScore != score)
+
+
+            if (gameManagerInstance != null)
+                playerScore = (int)gameManagerInstance.points;
+            if (playerInstance != null)
+            {
+                playerLife = playerInstance.life;
+                playerConis = playerInstance.nuts;
+            }
+
+            if (playerScore != score)
+            {
+                score = playerScore;
+                scoreText.text = " " + score.ToString() + "0";
+            }
+
+            if (playerLife != life)
+            {
+                life = playerLife;
+                lifeText.text = life.ToString();
+            }
+
+            if (playerConis != coins)
+            {
+                coins = playerConis;
+                coinsText.text = coins.ToString();
+            }
+        }
+        else
         {
-            score = playerScore;
-            scoreText.text = score.ToString() + "0";
+            gameOverPanel.SetActive(true);
         }
-
-        if (playerLife != life)
-        {
-            life = playerLife;
-            lifeText.text = life.ToString();
-        }
-
-        if (playerConis != coins)
-        {
-            coins = playerConis;
-            coinsText.text = coins.ToString();
-        }
-
     }
 }

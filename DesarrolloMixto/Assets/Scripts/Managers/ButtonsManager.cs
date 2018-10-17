@@ -13,6 +13,11 @@ public class ButtonsManager : MonoBehaviour
 
     private Vector3 turnRotation;
     private ButtonsManager instance;
+
+
+    public Sprite volumeOn;
+    public Sprite volumeOff;
+    public Button volumeButon;
     private void Awake()
     {
         if (instance != null)
@@ -84,6 +89,20 @@ public class ButtonsManager : MonoBehaviour
         if (turnRotation.y >= 360)
         {
             turnRotation.y -= 360;
+        }
+    }
+
+    public void ChangeVolume()
+    {
+        if (AudioListener.volume > 0)
+        {
+            AudioListener.volume = 0;
+            volumeButon.image.sprite = volumeOff;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+            volumeButon.image.sprite = volumeOn;
         }
     }
 

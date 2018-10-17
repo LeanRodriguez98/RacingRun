@@ -8,9 +8,11 @@ public class PlayerMaterial : MonoBehaviour {
     private void Awake()
     {
         playerStats = PlayerStats.instance;
+
     }
     void Start () {
-       // if(playerStats.currentMaterial != null)
+
+        if (playerStats != null)
         gameObject.GetComponent<Renderer>().material = playerStats.currentMaterial;
     }
 	
