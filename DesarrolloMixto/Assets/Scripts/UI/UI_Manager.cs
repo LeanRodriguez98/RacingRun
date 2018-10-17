@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour {
     public static UI_Manager instance;
-    public Text lifeText;
+   // public Text lifeText;
     public Text scoreText;
     public Text coinsText;
     [HideInInspector]public int playerScore;
@@ -52,7 +52,7 @@ public class UI_Manager : MonoBehaviour {
             if (playerLife != life)
             {
                 life = playerLife;
-                lifeText.text = life.ToString();
+              //  lifeText.text = life.ToString();
             }
 
             if (playerConis != coins)
