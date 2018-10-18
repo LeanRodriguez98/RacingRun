@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour {
     void Start () {
        // QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         instanceRotation = Vector3.zero;
         instancePosition.y = 5;
 
