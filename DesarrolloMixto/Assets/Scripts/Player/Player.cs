@@ -175,7 +175,7 @@ public class Player : MonoBehaviour {
             //crashRotation = transform.eulerAngles;
             animations.SetTrigger("Crash");
             other.gameObject.SetActive(false);
-            Handheld.Vibrate();
+            Vibrator.Vibrate(5);
 
         }
 
@@ -196,4 +196,21 @@ public class Player : MonoBehaviour {
         }
 
     }
+
+    /*private void AndroidVibrate()
+    {
+        if (Application.platform != RuntimePlatform.Android) return;
+
+        AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject ca = unity.GetStatic("currentActivity");
+        AndroidJavaClass vibratorClass = new AndroidJavaClass("android.os.Vibrator");
+        AndroidJavaObject vibratorService = ca.Call("getSystemService", 
+        ca.GetStatic("VIBRATOR_SERVICE"));
+
+        vibratorService.Call("vibrate", (long)timeInMilliseconds);
+        unity.Dispose();
+        ca.Dispose();
+        vibratorClass.Dispose();
+        vibratorService.Dispose();
+    }*/
 }
