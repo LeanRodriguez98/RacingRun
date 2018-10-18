@@ -54,53 +54,13 @@ public class Player : MonoBehaviour {
     {
         switch (State)
         {
-           // case States.Crashed:
 
-               /* switch (CrashState)
-                {
-                    case CrashStates.Up:
-                        crashRotation.x += Time.deltaTime * AcelerationMultipler * 20;
-                        if (crashRotation.x > 10)
-                        {
-                            CrashState = CrashStates.Stay;
-                            StayTime=2;
-                        }
-                        break;
-                    case CrashStates.Stay:
-                        StayTime -= Time.deltaTime;
-                        if (StayTime <= 0)
-                        {
-                            CrashState = CrashStates.Down;
-                        }
-                        break;
-                    case CrashStates.Down:
-                        crashRotation.x -= Time.deltaTime * AcelerationMultipler * 30;
-                        if (crashRotation.x < 0)
-                        {
-                            State = States.Forward;
-                            StayTime = 2;
-                            CrashState = CrashStates.Up;
-                            crashRotation.x = 0;
-                        }
-                        break;                   
-                }
-
-                transform.eulerAngles = crashRotation;
-                if(Speed > 1)
-                Speed -= Time.deltaTime * AcelerationMultipler * 5;
-                transform.position += transform.forward * (Speed/2) * Time.deltaTime;
-
-                break;*/
             case States.Forward:
                 if (Speed < MaxSpeed)
                     Speed += Time.deltaTime * AcelerationMultipler;
                 transform.position += transform.forward * Speed * Time.deltaTime;
                 transform.Translate(Input.acceleration.x * Speed *Time.deltaTime,0,0);
-               /* if ((transform.eulerAngles.y - centredRotation.y) < 10 && Input.acceleration.x > 0)                
-                    transform.Rotate(0, Input.acceleration.x * Speed * Time.deltaTime * 30, 0);
-                if ((centredRotation.y - transform.eulerAngles.y) < 10 && Input.acceleration.x < 0)
-                    transform.Rotate(0, Input.acceleration.x * Speed * Time.deltaTime * 30, 0);
-*/
+
                 break;
             case States.Turn:
                 if (Speed < MaxSpeed)
@@ -142,7 +102,6 @@ public class Player : MonoBehaviour {
             }
 
             transform.eulerAngles = fixedRotation;
-           // centredRotation = fixedRotation;
         }
     }
 
@@ -171,8 +130,7 @@ public class Player : MonoBehaviour {
         if (other.gameObject.tag == "Obstacle")
         {
             life -= 10;
-            //State = States.Crashed;
-            //crashRotation = transform.eulerAngles;
+
             animations.SetTrigger("Crash");
             other.gameObject.SetActive(false);
             Vibrator.Vibrate(5);
@@ -197,20 +155,4 @@ public class Player : MonoBehaviour {
 
     }
 
-    /*private void AndroidVibrate()
-    {
-        if (Application.platform != RuntimePlatform.Android) return;
-
-        AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject ca = unity.GetStatic("currentActivity");
-        AndroidJavaClass vibratorClass = new AndroidJavaClass("android.os.Vibrator");
-        AndroidJavaObject vibratorService = ca.Call("getSystemService", 
-        ca.GetStatic("VIBRATOR_SERVICE"));
-
-        vibratorService.Call("vibrate", (long)timeInMilliseconds);
-        unity.Dispose();
-        ca.Dispose();
-        vibratorClass.Dispose();
-        vibratorService.Dispose();
-    }*/
 }
