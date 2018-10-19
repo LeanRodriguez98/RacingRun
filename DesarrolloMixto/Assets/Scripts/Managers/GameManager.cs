@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public Vector3 instancePosition;
     [HideInInspector] public Vector3 instanceRotation;
     [HideInInspector] public float points = 0;
+    public float DelayStartTime;
     #region Singleton
     public static GameManager instance;
 
@@ -45,17 +46,22 @@ public class GameManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {   
-
-        for (int i = 0; i < bridges.Length; i++)
+	void Update () {
+        if (DelayStartTime <= 0)
         {
-            if ((int)points == bridges[i].pontsInstancie)
+            for (int i = 0; i < bridges.Length; i++)
             {
-                currentBridges = bridges[i].Bridges;
+                if ((int)points == bridges[i].pontsInstancie)
+                {
+                    currentBridges = bridges[i].Bridges;
+                }
             }
+            points += Time.deltaTime;
         }
-        points += Time.deltaTime;
-
+        else
+        {
+            DelayStartTime -= Time.deltaTime;
+        }
     }
 
     public void Instanciator()

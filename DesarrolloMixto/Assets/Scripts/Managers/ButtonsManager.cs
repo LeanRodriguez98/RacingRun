@@ -39,6 +39,22 @@ public class ButtonsManager : MonoBehaviour
 
     }
 
+    public void AddMoney(int nutsToAdd)
+    {
+        playerInstance.nuts += nutsToAdd;
+    }
+
+    public void FullHeal()
+    {
+        playerInstance.life = 100;
+    }
+
+    public void RemoveMoney()
+    {
+        PlayerPrefs.SetInt("Nuts", 0);
+        playerInstance.nuts = 0;
+    }
+
     public void Pause()
     {
         if (Time.timeScale != 0)
