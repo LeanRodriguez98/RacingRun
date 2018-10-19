@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TurnOffOnTime : MonoBehaviour {
-    public int time;
-	// Use this for initialization
+    public float time;
+    public GameObject nextGameObject;
 	void Start () {
         Invoke("TurnOff",time);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
     private void TurnOff()
     {
         gameObject.SetActive(false);
+        if (nextGameObject != null)
+            nextGameObject.SetActive(true);        
     }
 }

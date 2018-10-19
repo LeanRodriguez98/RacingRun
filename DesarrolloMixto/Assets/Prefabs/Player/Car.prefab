@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4051233954548936}
   - component: {fileID: 33595927991121698}
   - component: {fileID: 23574373568044544}
+  - component: {fileID: 114792037705762648}
   m_Layer: 0
   m_Name: Rueda_DElantera
   m_TagString: Untagged
@@ -72,6 +73,7 @@ GameObject:
   - component: {fileID: 4443662345572720}
   - component: {fileID: 33609939292342410}
   - component: {fileID: 23652059820510190}
+  - component: {fileID: 114219007786484256}
   m_Layer: 0
   m_Name: Chasis1
   m_TagString: Untagged
@@ -108,6 +110,7 @@ GameObject:
   - component: {fileID: 4913681797621298}
   - component: {fileID: 33816691263481860}
   - component: {fileID: 23506614635642782}
+  - component: {fileID: 114703494289669390}
   m_Layer: 0
   m_Name: Rueda_TRasera
   m_TagString: Untagged
@@ -522,6 +525,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114219007786484256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1509633415788086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368bc9b9d9e07754eac18ca2c33d3af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
 --- !u!114 &114491425815119340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,6 +557,31 @@ MonoBehaviour:
   life: 100
   Speed: 0
   animations: {fileID: 95801365210095548}
+  startDelay: 5
+--- !u!114 &114703494289669390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718653129411582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368bc9b9d9e07754eac18ca2c33d3af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
+--- !u!114 &114792037705762648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195346987726150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368bc9b9d9e07754eac18ca2c33d3af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
 --- !u!119 &119473501445469688
 Projector:
   m_ObjectHideFlags: 1

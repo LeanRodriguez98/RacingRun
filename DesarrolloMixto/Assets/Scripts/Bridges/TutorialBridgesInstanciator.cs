@@ -7,6 +7,7 @@ public class TutorialBridgesInstanciator : MonoBehaviour {
 
     public int cantBridgesToInstance;
     public float intanciateTime;
+    public float startInstanceDelay;
     private float auxIntanciateTime;
     private GameManager gamemanagerInstance;
     private GameObject firstBridge;
@@ -19,7 +20,8 @@ public class TutorialBridgesInstanciator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       
+        if (startInstanceDelay <= 0)
+        {
             auxIntanciateTime += Time.deltaTime;
 
             if (auxIntanciateTime >= intanciateTime)
@@ -33,7 +35,11 @@ public class TutorialBridgesInstanciator : MonoBehaviour {
                     Instanciator(firstBridge);
                 }
             }
-        
+        }
+        else
+        {
+            startInstanceDelay -= Time.deltaTime;
+        }
     }
 
     private void Instanciator(GameObject go)

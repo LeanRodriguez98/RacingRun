@@ -26,13 +26,15 @@ public class Player : MonoBehaviour {
         instance = this;
     }
     #endregion
-    public float Speed;
+    [HideInInspector]public float Speed;
 
     private int auxLife;
     private Vector3 crashRotation;
     private bool stuned;
     float StayTime;
     public Animator animations;
+
+    public float startDelay;
     
     private void Start()
     {
@@ -45,9 +47,15 @@ public class Player : MonoBehaviour {
 
     private void Update()
     {
-        Movement();
-        UpdateLifeBar();    
-
+        if (startDelay <= 0)
+        {
+            Movement();
+            UpdateLifeBar();
+        }
+        else
+        {
+            startDelay -= Time.deltaTime;
+        }
     }
 
     private void Movement()
