@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     public enum States { Forward, Turn, Crashed };
     public enum CrashStates { Up, Stay, Down };
@@ -26,8 +27,7 @@ public class Player : MonoBehaviour {
         instance = this;
     }
     #endregion
-    [HideInInspector]public float Speed;
-
+    [HideInInspector] public float Speed;
     private int auxLife;
     private Vector3 crashRotation;
     private bool stuned;
@@ -35,14 +35,17 @@ public class Player : MonoBehaviour {
     public Animator animations;
 
     public float startDelay;
-    
+
+    public RailingCollider leftCollider;
+    public RailingCollider rightCollider;
+
     private void Start()
     {
         State = States.Forward;
         auxLife = life;
         nuts = 0;
         if (StoreManager.instance != null)
-        StoreManager.instance.playerInstance = this;
+            StoreManager.instance.playerInstance = this;
     }
 
     private void Update()
@@ -67,7 +70,12 @@ public class Player : MonoBehaviour {
                 if (Speed < MaxSpeed)
                     Speed += Time.deltaTime * AcelerationMultipler;
                 transform.position += transform.forward * Speed * Time.deltaTime;
-                transform.Translate(Input.acceleration.x * Speed *Time.deltaTime,0,0);
+
+                if(Input.acceleration.x > 0 && !rightCollider.isTrigger)
+                    transform.Translate(Input.acceleration.x * Speed * Time.deltaTime, 0, 0);
+
+                if (Input.acceleration.x < 0 && !leftCollider.isTrigger)
+                    transform.Translate(Input.acceleration.x * Speed * Time.deltaTime, 0, 0);
 
                 break;
             case States.Turn:
@@ -78,12 +86,12 @@ public class Player : MonoBehaviour {
                 pos.y = transform.position.y;
                 pos.z = bezierTurn.CalculateCubicBezierPoint(Speed).z;
                 transform.position = pos;
-                transform.LookAt(new Vector3(bezierTurn.LookAtPoint().x , transform.position.y , bezierTurn.LookAtPoint().z));     
-                if(State == States.Forward)
+                transform.LookAt(new Vector3(bezierTurn.LookAtPoint().x, transform.position.y, bezierTurn.LookAtPoint().z));
+                if (State == States.Forward)
                     FixCarAngle();
                 break;
-           
-        }        
+
+        }
     }
 
     private void FixCarAngle()
@@ -113,19 +121,19 @@ public class Player : MonoBehaviour {
         }
     }
 
- 
+
 
     private void UpdateLifeBar()
     {
-        if (life > auxLife)        
+        if (life > auxLife)
             life = auxLife;
         if (life <= 0)
             gameObject.SetActive(false);
 
-        
+
     }
 
-   
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -141,7 +149,8 @@ public class Player : MonoBehaviour {
 
             animations.SetTrigger("Crash");
             other.gameObject.SetActive(false);
-            Vibrator.Vibrate(5);
+            // Vibrator.Vibrate(50);
+            Handheld.Vibrate();
 
         }
 
@@ -161,6 +170,9 @@ public class Player : MonoBehaviour {
             animations.SetTrigger("TurnLeft");
         }
 
+   
     }
+ 
 
+ 
 }

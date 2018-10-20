@@ -73,10 +73,13 @@ public class ButtonsManager : MonoBehaviour
     public void LoadScene(string name)
     {
         Time.timeScale = 1;
+        PlayerPrefs.SetInt("Nuts", (playerInstance.nuts + PlayerPrefs.GetInt("Nuts")));
         SceneManager.LoadScene(name);
     }
     public void Restart()
     {
+        PlayerPrefs.SetInt("Nuts", (playerInstance.nuts + PlayerPrefs.GetInt("Nuts")));
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
