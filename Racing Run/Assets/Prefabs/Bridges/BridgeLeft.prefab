@@ -120,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4525214885536662}
   - component: {fileID: 65960387680955712}
+  - component: {fileID: 114990187886701928}
   m_Layer: 0
   m_Name: EndBridgeCollider
   m_TagString: EndBridgeCollider
@@ -317,6 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4770238402526942}
+  - component: {fileID: 114411397293189916}
   m_Layer: 0
   m_Name: BridgeLeft
   m_TagString: Untagged
@@ -366,6 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4340160957910630}
   - component: {fileID: 65323648813535130}
+  - component: {fileID: 114658957888769894}
   m_Layer: 0
   m_Name: NextBridgeCollider
   m_TagString: NextBridgeCollider
@@ -1226,3 +1229,51 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4, z: 6}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114411397293189916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842935335605048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4776e0652255191419c415ea9b037ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {fileID: 4767339424886166}
+  endBridgeCollider: {fileID: 114990187886701928}
+  nextBridgeCollider: {fileID: 114658957888769894}
+  exitRotationY: -90
+  startHeight: 5
+  endHeight: -3
+  fallSpeed: 10
+--- !u!114 &114658957888769894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997242031402824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73752197abcf2164d8034103a6a749fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
+  tagsToCollide:
+  - {fileID: 0}
+  canDisable: 0
+--- !u!114 &114990187886701928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454574124528296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73752197abcf2164d8034103a6a749fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
+  tagsToCollide:
+  - {fileID: 0}
+  canDisable: 0

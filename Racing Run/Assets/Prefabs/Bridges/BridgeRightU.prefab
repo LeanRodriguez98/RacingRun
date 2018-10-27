@@ -204,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4563389805285736}
   - component: {fileID: 65752644020558684}
+  - component: {fileID: 114498858460720690}
   m_Layer: 0
   m_Name: NextBridgeCollider
   m_TagString: NextBridgeCollider
@@ -369,6 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4138431010527942}
+  - component: {fileID: 114972138345325410}
   m_Layer: 0
   m_Name: BridgeRightU
   m_TagString: Untagged
@@ -435,6 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4751892723369372}
   - component: {fileID: 65196701716067728}
+  - component: {fileID: 114635930872153324}
   m_Layer: 0
   m_Name: EndBridgeCollider
   m_TagString: EndBridgeCollider
@@ -1842,3 +1845,51 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 15}
   m_Center: {x: 0, y: 0, z: -7.5}
+--- !u!114 &114498858460720690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307819757870658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73752197abcf2164d8034103a6a749fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
+  tagsToCollide:
+  - {fileID: 0}
+  canDisable: 0
+--- !u!114 &114635930872153324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808865303359548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73752197abcf2164d8034103a6a749fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
+  tagsToCollide:
+  - {fileID: 0}
+  canDisable: 0
+--- !u!114 &114972138345325410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699448503821990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4776e0652255191419c415ea9b037ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosition: {fileID: 4041656817815180}
+  endBridgeCollider: {fileID: 114635930872153324}
+  nextBridgeCollider: {fileID: 114498858460720690}
+  exitRotationY: 180
+  startHeight: 5
+  endHeight: -3
+  fallSpeed: 10
