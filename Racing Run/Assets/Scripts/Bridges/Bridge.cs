@@ -13,49 +13,53 @@ public class Bridge : MonoBehaviour {
     private Vector3 position;
     private Vector3 rotation;
     private LevelManager levelManagerInstance;
-
+    private bool nextInstance;
     private void Start()
     {
         levelManagerInstance = LevelManager.instance;
     }
 
     void OnEnable () {
-        if (levelManagerInstance != null)
-        {
-            position = levelManagerInstance.bridgesInstanciePosition;
-            position.y = startHeight;
-            transform.position = position;
-            rotation = levelManagerInstance.bridgesInstancieRotation;
-            transform.rotation = Quaternion.Euler(rotation);
-            endBridgeCollider.isTrigger = false;
-            nextBridgeCollider.isTrigger = false;
-        }
+        //position =transform.position;
+        //Debug.Log(levelManagerInstance.bridgesInstanciePosition);
+        position.y = startHeight;
+        //transform.position = position;
+        //rotation = levelManagerInstance.bridgesInstancieRotation;
+        //transform.rotation = Quaternion.Euler(rotation);
+        endBridgeCollider.isTrigger = false;
+        nextBridgeCollider.isTrigger = false;
+        nextInstance = false; ;
     }
-	
-	void Update () {
+
+    
+
+    void Update () {
         if (!endBridgeCollider.isTrigger)
             FallBridge();
         else
             DisableBridge();
 
-        if (nextBridgeCollider.isTrigger)
+        if (nextBridgeCollider.isTrigger && !nextInstance)
         {
-            levelManagerInstance.bridgesInstanciePosition = endPosition.position;
+            levelManagerInstance.bridgesInstanciePosition = new Vector3(endPosition.position.x, startHeight,endPosition.position.z);
             levelManagerInstance.SpawnBridge();
+            nextInstance = true;
         }
 
     }
 
     private void FallBridge()
     {
-        if (transform.position.y > levelManagerInstance.bridgesInstanciePosition.y)
+        position.x = transform.position.x;
+        position.z = transform.position.z;
+        if (transform.position.y > 0)
         {
             position.y -= fallSpeed * Time.deltaTime;
             transform.position = position;
         }
-        else if (transform.position.y < levelManagerInstance.bridgesInstanciePosition.y)
+        else if (transform.position.y < 0)
         {
-            position.y = levelManagerInstance.bridgesInstanciePosition.y;
+            position.y = 0;
             transform.position = position;
         }
     }

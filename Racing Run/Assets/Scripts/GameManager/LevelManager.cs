@@ -12,7 +12,6 @@ public class LevelManager : MonoBehaviour {
     private ObjectPooler objectPoolerInstance;
     public Bridge[] bridgesInPool;
 
-
     private void Awake()
     {
         instance = this; 
@@ -25,11 +24,11 @@ public class LevelManager : MonoBehaviour {
 	
 	void Update ()
     {
-		
 	}
 
     public void SpawnBridge()
     {
-        objectPoolerInstance.SpawnForPool(bridgesInPool[Random.Range(0, bridgesInPool.Length)].gameObject.name, bridgesInstanciePosition, Quaternion.Euler(bridgesInstancieRotation));
+            objectPoolerInstance.SpawnForPool(/*bridgesInPool[Random.Range(0, bridgesInPool.Length)].gameObject.name*/ "BridgeFordward", bridgesInstanciePosition, Quaternion.Euler(bridgesInstancieRotation));
     }
+
 }

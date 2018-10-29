@@ -10,15 +10,21 @@ public class TriggerCollider : MonoBehaviour {
         
     public void OnTriggerEnter(Collider other)
     {
-        if (tagsToCollide != null)
+        /* if (tagsToCollide != null)
+         {
+             for (int i = 0; i < tagsToCollide.Length; i++)
+             {
+                 if (other.tag == tagsToCollide[i].tag)
+                 {
+                     isTrigger = true;
+                 }
+             }
+         }*/
+
+        if (other.tag == "Car")
         {
-            for (int i = 0; i < tagsToCollide.Length; i++)
-            {
-                if (other.tag == tagsToCollide[i].tag)
-                {
-                    isTrigger = true;
-                }
-            }
+            isTrigger = true;
+
         }
     }
 
@@ -26,7 +32,7 @@ public class TriggerCollider : MonoBehaviour {
     {
         if (canDisable)
         {
-            if (tagsToCollide != null)
+            /*if (tagsToCollide != null)
             {
                 for (int i = 0; i < tagsToCollide.Length; i++)
                 {
@@ -35,6 +41,12 @@ public class TriggerCollider : MonoBehaviour {
                         isTrigger = false;
                     }
                 }
+            }*/
+
+            if (other.tag == "Car")
+            {
+                isTrigger = true;
+
             }
         }
     }
