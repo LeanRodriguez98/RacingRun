@@ -20,13 +20,16 @@ public class Bridge : MonoBehaviour {
     }
 
     void OnEnable () {
-        position = levelManagerInstance.bridgesInstanciePosition;
-        position.y = startHeight;
-        transform.position = position;
-        rotation = levelManagerInstance.bridgesInstancieRotation;
-        transform.rotation = Quaternion.Euler(rotation);
-        endBridgeCollider.isTrigger = false;
-        nextBridgeCollider.isTrigger = false;
+        if (levelManagerInstance != null)
+        {
+            position = levelManagerInstance.bridgesInstanciePosition;
+            position.y = startHeight;
+            transform.position = position;
+            rotation = levelManagerInstance.bridgesInstancieRotation;
+            transform.rotation = Quaternion.Euler(rotation);
+            endBridgeCollider.isTrigger = false;
+            nextBridgeCollider.isTrigger = false;
+        }
     }
 	
 	void Update () {
