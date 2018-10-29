@@ -7,7 +7,7 @@ public class BezierTurn : MonoBehaviour {
     private float t = 0;
     private Vector3 p;
     private float carRotation;
-    public Car carInstance;
+    [HideInInspector] public Car carInstance;
     public GameObject p0;
     public GameObject p1;
     public GameObject p2;
@@ -77,5 +77,7 @@ public class BezierTurn : MonoBehaviour {
         r.y = carRotation;
         return r;
     }
+
    
+
 }

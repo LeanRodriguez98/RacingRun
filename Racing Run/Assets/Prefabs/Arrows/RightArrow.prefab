@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4493424121506892}
   - component: {fileID: 33513784595281334}
   - component: {fileID: 23355370762526584}
+  - component: {fileID: 65039851213905202}
   m_Layer: 0
   m_Name: RightArrow
-  m_TagString: Untagged
+  m_TagString: RightArrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281854368853500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.78, y: 2.51, z: -6.25}
+  m_LocalPosition: {x: 6.1081257, y: 5.7254815, z: 10.694498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281854368853500}
   m_Mesh: {fileID: 4300000, guid: 6431c1ba7b6ff964e9a417a6d51b86b7, type: 3}
+--- !u!65 &65039851213905202
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281854368853500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3025866, y: 1, z: 1.897121}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -12,17 +12,20 @@ public class Car : MonoBehaviour {
     public States states = States.Forward;
     public static Car instance;
     public BezierTurn bezierTurn;
+    private ObjectPooler objectPoolerInstance;
+
     private void Awake()
     {
         instance = this;
     }
 
     void Start () {
-		
-	}
+        objectPoolerInstance = ObjectPooler.instance;
 
-	
-	void Update () {
+    }
+
+
+    void Update () {
         if (speed < maxSpeed)
             speed += Time.deltaTime * ascelerationMultipler;
         switch (states)
@@ -46,6 +49,24 @@ public class Car : MonoBehaviour {
                 break;
             default:
                 break;
+        }
+
+        
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "RightArrow")
+        {
+            //animations.SetTrigger("TurnRight");
+            objectPoolerInstance.SpawnForPool("BezierRight", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y, 0));
+        }
+        if (other.gameObject.tag == "LeftArrow")
+        {
+            //animations.SetTrigger("TurnLeft");
+            objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y, 0));
+
         }
     }
 } 
