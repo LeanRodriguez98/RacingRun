@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BridgeEntitie : MonoBehaviour {
-
-
-  
+      
     public bool rotation;
     public float rotationSpeed;
     // Use this for initialization
@@ -15,15 +13,18 @@ public class BridgeEntitie : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-      
-
 
         if (rotation)
         {
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
         }
 
-        if (transform.position.y < -5)
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
         {
             gameObject.SetActive(false);
         }

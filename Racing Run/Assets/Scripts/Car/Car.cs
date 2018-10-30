@@ -109,12 +109,22 @@ public class Car : MonoBehaviour {
             //animations.SetTrigger("TurnLeft");
             objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
             other.gameObject.SetActive(false);
-
-
         }
         if (other.gameObject.tag == "Nut")
         {
             other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "Obstacle")
+        {
+            other.gameObject.SetActive(false);
+            life -= 10;
+            Debug.Log("Life " + life);
+            Handheld.Vibrate();
+        }
+        if (other.gameObject.tag == "LifePickUp")
+        {
+            other.gameObject.SetActive(false);
+            life += 10;
         }
     }
 } 
