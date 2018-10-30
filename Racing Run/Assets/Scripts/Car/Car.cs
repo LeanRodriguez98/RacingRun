@@ -37,6 +37,14 @@ public class Car : MonoBehaviour {
             case States.Forward:                
                 transform.position += transform.forward * speed * Time.deltaTime;
                 transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.Translate(0.5F * speed * Time.deltaTime, 0, 0);
+                }
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.Translate(-0.5F * speed * Time.deltaTime, 0, 0);
+                }
                 break;
             case States.Turn:
                 Vector3 pos = Vector3.zero;
@@ -47,7 +55,8 @@ public class Car : MonoBehaviour {
                 transform.LookAt(new Vector3(bezierTurn.LookAtPoint().x, transform.position.y, bezierTurn.LookAtPoint().z));
                 if (states == States.Forward)
                 {
-                    transform.eulerAngles = bezierTurn.GetFixedRotation();
+                    //transform.eulerAngles = bezierTurn.GetFixedRotation();
+                    FixCarAngle();
                     bezierTurn = null;
                 }         
                 break;
@@ -55,8 +64,36 @@ public class Car : MonoBehaviour {
                 break;
         }
 
-        
+      
 
+    }
+
+
+    private void FixCarAngle()
+    {
+        float rotationY = transform.rotation.eulerAngles.y;
+        Vector3 fixedRotation = transform.rotation.eulerAngles;
+        if ((rotationY % 90) != 0)
+        {
+            if (rotationY >= 45 && rotationY < 135)
+            {
+                fixedRotation.y = 90;
+            }
+            else if (rotationY >= 135 && rotationY < 225)
+            {
+                fixedRotation.y = 180;
+            }
+            else if (rotationY >= 225 && rotationY < 315)
+            {
+                fixedRotation.y = 270;
+            }
+            else
+            {
+                fixedRotation.y = 0;
+            }
+
+            transform.eulerAngles = fixedRotation;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -64,13 +101,13 @@ public class Car : MonoBehaviour {
         if (other.gameObject.tag == "RightArrow")
         {
             //animations.SetTrigger("TurnRight");
-            objectPoolerInstance.SpawnForPool("BezierRight", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
+            objectPoolerInstance.SpawnForPool("BezierRight", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "LeftArrow")
         {
             //animations.SetTrigger("TurnLeft");
-            objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
+            objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
             other.gameObject.SetActive(false);
 
 

@@ -61,6 +61,7 @@ public class Bridge : MonoBehaviour {
         if (nextBridgeCollider.isTrigger && !nextInstance)
         {
             levelManagerInstance.bridgesInstanciePosition = new Vector3(endPosition.position.x, startHeight,endPosition.position.z);
+            levelManagerInstance.bridgesInstancieRotation.y += exitRotationY;
             levelManagerInstance.SpawnBridge();
             nextInstance = true;
         }

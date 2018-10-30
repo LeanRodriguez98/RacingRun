@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23355370762526584}
   - component: {fileID: 65039851213905202}
   - component: {fileID: 114537499998998540}
+  - component: {fileID: 54721145408572578}
   m_Layer: 0
   m_Name: RightArrow
   m_TagString: RightArrow
@@ -30,6 +31,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1516113944495536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4010458600853704}
+  - component: {fileID: 65127940914162202}
+  m_Layer: 10
+  m_Name: FloorCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4010458600853704
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516113944495536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4493424121506892}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4493424121506892
 Transform:
   m_ObjectHideFlags: 1
@@ -39,7 +69,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.1081257, y: 5.7254815, z: 10.694498}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4010458600853704}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -85,6 +116,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281854368853500}
   m_Mesh: {fileID: 4300000, guid: 6431c1ba7b6ff964e9a417a6d51b86b7, type: 3}
+--- !u!54 &54721145408572578
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281854368853500}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 2
 --- !u!65 &65039851213905202
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -97,6 +143,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3025866, y: 1, z: 1.897121}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65127940914162202
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516113944495536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 0.2, z: 2}
+  m_Center: {x: 0, y: -0.4, z: 0}
 --- !u!114 &114537499998998540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,7 +166,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8d9660f973a7449bad13a626237fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorDistance: 0.5
-  fallSpeed: 20
   rotation: 0
   rotationSpeed: 0

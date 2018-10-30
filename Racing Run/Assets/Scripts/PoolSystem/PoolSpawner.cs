@@ -96,7 +96,7 @@ public class PoolSpawner : MonoBehaviour {
 
     public void SpawnObject()
     {
-       objectPoolerInstance.SpawnForPool(tagOfObjectToSpawn, new Vector3(transform.position.x,transform.position.y + Random.Range(minHeightSpawn, maxHeightSpawn),transform.position.z), Quaternion.identity);
+       objectPoolerInstance.SpawnForPool(tagOfObjectToSpawn, new Vector3(transform.position.x,transform.position.y + Random.Range(minHeightSpawn, maxHeightSpawn),transform.position.z), transform.rotation);
         
     }
 

@@ -35,13 +35,17 @@ public class BezierTurn : MonoBehaviour {
          }
         
     }
+    private void OnEnable()
+    {
+        t = 0;
 
+    }
     public Vector3 CalculateCubicBezierPoint( float speed)
     {
         if (t >= 1)
             TurnOff();
         p = CalculatePoint();
-        t += Time.deltaTime * speed / CurveSmoothness;       
+        t += Time.deltaTime * (speed / CurveSmoothness);       
         return p;
     }
 
@@ -69,6 +73,7 @@ public class BezierTurn : MonoBehaviour {
     private void TurnOff()
     {
         carInstance.states = Car.States.Forward;
+        gameObject.SetActive(false);
     }
 
     public Vector3 GetFixedRotation()
