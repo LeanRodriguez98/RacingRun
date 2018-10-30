@@ -68,5 +68,9 @@ public class Car : MonoBehaviour {
             objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y, 0));
 
         }
+        if (other.gameObject.tag == "Nut")
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 } 

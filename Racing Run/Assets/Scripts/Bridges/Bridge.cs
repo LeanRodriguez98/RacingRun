@@ -9,11 +9,18 @@ public class Bridge : MonoBehaviour {
     public float exitRotationY;
     public float startHeight;
     public float endHeight;
-    public float fallSpeed;    
+    public float fallSpeed;
+
+    public bool haveRailings;
+    public GameObject[] railings;
+    public bool haveEntities;
+    public GameObject[] entities;
+
     private Vector3 position;
     private Vector3 rotation;
     private LevelManager levelManagerInstance;
     private bool nextInstance;
+
     private void Start()
     {
         levelManagerInstance = LevelManager.instance;
@@ -28,7 +35,31 @@ public class Bridge : MonoBehaviour {
         //transform.rotation = Quaternion.Euler(rotation);
         endBridgeCollider.isTrigger = false;
         nextBridgeCollider.isTrigger = false;
-        nextInstance = false; ;
+        nextInstance = false;
+
+        for (int i = 0; i < railings.Length; i++)
+        {
+            if (haveRailings)
+            {
+                railings[i].SetActive(true);
+            }
+            else
+            {
+                railings[i].SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < entities.Length; i++)
+        {
+            if (haveEntities)
+            {
+                entities[i].SetActive(true);
+            }
+            else
+            {
+                entities[i].SetActive(false);
+            }
+        }
     }
 
     
