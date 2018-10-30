@@ -13,8 +13,6 @@ public class Bridge : MonoBehaviour {
 
     public bool haveRailings;
     public GameObject[] railings;
-    public bool haveEntities;
-    public GameObject[] entities;
 
     private Vector3 position;
     private Vector3 rotation;
@@ -49,17 +47,7 @@ public class Bridge : MonoBehaviour {
             }
         }
 
-        for (int i = 0; i < entities.Length; i++)
-        {
-            if (haveEntities)
-            {
-                entities[i].SetActive(true);
-            }
-            else
-            {
-                entities[i].SetActive(false);
-            }
-        }
+       
     }
 
     

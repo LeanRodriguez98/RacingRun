@@ -5,10 +5,7 @@ using UnityEngine;
 public class BridgeEntitie : MonoBehaviour {
 
 
-    private Ray heightRay;
-    private RaycastHit heightRayHit;
-    public float floorDistance;
-    public float fallSpeed;
+  
     public bool rotation;
     public float rotationSpeed;
     // Use this for initialization
@@ -18,19 +15,7 @@ public class BridgeEntitie : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        heightRay = new Ray(transform.position, -Vector3.up);
-
-        if (Physics.Raycast(heightRay, out heightRayHit))
-        {
-            if (heightRayHit.distance > floorDistance)
-            {
-                transform.position -= Vector3.up * fallSpeed * Time.deltaTime;
-            }
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
+      
 
 
         if (rotation)
@@ -38,5 +23,9 @@ public class BridgeEntitie : MonoBehaviour {
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
         }
 
+        if (transform.position.y < -5)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

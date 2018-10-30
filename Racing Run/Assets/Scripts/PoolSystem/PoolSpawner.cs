@@ -22,6 +22,8 @@ public class PoolSpawner : MonoBehaviour {
     public Type typeEntity;
     public string leftArrowTag;
     public string rightArrowTag;
+    public int minHeightSpawn = -2;
+    public int maxHeightSpawn = 6;
     private void OnEnable()
     {
         if(objectPoolerInstance == null)
@@ -94,7 +96,7 @@ public class PoolSpawner : MonoBehaviour {
 
     public void SpawnObject()
     {
-       objectPoolerInstance.SpawnForPool(tagOfObjectToSpawn, transform.position, Quaternion.identity);
+       objectPoolerInstance.SpawnForPool(tagOfObjectToSpawn, new Vector3(transform.position.x,transform.position.y + Random.Range(minHeightSpawn, maxHeightSpawn),transform.position.z), Quaternion.identity);
         
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,6 +182,38 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1963376535410490, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874077404462458, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951250710144446, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625986406678516, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225903452103666, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152790738254438, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141678076037746, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352628664604844, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
   m_IsPrefabAsset: 0
@@ -233,8 +265,18 @@ MonoBehaviour:
       spawnProbability: 50
   - metersToSpawn: 50
     entity:
+    - tagEntity: EmptyObject
+      spawnProbability: 50
     - tagEntity: Nut
-      spawnProbability: 100
+      spawnProbability: 30
+    - tagEntity: Barricade
+      spawnProbability: 5
+    - tagEntity: Cone
+      spawnProbability: 5
+    - tagEntity: CrashBox
+      spawnProbability: 5
+    - tagEntity: StopSignal
+      spawnProbability: 5
 --- !u!4 &329562299
 Transform:
   m_ObjectHideFlags: 0
@@ -405,6 +447,18 @@ MonoBehaviour:
   - tag: 
     prefab: {fileID: 1281854368853500, guid: 55f4bade28c7dd74dba43aebe1dfcddd, type: 2}
     size: 3
+  - tag: 
+    prefab: {fileID: 1581942124490424, guid: e864b795866f1404a82308a34b89a260, type: 2}
+    size: 10
+  - tag: 
+    prefab: {fileID: 1189151766742326, guid: b069e7a48435edb448110fbe880006fd, type: 2}
+    size: 10
+  - tag: 
+    prefab: {fileID: 1463491814147360, guid: fb34ae240657eef43b873ea82beda9a6, type: 2}
+    size: 10
+  - tag: 
+    prefab: {fileID: 1987221917031900, guid: e400e2eec22f4b2428da09bea2c7b584, type: 2}
+    size: 10
 --- !u!4 &1306963722
 Transform:
   m_ObjectHideFlags: 0
