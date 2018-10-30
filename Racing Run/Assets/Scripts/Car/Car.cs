@@ -12,6 +12,7 @@ public class Car : MonoBehaviour {
     public States states = States.Forward;
     public static Car instance;
     public BezierTurn bezierTurn;
+    [HideInInspector]public float metersTraveled;
     private ObjectPooler objectPoolerInstance;
 
     private void Awake()
@@ -21,13 +22,16 @@ public class Car : MonoBehaviour {
 
     void Start () {
         objectPoolerInstance = ObjectPooler.instance;
-
+        metersTraveled = 0;
     }
 
 
     void Update () {
         if (speed < maxSpeed)
             speed += Time.deltaTime * ascelerationMultipler;
+
+        metersTraveled += speed * Time.deltaTime;
+
         switch (states)
         {
             case States.Forward:                

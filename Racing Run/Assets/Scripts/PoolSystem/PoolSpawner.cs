@@ -11,13 +11,19 @@ public class PoolSpawner : MonoBehaviour {
     };
 
     private ObjectPooler objectPoolerInstance;
+    private LevelManager levelManagerInstance;
     private string tagOfObjectToSpawn;
     public EntityToSpawn[] Entity;
 
     private void OnEnable()
     {
         if(objectPoolerInstance == null)
-        objectPoolerInstance = ObjectPooler.instance;
+            objectPoolerInstance = ObjectPooler.instance;
+        if (levelManagerInstance == null)
+            levelManagerInstance = LevelManager.instance;
+
+        if (levelManagerInstance != null)
+            Entity = levelManagerInstance.getCurrenSpawnEntity();
 
         float probability = 0;
         for (int i = 0; i < Entity.Length; i++)
@@ -53,6 +59,8 @@ public class PoolSpawner : MonoBehaviour {
     {
         if (objectPoolerInstance == null)
             objectPoolerInstance = ObjectPooler.instance;
+        if (levelManagerInstance == null)
+            levelManagerInstance = LevelManager.instance;
 
     }
 

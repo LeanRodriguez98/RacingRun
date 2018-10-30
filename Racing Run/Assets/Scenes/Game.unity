@@ -211,6 +211,21 @@ MonoBehaviour:
   - {fileID: 114281322938068406, guid: b03651763eb09374a8e93fa60437568d, type: 2}
   - {fileID: 114465139872010846, guid: 35f04cb07cb84124d97e1713f615b2ab, type: 2}
   - {fileID: 114972138345325410, guid: c8b4a99679c53b1419ecdefaace63eed, type: 2}
+  spawnEntitiePatern:
+  - metersToSpawn: 0
+    entity:
+    - tagEntity: EmptyObject
+      spawnProbability: 100
+  - metersToSpawn: 20
+    entity:
+    - tagEntity: EmptyObject
+      spawnProbability: 50
+    - tagEntity: Nut
+      spawnProbability: 50
+  - metersToSpawn: 50
+    entity:
+    - tagEntity: Nut
+      spawnProbability: 100
 --- !u!4 &329562299
 Transform:
   m_ObjectHideFlags: 0
@@ -410,6 +425,7 @@ MonoBehaviour:
   ascelerationMultipler: 2
   states: 0
   bezierTurn: {fileID: 0}
+  metersTraveled: 0
 --- !u!54 &1327598739
 Rigidbody:
   m_ObjectHideFlags: 0
