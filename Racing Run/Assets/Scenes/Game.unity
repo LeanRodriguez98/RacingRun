@@ -168,14 +168,23 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 65195580826681464, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352628664604844, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_TagString
+      value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 65195580826681464, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &47067201 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1874077404462458, guid: 754e51b8b10f5284082623917133c7d7,
-    type: 2}
-  m_PrefabInternal: {fileID: 47067200}
 --- !u!1 &329562297
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +399,12 @@ MonoBehaviour:
   - tag: 
     prefab: {fileID: 1259894645147034, guid: 9a692df0956c9a9418da7d5cb1dfb146, type: 2}
     size: 1
+  - tag: 
+    prefab: {fileID: 1471610886101600, guid: 7c7770a2a75c8804ca9a685d98cac31d, type: 2}
+    size: 3
+  - tag: 
+    prefab: {fileID: 1281854368853500, guid: 55f4bade28c7dd74dba43aebe1dfcddd, type: 2}
+    size: 3
 --- !u!4 &1306963722
 Transform:
   m_ObjectHideFlags: 0
@@ -480,16 +495,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114971323154667468, guid: 3fc035ad29966344fabfaa3ec1825f51,
-        type: 2}
-      propertyPath: tagsToCollide.Array.data[0]
-      value: 
-      objectReference: {fileID: 47067201}
-    - target: {fileID: 114547810227559232, guid: 3fc035ad29966344fabfaa3ec1825f51,
-        type: 2}
-      propertyPath: tagsToCollide.Array.data[0]
-      value: 
-      objectReference: {fileID: 47067201}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fc035ad29966344fabfaa3ec1825f51, type: 2}
   m_IsPrefabAsset: 0

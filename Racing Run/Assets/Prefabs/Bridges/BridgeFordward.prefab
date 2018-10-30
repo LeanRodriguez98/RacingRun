@@ -1803,6 +1803,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114015799153533056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1819,6 +1822,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114038025909352440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1835,6 +1841,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114039065164161376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1851,6 +1860,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114064760132272410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1867,6 +1879,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114089567103698046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1883,6 +1898,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114140300413980368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1899,6 +1917,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114147070713256076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1915,6 +1936,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114148752934353396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1931,6 +1955,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114194390369186276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1947,6 +1974,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114263961656412912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1963,6 +1993,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114296757087327962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1979,6 +2012,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114337294238111690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1995,6 +2031,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114381781886677338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2011,6 +2050,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114398684142026790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2027,6 +2069,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114415593793834596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2043,6 +2088,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114462372830093514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2059,6 +2107,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114547810227559232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2072,7 +2123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTrigger: 0
   tagsToCollide:
-  - {fileID: 0}
+  - Car
   canDisable: 0
 --- !u!114 &114547902329260102
 MonoBehaviour:
@@ -2090,6 +2141,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114555369906797448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2106,6 +2160,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114566450145333470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2122,6 +2179,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114606544453584536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2138,6 +2198,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114610159535553078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2154,6 +2217,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114644382227727788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2195,6 +2261,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114774492385872016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2211,6 +2280,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114786319294710080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2227,6 +2299,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114818347980912108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2243,6 +2318,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114821389864843896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2259,6 +2337,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114864438393209934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2275,6 +2356,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114883437888057956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2291,6 +2375,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114926827611911970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2307,6 +2394,9 @@ MonoBehaviour:
     spawnProbability: 50
   - tagEntity: Nut
     spawnProbability: 50
+  typeEntity: 0
+  leftArrowTag: LeftArrow
+  rightArrowTag: RightArrow
 --- !u!114 &114971323154667468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2320,5 +2410,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTrigger: 0
   tagsToCollide:
-  - {fileID: 0}
+  - Car
   canDisable: 0

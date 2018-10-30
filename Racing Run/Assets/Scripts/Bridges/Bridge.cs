@@ -99,6 +99,7 @@ public class Bridge : MonoBehaviour {
      {
         if (transform.position.y > endHeight)
         {
+            position = transform.position;
             position.y -= fallSpeed * Time.deltaTime;
             transform.position = position;
         }

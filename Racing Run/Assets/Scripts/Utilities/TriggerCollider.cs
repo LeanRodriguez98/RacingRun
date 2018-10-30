@@ -5,48 +5,38 @@ using UnityEngine;
 public class TriggerCollider : MonoBehaviour {
 
     [HideInInspector] public bool isTrigger = false;
-    public GameObject[] tagsToCollide;
+    public string[] tagsToCollide;
     public bool canDisable = false;
         
     public void OnTriggerEnter(Collider other)
     {
-        /* if (tagsToCollide != null)
+         if (tagsToCollide != null)
          {
              for (int i = 0; i < tagsToCollide.Length; i++)
              {
-                 if (other.tag == tagsToCollide[i].tag)
+                 if (other.tag == tagsToCollide[i])
                  {
                      isTrigger = true;
                  }
              }
-         }*/
+         } 
 
-        if (other.tag == "Car")
-        {
-            isTrigger = true;
-
-        }
+     
     }
 
     public void OnTriggerExit(Collider other)
     {
         if (canDisable)
         {
-            /*if (tagsToCollide != null)
+            if (tagsToCollide != null)
             {
                 for (int i = 0; i < tagsToCollide.Length; i++)
                 {
-                    if (other.tag == tagsToCollide[i].tag)
+                    if (other.tag == tagsToCollide[i])
                     {
                         isTrigger = false;
                     }
                 }
-            }*/
-
-            if (other.tag == "Car")
-            {
-                isTrigger = true;
-
             }
         }
     }

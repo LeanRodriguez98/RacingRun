@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33513784595281334}
   - component: {fileID: 23355370762526584}
   - component: {fileID: 65039851213905202}
+  - component: {fileID: 114537499998998540}
   m_Layer: 0
   m_Name: RightArrow
   m_TagString: RightArrow
@@ -96,3 +97,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3025866, y: 1, z: 1.897121}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114537499998998540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281854368853500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8d9660f973a7449bad13a626237fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorDistance: 0.5
+  fallSpeed: 20
+  rotation: 0
+  rotationSpeed: 0

@@ -42,14 +42,14 @@ public class Car : MonoBehaviour {
                 Vector3 pos = Vector3.zero;
                 pos.x = bezierTurn.CalculateCubicBezierPoint(speed).x;
                 pos.y = transform.position.y;
-                pos.x = bezierTurn.CalculateCubicBezierPoint(speed).z;
+                pos.z = bezierTurn.CalculateCubicBezierPoint(speed).z;
                 transform.position = pos;
                 transform.LookAt(new Vector3(bezierTurn.LookAtPoint().x, transform.position.y, bezierTurn.LookAtPoint().z));
                 if (states == States.Forward)
                 {
                     transform.eulerAngles = bezierTurn.GetFixedRotation();
                     bezierTurn = null;
-                }                
+                }         
                 break;
             default:
                 break;
@@ -64,12 +64,15 @@ public class Car : MonoBehaviour {
         if (other.gameObject.tag == "RightArrow")
         {
             //animations.SetTrigger("TurnRight");
-            objectPoolerInstance.SpawnForPool("BezierRight", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y, 0));
+            objectPoolerInstance.SpawnForPool("BezierRight", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
+            other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "LeftArrow")
         {
             //animations.SetTrigger("TurnLeft");
-            objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y, 0));
+            objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward * 4, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
+            other.gameObject.SetActive(false);
+
 
         }
         if (other.gameObject.tag == "Nut")
