@@ -14,7 +14,8 @@ public class Car : MonoBehaviour {
     public BezierTurn bezierTurn;
     [HideInInspector]public float metersTraveled;
     private ObjectPooler objectPoolerInstance;
-
+    [HideInInspector] public int nuts;
+    public float startDelay;
     private void Awake()
     {
         instance = this;
@@ -27,45 +28,56 @@ public class Car : MonoBehaviour {
 
 
     void Update () {
-        if (speed < maxSpeed)
-            speed += Time.deltaTime * ascelerationMultipler;
-
-        metersTraveled += speed * Time.deltaTime;
-
-        switch (states)
+        if (startDelay < 0)
         {
-            case States.Forward:                
-                transform.position += transform.forward * speed * Time.deltaTime;
-                transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
-                if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    transform.Translate(0.5F * speed * Time.deltaTime, 0, 0);
-                }
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    transform.Translate(-0.5F * speed * Time.deltaTime, 0, 0);
-                }
-                break;
-            case States.Turn:
-                Vector3 pos = Vector3.zero;
-                pos.x = bezierTurn.CalculateCubicBezierPoint(speed).x;
-                pos.y = transform.position.y;
-                pos.z = bezierTurn.CalculateCubicBezierPoint(speed).z;
-                transform.position = pos;
-                transform.LookAt(new Vector3(bezierTurn.LookAtPoint().x, transform.position.y, bezierTurn.LookAtPoint().z));
-                if (states == States.Forward)
-                {
-                    //transform.eulerAngles = bezierTurn.GetFixedRotation();
-                    FixCarAngle();
-                    bezierTurn = null;
-                }         
-                break;
-            default:
-                break;
+
+
+            if (speed < maxSpeed)
+                speed += Time.deltaTime * ascelerationMultipler;
+
+            metersTraveled += speed * Time.deltaTime;
+
+            switch (states)
+            {
+                case States.Forward:
+                    transform.position += transform.forward * speed * Time.deltaTime;
+                    transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
+                    if (Input.GetKey(KeyCode.RightArrow))
+                    {
+                        transform.Translate(0.5F * speed * Time.deltaTime, 0, 0);
+                    }
+                    if (Input.GetKey(KeyCode.LeftArrow))
+                    {
+                        transform.Translate(-0.5F * speed * Time.deltaTime, 0, 0);
+                    }
+                    break;
+                case States.Turn:
+                    Vector3 pos = Vector3.zero;
+                    pos.x = bezierTurn.CalculateCubicBezierPoint(speed).x;
+                    pos.y = transform.position.y;
+                    pos.z = bezierTurn.CalculateCubicBezierPoint(speed).z;
+                    transform.position = pos;
+                    transform.LookAt(new Vector3(bezierTurn.LookAtPoint().x, transform.position.y, bezierTurn.LookAtPoint().z));
+                    if (states == States.Forward)
+                    {
+                        //transform.eulerAngles = bezierTurn.GetFixedRotation();
+                        FixCarAngle();
+                        bezierTurn = null;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            if (life <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
-
-      
-
+        else
+        {
+            startDelay -= Time.deltaTime;
+        }
     }
 
 
@@ -113,18 +125,26 @@ public class Car : MonoBehaviour {
         if (other.gameObject.tag == "Nut")
         {
             other.gameObject.SetActive(false);
+            nuts++;
         }
         if (other.gameObject.tag == "Obstacle")
         {
             other.gameObject.SetActive(false);
             life -= 10;
-            Debug.Log("Life " + life);
             Handheld.Vibrate();
         }
         if (other.gameObject.tag == "LifePickUp")
         {
             other.gameObject.SetActive(false);
-            life += 10;
+            if (life < 100)
+            {
+                life += 10;
+            }
+        }
+        if (other.gameObject.tag == "Water")
+        {
+            gameObject.SetActive(false);
+            
         }
     }
 } 
