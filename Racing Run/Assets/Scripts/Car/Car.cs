@@ -16,6 +16,7 @@ public class Car : MonoBehaviour {
     private ObjectPooler objectPoolerInstance;
     [HideInInspector] public int nuts;
     public float startDelay;
+    public Animator animations;
     private void Awake()
     {
         instance = this;
@@ -112,13 +113,13 @@ public class Car : MonoBehaviour {
     {
         if (other.gameObject.tag == "RightArrow")
         {
-            //animations.SetTrigger("TurnRight");
+            animations.SetTrigger("TurnRight");
             objectPoolerInstance.SpawnForPool("BezierRight", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "LeftArrow")
         {
-            //animations.SetTrigger("TurnLeft");
+            animations.SetTrigger("TurnLeft");
             objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
             other.gameObject.SetActive(false);
         }
@@ -131,6 +132,8 @@ public class Car : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             life -= 10;
+            animations.SetTrigger("Crash");
+
             Handheld.Vibrate();
         }
         if (other.gameObject.tag == "LifePickUp")

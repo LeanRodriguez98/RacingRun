@@ -35,6 +35,10 @@ public class Bridge : MonoBehaviour {
         nextBridgeCollider.isTrigger = false;
         nextInstance = false;
 
+        
+
+
+
         for (int i = 0; i < railings.Length; i++)
         {
             if (haveRailings)
@@ -66,6 +70,12 @@ public class Bridge : MonoBehaviour {
             nextInstance = true;
         }
 
+
+        /*if (levelManagerInstance != null)
+        {
+            if (levelManagerInstance.carInstance.metersTraveled > levelManagerInstance.spawnEntitiePatern[2].metersToSpawn && haveRailings)
+                haveRailings = false;           
+        }*/
     }
 
     private void FallBridge()

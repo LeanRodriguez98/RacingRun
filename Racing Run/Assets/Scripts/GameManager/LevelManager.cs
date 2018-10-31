@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
     };
     public EntitiePatern[] spawnEntitiePatern;
     private int spawnEntitiePaternIndex = 0;
-    private Car carInstance;
+    [HideInInspector]public Car carInstance;
     private void Awake()
     {
         instance = this; 
