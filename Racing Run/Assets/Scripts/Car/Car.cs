@@ -11,12 +11,15 @@ public class Car : MonoBehaviour {
     public enum States {Forward,Turn};
     public States states = States.Forward;
     public static Car instance;
-    public BezierTurn bezierTurn;
-    [HideInInspector]public float metersTraveled;
+    [HideInInspector] public BezierTurn bezierTurn;
+    [HideInInspector] public float metersTraveled;
     private ObjectPooler objectPoolerInstance;
     [HideInInspector] public int nuts;
+    public SO_Nuts soNuts;
     public float startDelay;
     public Animator animations;
+    public int jumpForce;
+    private Rigidbody rb;
     private void Awake()
     {
         instance = this;
@@ -25,6 +28,8 @@ public class Car : MonoBehaviour {
     void Start () {
         objectPoolerInstance = ObjectPooler.instance;
         metersTraveled = 0;
+        rb = GetComponent<Rigidbody>();
+        
     }
 
 
@@ -74,6 +79,11 @@ public class Car : MonoBehaviour {
             {
                 gameObject.SetActive(false);
             }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.AddForce(Vector3.up * jumpForce);
+            }
         }
         else
         {
@@ -81,7 +91,7 @@ public class Car : MonoBehaviour {
         }
     }
 
-
+   
     private void FixCarAngle()
     {
         float rotationY = transform.rotation.eulerAngles.y;
@@ -127,6 +137,7 @@ public class Car : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             nuts++;
+            soNuts.nuts++;
         }
         if (other.gameObject.tag == "Obstacle")
         {

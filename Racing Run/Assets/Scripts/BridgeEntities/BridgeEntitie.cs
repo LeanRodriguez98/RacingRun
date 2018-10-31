@@ -6,8 +6,11 @@ public class BridgeEntitie : MonoBehaviour {
       
     public bool rotation;
     public float rotationSpeed;
+    private Rigidbody rb;
+    public int FallMultiplier = 2000;
     // Use this for initialization
     void Start () {
+        rb = GetComponent<Rigidbody>();
 
     }
 
@@ -21,6 +24,22 @@ public class BridgeEntitie : MonoBehaviour {
 
     }
 
+    private void OnEnable()
+    {
+
+        if (rb != null)
+        {
+            rb.AddForce(-Vector3.up * FallMultiplier);
+            Debug.Log(gameObject.name);
+        }
+        else
+        {
+            rb = GetComponent<Rigidbody>();
+            rb.AddForce(-Vector3.up * FallMultiplier);
+
+        }
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
