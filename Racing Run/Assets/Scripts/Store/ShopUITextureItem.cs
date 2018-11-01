@@ -10,7 +10,23 @@ public class ShopUITextureItem : MonoBehaviour {
     public Text priceTextReference;
     public GameObject nutIcon;
     public GameObject equipedIcon;
-	void Start () {
+
+    private void Awake()
+    {
+        UI_Events.onStoreButtonPressed += UpdateStoreItems;
+    }
+
+    private void OnDestroy()
+    {
+        UI_Events.onStoreButtonPressed -= UpdateStoreItems;
+    }
+
+    public void UpdateStoreItems()
+    {
+        UpdateItem();
+    }
+
+    void Start () {
         UpdateItem();
     }
 
@@ -52,14 +68,12 @@ public class ShopUITextureItem : MonoBehaviour {
             EquipItem();
         }
 
-        
-        UpdateItem();
+        UI_Events.UpdateStoreItems();
     }
 
     public void EquipItem()
     {
         soPlayerStats.material = soItemTextue.material;
-        UpdateItem();
 
     }
 

@@ -11,9 +11,21 @@ public class Shop : MonoBehaviour {
     public SO_PlayerStats soNuts;
     public GameObject ShopItemsCanvas;
     private int nutsDisplayed;
+
+    private void Awake()
+    {
+        UI_Events.onStoreButtonPressed += UpdateText;
+    }
+
+    private void OnDestroy()
+    {
+        UI_Events.onStoreButtonPressed -= UpdateText;
+
+    }
+
     void Start ()
     {
-             
+        UpdateText();
         for (int i = 0; i < itemData.Length; i++)
         {
             GameObject go = Instantiate(itemUIPrefab);
@@ -25,10 +37,8 @@ public class Shop : MonoBehaviour {
 	
 
 
-    public void Update()
+    public void UpdateText()
     {
-        if(nutsDisplayed != soNuts.nuts)
         nutsText.text = soNuts.nuts.ToString();
-        nutsDisplayed = soNuts.nuts;
     }
 }
