@@ -15,11 +15,13 @@ public class Car : MonoBehaviour {
     [HideInInspector] public float metersTraveled;
     private ObjectPooler objectPoolerInstance;
     [HideInInspector] public int nuts;
-    public SO_Nuts soNuts;
+    public SO_PlayerStats soPlayerStats;
     public float startDelay;
     public Animator animations;
     public int jumpForce;
     private Rigidbody rb;
+    public float horizontalSpeedMultipler;
+    public Renderer[] meshParts;
     private void Awake()
     {
         instance = this;
@@ -29,7 +31,10 @@ public class Car : MonoBehaviour {
         objectPoolerInstance = ObjectPooler.instance;
         metersTraveled = 0;
         rb = GetComponent<Rigidbody>();
-        
+        for (int i = 0; i < meshParts.Length; i++)
+        {
+            meshParts[i].material = soPlayerStats.material;
+        }
     }
 
 
@@ -47,7 +52,7 @@ public class Car : MonoBehaviour {
             {
                 case States.Forward:
                     transform.position += transform.forward * speed * Time.deltaTime;
-                    transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
+                    transform.Translate(Input.acceleration.x * horizontalSpeedMultipler * speed * Time.deltaTime, 0, 0);
                     if (Input.GetKey(KeyCode.RightArrow))
                     {
                         transform.Translate(0.5F * speed * Time.deltaTime, 0, 0);
@@ -137,7 +142,7 @@ public class Car : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             nuts++;
-            soNuts.nuts++;
+            soPlayerStats.nuts++;
         }
         if (other.gameObject.tag == "Obstacle")
         {

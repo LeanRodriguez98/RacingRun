@@ -334,6 +334,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!23 &50484712 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23572011067582602, guid: 754e51b8b10f5284082623917133c7d7,
+    type: 2}
+  m_PrefabInternal: {fileID: 47067200}
 --- !u!95 &111857528 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95983189525264384, guid: 754e51b8b10f5284082623917133c7d7,
@@ -3498,10 +3503,15 @@ MonoBehaviour:
   bezierTurn: {fileID: 0}
   metersTraveled: 0
   nuts: 0
-  soNuts: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
+  soPlayerStats: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
   startDelay: 4.5
   animations: {fileID: 111857528}
   jumpForce: 400
+  horizontalSpeedMultipler: 2
+  meshParts:
+  - {fileID: 1749946155}
+  - {fileID: 1362825048}
+  - {fileID: 50484712}
 --- !u!54 &1327598739
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3517,6 +3527,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!23 &1362825048 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23125518288250622, guid: 754e51b8b10f5284082623917133c7d7,
+    type: 2}
+  m_PrefabInternal: {fileID: 47067200}
 --- !u!1 &1469077166
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,6 +4194,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1712062811}
   m_CullTransparentMesh: 0
+--- !u!23 &1749946155 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23645716473244820, guid: 754e51b8b10f5284082623917133c7d7,
+    type: 2}
+  m_PrefabInternal: {fileID: 47067200}
 --- !u!1 &1801520641
 GameObject:
   m_ObjectHideFlags: 0

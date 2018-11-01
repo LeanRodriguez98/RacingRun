@@ -30,7 +30,6 @@ public class BridgeEntitie : MonoBehaviour {
         if (rb != null)
         {
             rb.AddForce(-Vector3.up * FallMultiplier);
-            Debug.Log(gameObject.name);
         }
         else
         {
