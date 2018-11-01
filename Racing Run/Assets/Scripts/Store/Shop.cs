@@ -5,39 +5,30 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour {
 
-    [System.Serializable]
-    public struct ShopItemTextures
-    {
-        public ShopItemTexture itemTextures;
-        public SO_ItemTexture itemData;
-
-    }
-
-
+    public GameObject itemUIPrefab;       
+    public SO_ItemTexture[] itemData;
     public Text nutsText;
     public SO_PlayerStats soNuts;
-    public ShopItemTextures[] itemTextures;
     public GameObject ShopItemsCanvas;
+    private int nutsDisplayed;
     void Start ()
     {
-        UpdateText();
-
-        for (int i = 0; i < itemTextures.Length; i++)
+             
+        for (int i = 0; i < itemData.Length; i++)
         {
-            itemTextures[i].itemTextures.soItemTextue = itemTextures[i].itemData;
-        }
-
-        for (int i = 0; i < itemTextures.Length; i++)
-        {
-            GameObject go = Instantiate(itemTextures[i].itemTextures.gameObject);
+            GameObject go = Instantiate(itemUIPrefab);
             go.transform.parent = ShopItemsCanvas.transform;
+            ShopUITextureItem item = go.GetComponent<ShopUITextureItem>();
+            item.SetItemTextureSO(itemData[i]);
         }
     }
 	
 
 
-    public void UpdateText()
+    public void Update()
     {
+        if(nutsDisplayed != soNuts.nuts)
         nutsText.text = soNuts.nuts.ToString();
+        nutsDisplayed = soNuts.nuts;
     }
 }

@@ -27,10 +27,10 @@ public class BezierTurn : MonoBehaviour {
          {
             carInstance.bezierTurn = this;
             p0.transform.position = Car.instance.transform.position;
-            if(direction == Direction.Left)
+          /*  if(direction == Direction.Left)
             carRotation = carInstance.transform.rotation.eulerAngles.y - 90;
             if(direction == Direction.Right)
-            carRotation = carInstance.transform.rotation.eulerAngles.y + 90;
+            carRotation = carInstance.transform.rotation.eulerAngles.y + 90;*/
             TurnOn();
          }
         
@@ -76,12 +76,12 @@ public class BezierTurn : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    public Vector3 GetFixedRotation()
+    /*public Vector3 GetFixedRotation()
     {
         Vector3 r = carInstance.transform.rotation.eulerAngles;
         r.y = carRotation;
         return r;
-    }
+    }*/
 
    
 

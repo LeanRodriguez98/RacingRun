@@ -33,8 +33,7 @@ public class ButtonsManager : MonoBehaviour
         if (Car.instance != null)
         {
             carInstance = Car.instance;
-            /*turnRotation = carInstance.transform.eulerAngles;
-            turnRotation.y -= 180;*/
+         
         }
 
     }
@@ -101,17 +100,7 @@ public class ButtonsManager : MonoBehaviour
         go.SetActive(true);
     }
 
-   /* private void FixTurnAngle()
-    {
-        if (turnRotation.y <= -360)
-        {
-            turnRotation.y += 360;
-        }
-        if (turnRotation.y >= 360)
-        {
-            turnRotation.y -= 360;
-        }
-    }*/
+
 
     public void ChangeVolume()
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -602,18 +602,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260d023a29352be47abe6b8fb728fab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemUIPrefab: {fileID: 1070860252480854, guid: cdc45720ea923a24daa40c0db843010d,
+    type: 2}
+  itemData:
+  - {fileID: 11400000, guid: 6952b354c7e8465408010b019a9ca70f, type: 2}
+  - {fileID: 11400000, guid: 45174a1ef8a9791489e34ecfe9c5b17f, type: 2}
+  - {fileID: 11400000, guid: 102c6ffc83912764b9cdf8a052e1c26d, type: 2}
   nutsText: {fileID: 1634607220}
   soNuts: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
-  itemTextures:
-  - itemTextures: {fileID: 114914146017942726, guid: cdc45720ea923a24daa40c0db843010d,
-      type: 2}
-    itemData: {fileID: 11400000, guid: 6952b354c7e8465408010b019a9ca70f, type: 2}
-  - itemTextures: {fileID: 114914146017942726, guid: cdc45720ea923a24daa40c0db843010d,
-      type: 2}
-    itemData: {fileID: 11400000, guid: 45174a1ef8a9791489e34ecfe9c5b17f, type: 2}
-  - itemTextures: {fileID: 114914146017942726, guid: cdc45720ea923a24daa40c0db843010d,
-      type: 2}
-    itemData: {fileID: 11400000, guid: 102c6ffc83912764b9cdf8a052e1c26d, type: 2}
   ShopItemsCanvas: {fileID: 1569357608}
 --- !u!114 &362294015
 MonoBehaviour:
@@ -1338,53 +1334,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1093866849}
   m_CullTransparentMesh: 0
---- !u!1 &1146522932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1957689128285950, guid: c53b7c9ae6a9936468cfa60207c1f501,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1146522934}
-  - component: {fileID: 1146522933}
-  m_Layer: 0
-  m_Name: StoreManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1146522933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114241284567281214, guid: c53b7c9ae6a9936468cfa60207c1f501,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1146522932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cde476e761902e74a968f693866f07b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadedNuts: 0
-  nuts: 0
-  carInstance: {fileID: 0}
-  sceneName: 
---- !u!4 &1146522934
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4975104513935508, guid: c53b7c9ae6a9936468cfa60207c1f501,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1146522932}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5679321, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1150938468
 GameObject:
   m_ObjectHideFlags: 0
