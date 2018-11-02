@@ -86,8 +86,12 @@ public class Car : MonoBehaviour {
             }
 
             CheckLife();
+            if (Input.GetKeyDown(KeyCode.Space))
             Jump();
-          
+            if (jumpChargeTime <= auxJumpChargeTime)
+            {
+                jumpChargeTime += Time.deltaTime;
+            }
         }
         else
         {
@@ -106,16 +110,13 @@ public class Car : MonoBehaviour {
 
     public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && jumpChargeTime > auxJumpChargeTime)
+        if (jumpChargeTime > auxJumpChargeTime)
         {
             rb.AddForce(Vector3.up * jumpForce);
             jumpChargeTime = 0;
         }
 
-        if (jumpChargeTime <= auxJumpChargeTime)
-        {
-            jumpChargeTime += Time.deltaTime;
-        }
+       
     }
    
     private void FixCarAngle()
