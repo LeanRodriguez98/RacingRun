@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bridge : MonoBehaviour {
+    public enum NextBridgeType
+    {
+        Game,
+        Tutorial
+    };
+    public NextBridgeType nextBridgeType;
     public Transform endPosition;
     public TriggerCollider endBridgeCollider;
     public TriggerCollider nextBridgeCollider;
@@ -18,6 +24,9 @@ public class Bridge : MonoBehaviour {
     private Vector3 rotation;
     private LevelManager levelManagerInstance;
     private bool nextInstance;
+    
+
+
 
     private void Start()
     {
@@ -25,20 +34,11 @@ public class Bridge : MonoBehaviour {
     }
 
     void OnEnable () {
-        //position =transform.position;
-        //Debug.Log(levelManagerInstance.bridgesInstanciePosition);
-        position.y = startHeight;
-        //transform.position = position;
-        //rotation = levelManagerInstance.bridgesInstancieRotation;
-        //transform.rotation = Quaternion.Euler(rotation);
+  
+        position.y = startHeight;       
         endBridgeCollider.isTrigger = false;
         nextBridgeCollider.isTrigger = false;
         nextInstance = false;
-
-        
-
-
-
         for (int i = 0; i < railings.Length; i++)
         {
             if (haveRailings)
@@ -64,18 +64,16 @@ public class Bridge : MonoBehaviour {
 
         if (nextBridgeCollider.isTrigger && !nextInstance)
         {
+            
             levelManagerInstance.bridgesInstanciePosition = new Vector3(endPosition.position.x, startHeight,endPosition.position.z);
             levelManagerInstance.bridgesInstancieRotation.y += exitRotationY;
-            levelManagerInstance.SpawnBridge();
+            if (nextBridgeType == NextBridgeType.Game)
+                levelManagerInstance.SpawnBridge();
+            else if (nextBridgeType == NextBridgeType.Tutorial)            
+                levelManagerInstance.SpawnTutorialBridge();
+            
             nextInstance = true;
-        }
-
-
-        /*if (levelManagerInstance != null)
-        {
-            if (levelManagerInstance.carInstance.metersTraveled > levelManagerInstance.spawnEntitiePatern[2].metersToSpawn && haveRailings)
-                haveRailings = false;           
-        }*/
+        }        
     }
 
     private void FallBridge()

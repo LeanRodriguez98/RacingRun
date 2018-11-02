@@ -13,13 +13,23 @@ public class PoolSpawner : MonoBehaviour {
     {
         Entity,
         LeftArrow,
-        RightArrow
+        RightArrow,
+        Tutorial
+    };
+    public enum TutorialEntities
+    {
+        LeftArrow,
+        Cone,
+        CrashBox,
+        ToolBox,
+        Nut
     };
     private ObjectPooler objectPoolerInstance;
     private LevelManager levelManagerInstance;
     private string tagOfObjectToSpawn;
     public EntityToSpawn[] Entity;
     public Type typeEntity;
+    public TutorialEntities tutorialTypeEntity;
     public string leftArrowTag;
     public string rightArrowTag;
     public int minHeightSpawn = -2;
@@ -78,7 +88,31 @@ public class PoolSpawner : MonoBehaviour {
                 Invoke("SpawnObject", 0.1f);
 
                 break;
-            
+            case Type.Tutorial:
+                switch (tutorialTypeEntity)
+                {
+                    case TutorialEntities.LeftArrow:
+                        tagOfObjectToSpawn = leftArrowTag;
+                        Invoke("SpawnObject", 0.1f);
+                        break;   
+                    case TutorialEntities.Cone:
+                        tagOfObjectToSpawn = "Cone";
+                        Invoke("SpawnObject", 0.1f);
+                        break;
+                    case TutorialEntities.CrashBox:
+                        tagOfObjectToSpawn = "CrashBox";
+                        Invoke("SpawnObject", 0.1f);
+                        break;
+                    case TutorialEntities.ToolBox:
+                        tagOfObjectToSpawn = "ToolBox";
+                        Invoke("SpawnObject", 0.1f);
+                        break;
+                    case TutorialEntities.Nut:
+                        tagOfObjectToSpawn = "Nut";
+                        Invoke("SpawnObject", 0.1f);
+                        break;                  
+                }
+                break;
             
         }
        
@@ -96,8 +130,8 @@ public class PoolSpawner : MonoBehaviour {
 
     public void SpawnObject()
     {
-       objectPoolerInstance.SpawnForPool(tagOfObjectToSpawn, new Vector3(transform.position.x,transform.position.y + Random.Range(minHeightSpawn, maxHeightSpawn),transform.position.z), transform.rotation);
-        
+        if(levelManagerInstance.startToSpawnDelay < 0)
+            objectPoolerInstance.SpawnForPool(tagOfObjectToSpawn, new Vector3(transform.position.x,transform.position.y + Random.Range(minHeightSpawn, maxHeightSpawn),transform.position.z), transform.rotation);        
     }
 
    

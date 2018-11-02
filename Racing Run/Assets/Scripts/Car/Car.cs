@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Car : MonoBehaviour {
 
-    public int life;
-    public float speed;
+    public int life = 3;
+    [HideInInspector]public float speed;
     public float maxSpeed;
     public float ascelerationMultipler;
     public enum States {Forward,Turn};
@@ -22,6 +22,10 @@ public class Car : MonoBehaviour {
     private Rigidbody rb;
     public float horizontalSpeedMultipler;
     public Renderer[] meshParts;
+    [HideInInspector] public bool tutorialEnded = false;
+
+    public float jumpChargeTime;
+    private float auxJumpChargeTime;
     private void Awake()
     {
         instance = this;
@@ -35,6 +39,7 @@ public class Car : MonoBehaviour {
         {
             meshParts[i].material = soPlayerStats.material;
         }
+        auxJumpChargeTime = jumpChargeTime;
     }
 
 
@@ -80,15 +85,9 @@ public class Car : MonoBehaviour {
                     break;
             }
 
-            if (life <= 0)
-            {
-                gameObject.SetActive(false);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                rb.AddForce(Vector3.up * jumpForce);
-            }
+            CheckLife();
+            Jump();
+          
         }
         else
         {
@@ -96,6 +95,28 @@ public class Car : MonoBehaviour {
         }
     }
 
+    public void CheckLife()
+    {
+        if (life <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+
+    public void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && jumpChargeTime > auxJumpChargeTime)
+        {
+            rb.AddForce(Vector3.up * jumpForce);
+            jumpChargeTime = 0;
+        }
+
+        if (jumpChargeTime <= auxJumpChargeTime)
+        {
+            jumpChargeTime += Time.deltaTime;
+        }
+    }
    
     private void FixCarAngle()
     {
@@ -147,7 +168,7 @@ public class Car : MonoBehaviour {
         if (other.gameObject.tag == "Obstacle")
         {
             other.gameObject.SetActive(false);
-            life -= 10;
+            life--;
             animations.SetTrigger("Crash");
 
             Handheld.Vibrate();
@@ -155,9 +176,9 @@ public class Car : MonoBehaviour {
         if (other.gameObject.tag == "LifePickUp")
         {
             other.gameObject.SetActive(false);
-            if (life < 100)
+            if (life < 3)
             {
-                life += 10;
+                life++;
             }
         }
         if (other.gameObject.tag == "Water")
@@ -165,5 +186,12 @@ public class Car : MonoBehaviour {
             gameObject.SetActive(false);
             
         }
+
+        if (other.gameObject.tag == "TutorialEnd")
+        {
+            tutorialEnded = true;
+        }
     }
+
+    
 } 
