@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -583,7 +583,7 @@ RectTransform:
   - {fileID: 1569357609}
   - {fileID: 679418691}
   m_Father: {fileID: 1942631851}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1409,7 +1409,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1942631851}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1709,7 +1709,7 @@ RectTransform:
   - {fileID: 1904581437}
   - {fileID: 59062728}
   m_Father: {fileID: 1942631851}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2125,9 +2125,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1895151003}
+  - {fileID: 1379440210}
   - {fileID: 362294013}
   - {fileID: 1637786437}
-  - {fileID: 1379440210}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2298,7 +2298,7 @@ MonoBehaviour:
   volumeOff: {fileID: 21300000, guid: 4db255c0440877f46a2a98e8d26f05ae, type: 3}
   volumeButon: {fileID: 985749759}
   soItemTextures: []
-  soDoTutorial: {fileID: 0}
+  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
   animations: {fileID: 142349855}
 --- !u!224 &1992376517
 RectTransform:
