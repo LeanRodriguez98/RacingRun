@@ -11,13 +11,15 @@ public class ButtonsManager : MonoBehaviour
     public GameObject PausePanel;
     [HideInInspector]public Car carInstance;
 
-   // private Vector3 turnRotation;
     private ButtonsManager instance;
 
 
     public Sprite volumeOn;
     public Sprite volumeOff;
     public Button volumeButon;
+
+    public SO_ItemTexture[] soItemTextures;
+    public SO_DoTutorial soDoTutorial;
     private void Awake()
     {
         if (instance != null)
@@ -41,17 +43,44 @@ public class ButtonsManager : MonoBehaviour
     public void AddMoney(int nutsToAdd)
     {
         carInstance.nuts += nutsToAdd;
+        carInstance.soPlayerStats.nuts += nutsToAdd;
+    }
+
+    public void RemoveTextures()
+    {
+        for (int i = 0; i < soItemTextures.Length; i++)
+        {
+            soItemTextures[i].boughted = false;
+        }
+        soItemTextures[0].boughted = true;
+        carInstance.soPlayerStats.material = soItemTextures[0].material;
+
+        for (int i = 0; i < carInstance.meshParts.Length; i++)
+        {
+            carInstance.meshParts[i].material = carInstance.soPlayerStats.material;
+        }
+        
+    }
+
+    public void Inmortal()
+    {
+        if(!carInstance.InmortalCheat)
+            carInstance.InmortalCheat = true;
+        else
+            carInstance.InmortalCheat = false;
+
     }
 
     public void FullHeal()
     {
-        carInstance.life = 100;
+        carInstance.life = 3;
     }
 
     public void RemoveMoney()
     {
-        PlayerPrefs.SetInt("Nuts", 0);
         carInstance.nuts = 0;
+        carInstance.soPlayerStats.nuts = 0;
+
     }
 
     public void Pause()
@@ -69,17 +98,20 @@ public class ButtonsManager : MonoBehaviour
         
     }
 
+
+    public void ReplayTutorial()
+    {
+        soDoTutorial.doTutorial = true;
+    }
+
     public void LoadScene(string name)
     {
         Time.timeScale = 1;
-        if(carInstance != null)
-            PlayerPrefs.SetInt("Nuts", (carInstance.nuts + PlayerPrefs.GetInt("Nuts",0)));
+      
         SceneManager.LoadScene(name);
     }
     public void Restart()
-    {
-        if (carInstance != null)
-            PlayerPrefs.SetInt("Nuts", (carInstance.nuts + PlayerPrefs.GetInt("Nuts",0)));
+    {       
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

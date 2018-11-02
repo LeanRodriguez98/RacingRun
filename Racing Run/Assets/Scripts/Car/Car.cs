@@ -23,9 +23,12 @@ public class Car : MonoBehaviour {
     public float horizontalSpeedMultipler;
     public Renderer[] meshParts;
     [HideInInspector] public bool tutorialEnded = false;
-
+    public bool InmortalCheat = false;
     public float jumpChargeTime;
     private float auxJumpChargeTime;
+    public RalingsColliders leftCollider;
+    public RalingsColliders rightCollider;
+
     private void Awake()
     {
         instance = this;
@@ -57,7 +60,13 @@ public class Car : MonoBehaviour {
             {
                 case States.Forward:
                     transform.position += transform.forward * speed * Time.deltaTime;
-                    transform.Translate(Input.acceleration.x * horizontalSpeedMultipler * speed * Time.deltaTime, 0, 0);
+
+                    if (Input.acceleration.x > 0 && !rightCollider.isTrigger)
+                        transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
+
+                    if (Input.acceleration.x < 0 && !leftCollider.isTrigger)
+                        transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
+
                     if (Input.GetKey(KeyCode.RightArrow))
                     {
                         transform.Translate(0.5F * speed * Time.deltaTime, 0, 0);
@@ -166,7 +175,7 @@ public class Car : MonoBehaviour {
             nuts++;
             soPlayerStats.nuts++;
         }
-        if (other.gameObject.tag == "Obstacle")
+        if (other.gameObject.tag == "Obstacle" && !InmortalCheat)
         {
             other.gameObject.SetActive(false);
             life--;
