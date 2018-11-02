@@ -16,14 +16,14 @@ public class UI_UpdateLifeBar : MonoBehaviour {
         auxCarLife = carInstance.life;
         rectTransform = GetComponent<RectTransform>();
         rectSize = rectTransform.sizeDelta;
-        originalHeight = rectSize.y;
+        originalHeight = rectSize.x;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (auxCarLife != carInstance.life)
         {
-            rectSize.y = (carInstance.life * originalHeight) / 100;
+            rectSize.x = (carInstance.life * originalHeight) / 3;
             rectTransform.sizeDelta = rectSize;
             auxCarLife = carInstance.life;
         }
