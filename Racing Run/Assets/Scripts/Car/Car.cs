@@ -54,6 +54,11 @@ public class Car : MonoBehaviour {
             if (speed < maxSpeed)
                 speed += Time.deltaTime * ascelerationMultipler;
 
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                speed = maxSpeed = 0;
+            }
+
             metersTraveled += speed * Time.deltaTime;
 
             switch (states)

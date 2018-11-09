@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65938118104809806}
   - component: {fileID: 114400521483329352}
   - component: {fileID: 54412737502936782}
+  - component: {fileID: 95937532637017842}
   m_Layer: 0
   m_Name: LeftArrow
   m_TagString: LeftArrow
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1471610886101600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3905177, y: 7.8625336, z: 10.06514}
+  m_LocalPosition: {x: -4.1069283, y: -0.91119814, z: -41.765762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4511203665465222}
@@ -155,6 +156,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3025864, y: 1, z: 1.897121}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95937532637017842
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1471610886101600}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77cab231cc01c8241bb36458c9243b1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114400521483329352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,3 +187,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: 0
   rotationSpeed: 0
+  FallMultiplier: 2000
