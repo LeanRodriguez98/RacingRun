@@ -18,6 +18,7 @@ public class UI_Manager : MonoBehaviour {
     private LevelManager levelManagerInstance;
 
     public GameObject gameOverPanel;
+    public GameObject inGamePanel;
     private void Awake()
     {
         instance = this;
@@ -64,6 +65,7 @@ public class UI_Manager : MonoBehaviour {
         else
         {
             gameOverPanel.SetActive(true);
+            inGamePanel.SetActive(false);
         }
     }
 }
