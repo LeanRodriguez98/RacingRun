@@ -180,10 +180,10 @@ public class Car : MonoBehaviour {
             nuts++;
             soPlayerStats.nuts++;
         }
-        if (other.gameObject.tag == "Obstacle" && !InmortalCheat)
+        if (other.gameObject.tag == "Obstacle")
         {
-            //other.gameObject.SetActive(false);
-            //life--;
+            if (!InmortalCheat)
+            life--;
             animations.SetTrigger("Crash");
 
             Handheld.Vibrate();

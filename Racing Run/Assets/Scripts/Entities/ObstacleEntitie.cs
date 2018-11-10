@@ -50,6 +50,12 @@ public class ObstacleEntitie : MonoBehaviour {
             rb.AddForce(direction * expultionForce);
             Invoke("RestartObject", resetTime);
         }
+
+        if (other.gameObject.tag == "Water")
+        {
+            gameObject.SetActive(false);
+
+        }
     }
 
     private void RestartObject()
