@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 23658512534043120}
   - component: {fileID: 65779037118824604}
   - component: {fileID: 54213887240332184}
+  - component: {fileID: 114541597120930686}
   m_Layer: 0
   m_Name: StopSignal
   m_TagString: Obstacle
@@ -154,3 +155,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: -1.18, z: 0}
+--- !u!114 &114541597120930686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987221917031900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0847f86d4f6f75c4ca086fd2ff9835b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorCollider: {fileID: 1203831851421616}
+  expultionForce: 10000
+  minRandomY: 0.2
+  maxRandomY: 1
+  resetTime: 5

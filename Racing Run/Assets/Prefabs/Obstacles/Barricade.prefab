@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54221900354746630}
   - component: {fileID: 65352290699865222}
   - component: {fileID: 114513421450269038}
+  - component: {fileID: 114525461017429602}
   m_Layer: 0
   m_Name: Barricade
   m_TagString: Obstacle
@@ -168,3 +169,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: 0
   rotationSpeed: 0
+  FallMultiplier: 2000
+--- !u!114 &114525461017429602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581942124490424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0847f86d4f6f75c4ca086fd2ff9835b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorCollider: {fileID: 1009838083643720}
+  expultionForce: 10000
+  minRandomY: 0.2
+  maxRandomY: 1
+  resetTime: 5

@@ -182,8 +182,8 @@ public class Car : MonoBehaviour {
         }
         if (other.gameObject.tag == "Obstacle" && !InmortalCheat)
         {
-            other.gameObject.SetActive(false);
-            life--;
+            //other.gameObject.SetActive(false);
+            //life--;
             animations.SetTrigger("Crash");
 
             Handheld.Vibrate();
