@@ -367,9 +367,13 @@ MonoBehaviour:
   soItemTextue: {fileID: 11400000, guid: 45174a1ef8a9791489e34ecfe9c5b17f, type: 2}
   soPlayerStats: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
   itemReference: {fileID: 114784303893183236}
+  backgroundIntemReference: {fileID: 114778109841195126}
   priceTextReference: {fileID: 114411794662321324}
   nutIcon: {fileID: 1332267554339242}
   equipedIcon: {fileID: 1330421215827998}
+  boughedBackground: {fileID: 2800000, guid: 4dad72404d53cd1489a8a8988d15d9ed, type: 3}
+  notBoughedBackground: {fileID: 2800000, guid: 55c0892b37fe6b74ca1001eca574080b,
+    type: 3}
 --- !u!222 &222462862008159440
 CanvasRenderer:
   m_ObjectHideFlags: 1

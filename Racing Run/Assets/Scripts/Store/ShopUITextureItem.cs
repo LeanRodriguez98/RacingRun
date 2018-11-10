@@ -7,10 +7,12 @@ public class ShopUITextureItem : MonoBehaviour {
     [HideInInspector]public SO_ItemTexture soItemTextue;
     public SO_PlayerStats soPlayerStats;
     public RawImage itemReference;
+    public RawImage backgroundIntemReference;
     public Text priceTextReference;
     public GameObject nutIcon;
     public GameObject equipedIcon;
-
+    public Texture boughedBackground;
+    public Texture notBoughedBackground;
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateStoreItems;
@@ -38,11 +40,14 @@ public class ShopUITextureItem : MonoBehaviour {
         {
             priceTextReference.gameObject.SetActive(false);
             nutIcon.SetActive(false);
+            backgroundIntemReference.texture = boughedBackground;
         }
         else
         {
             priceTextReference.gameObject.SetActive(true);
             nutIcon.SetActive(true);
+            backgroundIntemReference.texture = notBoughedBackground;
+
         }
 
         if (soItemTextue.material == soPlayerStats.material)
