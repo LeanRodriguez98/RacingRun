@@ -12,7 +12,14 @@ public class RalingsColliders : MonoBehaviour {
         if (other.gameObject.tag == "RailingCollider")
         {
             isTrigger = true;
-            Debug.Log("Entra" + gameObject.name);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "RailingCollider")
+        {
+            isTrigger = true;
         }
     }
 
@@ -21,7 +28,6 @@ public class RalingsColliders : MonoBehaviour {
         if (other.gameObject.tag == "RailingCollider")
         {
             isTrigger = false;
-            Debug.Log("Sale" + gameObject.name);
 
         }
     }
