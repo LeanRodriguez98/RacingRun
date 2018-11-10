@@ -11,17 +11,17 @@ public class CameraFollow : MonoBehaviour
     public bool followBehind;
     public float rotationDamping;
     public Car carInstance;
-    private Gyroscope gyroscope;
-    private bool gyroscopeEnabled;
+  /*  private Gyroscope gyroscope;
+    private bool gyroscopeEnabled;*/
 
     private void Start()
     {
         carInstance = Car.instance;
         target = carInstance.transform;
-        gyroscopeEnabled = EnableGyro();
+      //  gyroscopeEnabled = EnableGyro();
     }
 
-    private bool EnableGyro()
+   /* private bool EnableGyro()
     {
         if (SystemInfo.supportsGyroscope)
         {
@@ -30,7 +30,7 @@ public class CameraFollow : MonoBehaviour
             return true;
         }
         return false;
-    }
+    }*/
 
     void LateUpdate()
     {
@@ -43,11 +43,11 @@ public class CameraFollow : MonoBehaviour
                 wantedPosition = target.TransformPoint(0, height, distance);
 
             transform.position = /*wantedPosition;*/ Vector3.Lerp(transform.position, wantedPosition, Time.deltaTime * damping);
-            if (gyroscopeEnabled)
+          /*  if (gyroscopeEnabled)
             {
                 Debug.Log("Gyro");
                 transform.eulerAngles = new Vector3(0, 0, gyroscope.attitude.eulerAngles.x);
-            }
+            }*/
             if (smoothRotation)
             {
                 Quaternion wantedRotation = Quaternion.LookRotation(target.position - transform.position, target.up);

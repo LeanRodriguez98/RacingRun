@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 65479377980190316}
   m_Layer: 0
   m_Name: railing
-  m_TagString: Untagged
+  m_TagString: RalingColliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1643,7 +1643,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 14.999998}
-  m_Center: {x: 3.2, y: 0, z: 0}
+  m_Center: {x: 3, y: 0, z: 0}
 --- !u!65 &65216089959093260
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1703,7 +1703,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 14.999998}
-  m_Center: {x: -3.2, y: 0, z: 0}
+  m_Center: {x: -3, y: 0, z: 0}
 --- !u!65 &65585061252781966
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1715,7 +1715,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 14.999998}
-  m_Center: {x: -3.2, y: 0, z: 0}
+  m_Center: {x: -3, y: 0, z: 0}
 --- !u!65 &65632989289065304
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1739,7 +1739,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 14.999998}
-  m_Center: {x: 3.2, y: 0, z: 0}
+  m_Center: {x: 3, y: 0, z: 0}
 --- !u!65 &65712962751659878
 BoxCollider:
   m_ObjectHideFlags: 1

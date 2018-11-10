@@ -65,21 +65,24 @@ public class Car : MonoBehaviour {
             {
                 case States.Forward:
                     transform.position += transform.forward * speed * Time.deltaTime;
-
+#if UNITY_ANDROID
                     if (Input.acceleration.x > 0 && !rightCollider.isTrigger)
                         transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
 
                     if (Input.acceleration.x < 0 && !leftCollider.isTrigger)
                         transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
+#endif
 
-                    if (Input.GetKey(KeyCode.RightArrow))
+#if UNITY_EDITOR
+                    if (Input.GetKey(KeyCode.RightArrow) && !rightCollider.isTrigger)
                     {
                         transform.Translate(0.5F * speed * Time.deltaTime, 0, 0);
                     }
-                    if (Input.GetKey(KeyCode.LeftArrow))
+                    if (Input.GetKey(KeyCode.LeftArrow) && !leftCollider.isTrigger)
                     {
                         transform.Translate(-0.5F * speed * Time.deltaTime, 0, 0);
                     }
+#endif
                     break;
                 case States.Turn:
                     Vector3 pos = Vector3.zero;
@@ -180,7 +183,7 @@ public class Car : MonoBehaviour {
             nuts++;
             soPlayerStats.nuts++;
         }
-        if (other.gameObject.tag == "Obstacle")
+        if (other.gameObject.tag == "Obstacle" )
         {
             if (!InmortalCheat)
             life--;
