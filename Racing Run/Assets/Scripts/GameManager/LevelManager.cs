@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour {
     [HideInInspector] public Car carInstance;
     [HideInInspector] public float startToSpawnDelay = 2.0f;
     private int tutorialStep = 0;
-
+    private GameSaveManager gameSaveManagerInstance;
     public SO_DoTutorial soDoTutorial;
 
     public GameObject FirstGameBridge;
@@ -38,6 +38,8 @@ public class LevelManager : MonoBehaviour {
 
     void Start ()
     {
+        gameSaveManagerInstance = GameSaveManager.instance;
+        gameSaveManagerInstance.LoadGame(soDoTutorial);
         objectPoolerInstance = ObjectPooler.instance;
         Application.targetFrameRate = 60;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -73,6 +75,7 @@ public class LevelManager : MonoBehaviour {
         {
             carInstance.tutorialEnded = false;
             soDoTutorial.doTutorial = false;
+            gameSaveManagerInstance.SaveGame(soDoTutorial);
             for (int i = 0; i < spawnEntitiePatern.Length; i++)
             {
                 spawnEntitiePatern[i].metersToSpawn += ((int)carInstance.metersTraveled - spawnEntitiePatern[1].metersToSpawn);

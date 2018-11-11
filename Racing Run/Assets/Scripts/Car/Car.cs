@@ -28,13 +28,15 @@ public class Car : MonoBehaviour {
     private float auxJumpChargeTime;
     public RalingsColliders leftCollider;
     public RalingsColliders rightCollider;
-
+    private GameSaveManager gameSaveManagerInstance;
     private void Awake()
     {
         instance = this;
     }
 
     void Start () {
+        gameSaveManagerInstance = GameSaveManager.instance;
+        gameSaveManagerInstance.LoadGame(soPlayerStats);
         objectPoolerInstance = ObjectPooler.instance;
         metersTraveled = 0;
         rb = GetComponent<Rigidbody>();
@@ -120,7 +122,10 @@ public class Car : MonoBehaviour {
     {
         if (life <= 0)
         {
+            gameSaveManagerInstance.SaveGame(soPlayerStats);
+
             gameObject.SetActive(false);
+             
         }
     }
 

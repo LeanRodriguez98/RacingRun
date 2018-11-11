@@ -12,6 +12,7 @@ public class ButtonsManager : MonoBehaviour
     [HideInInspector]public Car carInstance;
 
     private ButtonsManager instance;
+    private GameSaveManager gameSaveManagerInstance;
 
 
     public Sprite volumeOn;
@@ -38,6 +39,8 @@ public class ButtonsManager : MonoBehaviour
          
         }
 
+
+        gameSaveManagerInstance = GameSaveManager.instance;
     }
 
     public void AddMoney(int nutsToAdd)
@@ -102,6 +105,7 @@ public class ButtonsManager : MonoBehaviour
     public void ReplayTutorial()
     {
         soDoTutorial.doTutorial = true;
+        gameSaveManagerInstance.SaveGame(soDoTutorial);
     }
 
     public void LoadScene(string name)

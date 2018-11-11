@@ -11,10 +11,11 @@ public class Shop : MonoBehaviour {
     public SO_PlayerStats soNuts;
     public GameObject ShopItemsCanvas;
     private int nutsDisplayed;
-
+    private GameSaveManager gameSaveManagerInstance;
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateText;
+        gameSaveManagerInstance = GameSaveManager.instance;
     }
 
     private void OnDestroy()
@@ -28,8 +29,9 @@ public class Shop : MonoBehaviour {
         UpdateText();
         for (int i = 0; i < itemData.Length; i++)
         {
+            gameSaveManagerInstance.LoadGame(itemData[i]);
             GameObject go = Instantiate(itemUIPrefab);
-            go.transform.parent = ShopItemsCanvas.transform;
+            go.transform.SetParent(ShopItemsCanvas.transform);
             ShopUITextureItem item = go.GetComponent<ShopUITextureItem>();
             item.SetItemTextureSO(itemData[i]);
         }

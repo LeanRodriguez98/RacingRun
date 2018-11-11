@@ -13,9 +13,13 @@ public class ShopUITextureItem : MonoBehaviour {
     public GameObject equipedIcon;
     public Texture boughedBackground;
     public Texture notBoughedBackground;
+    private GameSaveManager gameSaveManagerInstance;
+
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateStoreItems;
+        gameSaveManagerInstance = GameSaveManager.instance;
+
     }
 
     private void OnDestroy()
@@ -74,6 +78,8 @@ public class ShopUITextureItem : MonoBehaviour {
         }
 
         UI_Events.UpdateStoreItems();
+        gameSaveManagerInstance.SaveGame(soItemTextue);
+        gameSaveManagerInstance.SaveGame(soPlayerStats);
     }
 
     public void EquipItem()
