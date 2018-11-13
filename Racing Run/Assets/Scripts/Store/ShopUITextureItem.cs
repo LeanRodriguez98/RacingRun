@@ -36,9 +36,15 @@ public class ShopUITextureItem : MonoBehaviour {
         UpdateItem();
     }
 
+    private void OnEnable()
+    {
+        UpdateItem();
+
+    }
+
     public void UpdateItem()
     {
-        itemReference.texture = soItemTextue.icon;
+        itemReference.texture = Resources.Load<Texture>(soItemTextue.iconName);
         priceTextReference.text = soItemTextue.price.ToString();
         if (soItemTextue.boughted)
         {
@@ -54,7 +60,7 @@ public class ShopUITextureItem : MonoBehaviour {
 
         }
 
-        if (soItemTextue.material == soPlayerStats.material)
+        if (Resources.Load <Material>(soItemTextue.materialName) == Resources.Load<Material>(soPlayerStats.materialName))
         {
             equipedIcon.SetActive(true);
         }
@@ -72,19 +78,20 @@ public class ShopUITextureItem : MonoBehaviour {
             soPlayerStats.nuts -= soItemTextue.price;
         }
 
-        if (soItemTextue.boughted && soItemTextue.material != soPlayerStats.material)
+        if (soItemTextue.boughted && Resources.Load<Material>(soItemTextue.materialName) != Resources.Load<Material>(soPlayerStats.materialName))
         {
             EquipItem();
         }
 
-        UI_Events.UpdateStoreItems();
         gameSaveManagerInstance.SaveGame(soItemTextue);
         gameSaveManagerInstance.SaveGame(soPlayerStats);
+        UI_Events.UpdateStoreItems();
+
     }
 
     public void EquipItem()
     {
-        soPlayerStats.material = soItemTextue.material;
+        soPlayerStats.materialName = soItemTextue.materialName;
 
     }
 

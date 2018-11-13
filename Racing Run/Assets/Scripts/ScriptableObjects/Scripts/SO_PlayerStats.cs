@@ -5,5 +5,5 @@ using UnityEngine;
 public class SO_PlayerStats : ScriptableObject {
 
     public int nuts;
-    public Material material;
+    public string materialName;
 }

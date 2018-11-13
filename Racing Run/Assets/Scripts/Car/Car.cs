@@ -42,7 +42,7 @@ public class Car : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         for (int i = 0; i < meshParts.Length; i++)
         {
-            meshParts[i].material = soPlayerStats.material;
+            meshParts[i].material = Resources.Load<Material>(soPlayerStats.materialName);
         }
         auxJumpChargeTime = jumpChargeTime;
     }
@@ -193,8 +193,9 @@ public class Car : MonoBehaviour {
             if (!InmortalCheat)
             life--;
             animations.SetTrigger("Crash");
-
+#if UNITY_ANDROID
             Handheld.Vibrate();
+#endif
         }
         if (other.gameObject.tag == "LifePickUp")
         {

@@ -41,6 +41,7 @@ public class Shop : MonoBehaviour {
 
     public void UpdateText()
     {
+        gameSaveManagerInstance.LoadGame(soNuts);
         nutsText.text = soNuts.nuts.ToString();
     }
 }

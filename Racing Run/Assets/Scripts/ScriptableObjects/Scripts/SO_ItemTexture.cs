@@ -5,8 +5,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "TextureItemData", menuName = "SO/ItemTexture")]
 public class SO_ItemTexture : ScriptableObject {
 
-    public Texture icon;
+    public string iconName;
     public int price;
-    public Material material;
+    public string materialName;
     public bool boughted;
 }

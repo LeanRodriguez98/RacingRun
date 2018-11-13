@@ -47,6 +47,8 @@ public class ButtonsManager : MonoBehaviour
     {
         carInstance.nuts += nutsToAdd;
         carInstance.soPlayerStats.nuts += nutsToAdd;
+        gameSaveManagerInstance.SaveGame(carInstance.soPlayerStats);
+
     }
 
     public void RemoveTextures()
@@ -56,13 +58,18 @@ public class ButtonsManager : MonoBehaviour
             soItemTextures[i].boughted = false;
         }
         soItemTextures[0].boughted = true;
-        carInstance.soPlayerStats.material = soItemTextures[0].material;
-
+        carInstance.soPlayerStats.materialName = soItemTextures[0].materialName;
+        for (int i = 0; i < soItemTextures.Length; i++)
+        {
+            gameSaveManagerInstance.SaveGame(soItemTextures[i]);
+        }
+        carInstance.soPlayerStats.materialName = "CarTexture1";
         for (int i = 0; i < carInstance.meshParts.Length; i++)
         {
-            carInstance.meshParts[i].material = carInstance.soPlayerStats.material;
+            carInstance.meshParts[i].material = Resources.Load<Material>(carInstance.soPlayerStats.materialName);
         }
-        
+            gameSaveManagerInstance.SaveGame(carInstance.soPlayerStats);
+
     }
 
     public void Inmortal()
@@ -83,7 +90,7 @@ public class ButtonsManager : MonoBehaviour
     {
         carInstance.nuts = 0;
         carInstance.soPlayerStats.nuts = 0;
-
+        gameSaveManagerInstance.SaveGame(carInstance.soPlayerStats);
     }
 
     public void Pause()
@@ -110,9 +117,9 @@ public class ButtonsManager : MonoBehaviour
 
     public void LoadScene(string name)
     {
-        Time.timeScale = 1;
-      
+        Time.timeScale = 1;      
         SceneManager.LoadScene(name);
+
     }
     public void Restart()
     {       
