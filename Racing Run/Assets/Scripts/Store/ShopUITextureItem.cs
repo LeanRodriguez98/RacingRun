@@ -14,7 +14,8 @@ public class ShopUITextureItem : MonoBehaviour {
     public Texture boughedBackground;
     public Texture notBoughedBackground;
     private GameSaveManager gameSaveManagerInstance;
-
+    public UI_AreYouSure areYouSurePanel;
+    private GameObject shopPanel;
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateStoreItems;
@@ -33,6 +34,7 @@ public class ShopUITextureItem : MonoBehaviour {
     }
 
     void Start () {
+        shopPanel = GameObject.FindGameObjectWithTag("ShopPanel");
         UpdateItem();
     }
 
@@ -74,18 +76,15 @@ public class ShopUITextureItem : MonoBehaviour {
     {
         if (soItemTextue.price <= soPlayerStats.nuts && !soItemTextue.boughted)
         {
-            soItemTextue.boughted = true;
-            soPlayerStats.nuts -= soItemTextue.price;
-        }
+            Instantiate(areYouSurePanel.gameObject, shopPanel.transform);
+            areYouSurePanel.item = this;  
 
-        if (soItemTextue.boughted && Resources.Load<Material>(soItemTextue.materialName) != Resources.Load<Material>(soPlayerStats.materialName))
+        }
+        else
         {
-            EquipItem();
+            TryEquip();    
+            UpdateData();
         }
-
-        gameSaveManagerInstance.SaveGame(soItemTextue);
-        gameSaveManagerInstance.SaveGame(soPlayerStats);
-        UI_Events.UpdateStoreItems();
 
     }
 
@@ -100,5 +99,28 @@ public class ShopUITextureItem : MonoBehaviour {
         soItemTextue = other;
         UpdateItem();
 
+    }
+
+    public void Buy()
+    {
+        soItemTextue.boughted = true;
+        soPlayerStats.nuts -= soItemTextue.price;
+        TryEquip();
+        UpdateData();
+    }
+
+    public void TryEquip()
+    {
+        if (soItemTextue.boughted && Resources.Load<Material>(soItemTextue.materialName) != Resources.Load<Material>(soPlayerStats.materialName))
+        {
+            EquipItem();
+        }
+    }
+
+    private void UpdateData()
+    {
+        gameSaveManagerInstance.SaveGame(soItemTextue);
+        gameSaveManagerInstance.SaveGame(soPlayerStats);
+        UI_Events.UpdateStoreItems();
     }
 }

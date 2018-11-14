@@ -29,6 +29,8 @@ public class Car : MonoBehaviour {
     public RalingsColliders leftCollider;
     public RalingsColliders rightCollider;
     private GameSaveManager gameSaveManagerInstance;
+    public float flickingTime;
+    private float auxFlickingTime;
     private void Awake()
     {
         instance = this;
@@ -45,6 +47,7 @@ public class Car : MonoBehaviour {
             meshParts[i].material = Resources.Load<Material>(soPlayerStats.materialName);
         }
         auxJumpChargeTime = jumpChargeTime;
+        auxFlickingTime = flickingTime;
     }
 
 
@@ -110,6 +113,10 @@ public class Car : MonoBehaviour {
             if (jumpChargeTime <= auxJumpChargeTime)
             {
                 jumpChargeTime += Time.deltaTime;
+            }
+            if (flickingTime <= auxFlickingTime)
+            {
+                flickingTime += Time.deltaTime;
             }
         }
         else
@@ -190,8 +197,11 @@ public class Car : MonoBehaviour {
         }
         if (other.gameObject.tag == "Obstacle" )
         {
-            if (!InmortalCheat)
-            life--;
+            if (!InmortalCheat && flickingTime > auxFlickingTime)
+            {
+                life--;
+                flickingTime = 0;
+            }
             animations.SetTrigger("Crash");
 #if UNITY_ANDROID
             Handheld.Vibrate();
