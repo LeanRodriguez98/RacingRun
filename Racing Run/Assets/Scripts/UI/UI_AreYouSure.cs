@@ -5,18 +5,24 @@ using UnityEngine;
 public class UI_AreYouSure : MonoBehaviour {
 
 
-    public ShopUITextureItem item;
+    [HideInInspector] public ShopUITextureItem item;
+    [HideInInspector] public Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public void NoPuchase()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("Close");
     }
 
     public void YesPurchase()
     {
+        animator.SetTrigger("Close");
+
         item.Buy();
-        Destroy(gameObject);
     }
 
 }

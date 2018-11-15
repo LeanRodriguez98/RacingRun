@@ -14,8 +14,8 @@ public class ShopUITextureItem : MonoBehaviour {
     public Texture boughedBackground;
     public Texture notBoughedBackground;
     private GameSaveManager gameSaveManagerInstance;
-    public UI_AreYouSure areYouSurePanel;
-    private GameObject shopPanel;
+    public GameObject areYouSurePrefab;
+    public UI_AreYouSure areYouSureScript;
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateStoreItems;
@@ -34,7 +34,7 @@ public class ShopUITextureItem : MonoBehaviour {
     }
 
     void Start () {
-        shopPanel = GameObject.FindGameObjectWithTag("ShopPanel");
+        
         UpdateItem();
     }
 
@@ -76,9 +76,13 @@ public class ShopUITextureItem : MonoBehaviour {
     {
         if (soItemTextue.price <= soPlayerStats.nuts && !soItemTextue.boughted)
         {
-            Instantiate(areYouSurePanel.gameObject, shopPanel.transform);
-            areYouSurePanel.item = this;  
-
+            if(areYouSurePrefab == null)
+                areYouSurePrefab = GameObject.FindGameObjectWithTag("AreYouSurePanel");
+            if(areYouSureScript == null)
+                areYouSureScript = areYouSurePrefab.GetComponent<UI_AreYouSure>();
+          
+            areYouSureScript.animator.SetTrigger("Open");
+            areYouSureScript.item = this;
         }
         else
         {
@@ -103,6 +107,8 @@ public class ShopUITextureItem : MonoBehaviour {
 
     public void Buy()
     {
+        areYouSureScript.animator.SetTrigger("Close");
+
         soItemTextue.boughted = true;
         soPlayerStats.nuts -= soItemTextue.price;
         TryEquip();
