@@ -58,12 +58,12 @@ public class Car : MonoBehaviour {
 
             if (speed < maxSpeed)
                 speed += Time.deltaTime * ascelerationMultipler;
-
+#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 speed = maxSpeed = 0;
             }
-
+#endif
             metersTraveled += speed * Time.deltaTime;
 
             switch (states)

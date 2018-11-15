@@ -32,6 +32,7 @@ public class Shop : MonoBehaviour {
             gameSaveManagerInstance.LoadGame(itemData[i]);
             GameObject go = Instantiate(itemUIPrefab);
             go.transform.SetParent(ShopItemsCanvas.transform);
+            go.transform.localScale = Vector3.one;
             ShopUITextureItem item = go.GetComponent<ShopUITextureItem>();
             item.SetItemTextureSO(itemData[i]);
         }

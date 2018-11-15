@@ -8,9 +8,13 @@ public class BridgeEntitie : MonoBehaviour {
     public float rotationSpeed;
     private Rigidbody rb;
     public int FallMultiplier = 2000;
+    private ObjectPooler objectPoolerInstance;
+    public GameObject particles;
+
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+        objectPoolerInstance = ObjectPooler.instance;
 
     }
 
@@ -37,6 +41,13 @@ public class BridgeEntitie : MonoBehaviour {
             rb.AddForce(-Vector3.up * FallMultiplier);
 
         }
+
+    }
+
+    private void OnDisable()
+    {
+        if(particles != null && objectPoolerInstance != null)
+            objectPoolerInstance.SpawnForPool(particles.gameObject.name, transform.position, transform.rotation);
 
     }
 

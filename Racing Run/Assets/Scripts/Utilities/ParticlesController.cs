@@ -45,10 +45,11 @@ public class ParticlesController : MonoBehaviour
         for (int i = 0; i < numParticlesAlive; i++)
         {
             particles[i].velocity = Vector3.Normalize(playerPos - particles[i].position) * particleSpeed * Time.unscaledDeltaTime;
-
+            
 
             if (Mathf.RoundToInt(particles[i].position.x) == Mathf.RoundToInt(playerPos.x) &&
-                Mathf.RoundToInt(particles[i].position.y) == Mathf.RoundToInt(playerPos.y))
+                Mathf.RoundToInt(particles[i].position.y) == Mathf.RoundToInt(playerPos.y) &&
+                Mathf.RoundToInt(particles[i].position.z) == Mathf.RoundToInt(playerPos.z))
             {
                 particles[i].remainingLifetime = 0;
             }
@@ -56,5 +57,10 @@ public class ParticlesController : MonoBehaviour
 
         // Apply the particle changes to the particle system
         system.SetParticles(particles, numParticlesAlive);
+    }
+
+    private void OnDisable()
+    {
+        
     }
 }

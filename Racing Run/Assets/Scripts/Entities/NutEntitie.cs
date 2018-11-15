@@ -9,12 +9,14 @@ public class NutEntitie : MonoBehaviour {
     public GameObject floorCollider;
     public float expultionForce = 10000;
     public float resetTime = 5;
+    public GameObject particles;
     private Camera cam;
-        
+    private ObjectPooler objectPoolerInstance;
     void Start () {
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
         bc = GetComponent<BoxCollider>();
+        objectPoolerInstance = ObjectPooler.instance;
     }
 
     private void OnEnable()
@@ -40,9 +42,9 @@ public class NutEntitie : MonoBehaviour {
             bc.enabled = false;
             floorCollider.SetActive(false);
 
-          //  Vector3 direction = CoinsPanel.transform.position - transform.position;
-         //   direction.Normalize();
-        //    rb.AddForce(direction * expultionForce);
+            objectPoolerInstance.SpawnForPool(particles.gameObject.name, transform.position, transform.rotation);
+
+
             Invoke("RestartObject", resetTime);
         }
 
