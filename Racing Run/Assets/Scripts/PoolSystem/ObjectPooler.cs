@@ -55,7 +55,6 @@ public class ObjectPooler : MonoBehaviour
             return null;
         }
         GameObject goToSpawn = poolDictionary[tag].Dequeue();
-        Debug.Log(goToSpawn.name);
         goToSpawn.SetActive(true);
         goToSpawn.transform.position = position;
         goToSpawn.transform.rotation = rotation;
