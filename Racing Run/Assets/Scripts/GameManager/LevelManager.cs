@@ -92,6 +92,10 @@ public class LevelManager : MonoBehaviour {
     {
         objectPoolerInstance.SpawnForPool(bridgesInPool[Random.Range(0, bridgesInPool.Length)].gameObject.name, bridgesInstanciePosition, Quaternion.Euler(bridgesInstancieRotation));
     }
+    public void SpawnBridge(string bridgeName)
+    {
+        objectPoolerInstance.SpawnForPool(bridgeName, bridgesInstanciePosition, Quaternion.Euler(bridgesInstancieRotation));
+    }
     public void SpawnTutorialBridge()
     {
         objectPoolerInstance.SpawnForPool(bridgesOfTutorial[tutorialStep].gameObject.name, bridgesInstanciePosition, Quaternion.Euler(bridgesInstancieRotation));

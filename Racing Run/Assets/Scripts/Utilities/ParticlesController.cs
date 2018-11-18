@@ -77,7 +77,7 @@ public class ParticlesController : MonoBehaviour
         }
 
         // Apply the particle changes to the particle system
-       // system.SetParticles(particles, numParticlesAlive);
+        system.SetParticles(particles, numParticlesAlive);
     }
 
     private void SetVezierPoints()
