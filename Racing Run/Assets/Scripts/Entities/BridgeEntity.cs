@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BridgeEntitie : MonoBehaviour {
+public class BridgeEntity : MonoBehaviour {
       
     public bool rotation;
     public float rotationSpeed;

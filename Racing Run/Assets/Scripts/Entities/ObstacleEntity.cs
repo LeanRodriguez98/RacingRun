@@ -1,22 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class NutEntitie : MonoBehaviour {
+public class ObstacleEntity : MonoBehaviour {
+
     private Rigidbody rb;
     private BoxCollider bc;
+    private Car carInstance;
     public GameObject floorCollider;
     public float expultionForce = 10000;
+    public float minRandomY = 0.2F;
+    public float maxRandomY = 1.0F;
     public float resetTime = 5;
-    public GameObject particles;
-    private Camera cam;
-    private ObjectPooler objectPoolerInstance;
     void Start () {
-        cam = Camera.main;
         rb = GetComponent<Rigidbody>();
         bc = GetComponent<BoxCollider>();
-        objectPoolerInstance = ObjectPooler.instance;
+        carInstance = Car.instance;
+        
     }
 
     private void OnEnable()
@@ -27,7 +27,7 @@ public class NutEntitie : MonoBehaviour {
 
     private void OnDisable()
     {
-
+        
     }
 
     void Update () {
@@ -41,10 +41,13 @@ public class NutEntitie : MonoBehaviour {
             rb.constraints = RigidbodyConstraints.None;
             bc.enabled = false;
             floorCollider.SetActive(false);
+            Vector3 direction = Vector3.zero;
+            direction = transform.position - carInstance.transform.position;
 
-            objectPoolerInstance.SpawnForPool(particles.gameObject.name, transform.position, transform.rotation);
+            direction.y += Random.Range(minRandomY, maxRandomY);
+            direction.Normalize();
 
-
+            rb.AddForce(direction * expultionForce);
             Invoke("RestartObject", resetTime);
         }
 

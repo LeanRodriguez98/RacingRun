@@ -172,7 +172,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177508}
         m_MethodName: Inmortal
         m_Mode: 1
         m_Arguments:
@@ -384,7 +384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &31856157
 Prefab:
@@ -892,6 +892,8 @@ GameObject:
   - component: {fileID: 275177505}
   - component: {fileID: 275177504}
   - component: {fileID: 275177503}
+  - component: {fileID: 275177508}
+  - component: {fileID: 275177509}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -999,13 +1001,46 @@ RectTransform:
   - {fileID: 762716760}
   - {fileID: 1824158171}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &275177508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275177502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c792ad1ea81c4241aff7fee2f7f7594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carInstance: {fileID: 0}
+  soItemTextures:
+  - {fileID: 11400000, guid: 6952b354c7e8465408010b019a9ca70f, type: 2}
+  - {fileID: 11400000, guid: 45174a1ef8a9791489e34ecfe9c5b17f, type: 2}
+  - {fileID: 11400000, guid: 102c6ffc83912764b9cdf8a052e1c26d, type: 2}
+  - {fileID: 11400000, guid: d423b9f19a65ff94faf6eb6af861cc3a, type: 2}
+  - {fileID: 11400000, guid: d18e222e9cea24a419d5bfc52ef537dc, type: 2}
+--- !u!114 &275177509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275177502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fad0bb83333e2049ac120dd666d6c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeOn: {fileID: 21300000, guid: 9512dc9ef3aba594caad3e700b86e60f, type: 3}
+  volumeOff: {fileID: 21300000, guid: 4db255c0440877f46a2a98e8d26f05ae, type: 3}
+  volumeButon: {fileID: 534867892}
+  PausePanel: {fileID: 177018001}
 --- !u!1 &329562297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1302,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177508}
         m_MethodName: FullHeal
         m_Mode: 1
         m_Arguments:
@@ -1394,7 +1429,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -1584,7 +1619,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &379085806
 GameObject:
@@ -1791,7 +1826,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177509}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -2161,7 +2196,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177509}
         m_MethodName: ChangeVolume
         m_Mode: 1
         m_Arguments:
@@ -2283,67 +2318,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 546984744}
   m_CullTransparentMesh: 0
---- !u!1 &566670030
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1796833646788514, guid: 2685c4808870de84383683945e36fac5,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 566670032}
-  - component: {fileID: 566670031}
-  m_Layer: 5
-  m_Name: ButtonManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &566670031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114010290510110234, guid: 2685c4808870de84383683945e36fac5,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 566670030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d8b9fe632461b54abad040cc8a1b658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PausePanel: {fileID: 177018001}
-  carInstance: {fileID: 0}
-  volumeOn: {fileID: 21300000, guid: 9512dc9ef3aba594caad3e700b86e60f, type: 3}
-  volumeOff: {fileID: 21300000, guid: 4db255c0440877f46a2a98e8d26f05ae, type: 3}
-  volumeButon: {fileID: 534867892}
-  soItemTextures:
-  - {fileID: 11400000, guid: 6952b354c7e8465408010b019a9ca70f, type: 2}
-  - {fileID: 11400000, guid: 45174a1ef8a9791489e34ecfe9c5b17f, type: 2}
-  - {fileID: 11400000, guid: 102c6ffc83912764b9cdf8a052e1c26d, type: 2}
-  - {fileID: 11400000, guid: d423b9f19a65ff94faf6eb6af861cc3a, type: 2}
-  - {fileID: 11400000, guid: d18e222e9cea24a419d5bfc52ef537dc, type: 2}
-  soDoTutorial: {fileID: 0}
-  animations: {fileID: 0}
---- !u!224 &566670032
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 224598874523464962, guid: 2685c4808870de84383683945e36fac5,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 566670030}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0275, y: 1.0275, z: 1.0275}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 411, y: 231}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &574472275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,7 +2526,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -4374,7 +4348,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1439312937
 GameObject:
@@ -4692,13 +4666,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177508}
         m_MethodName: AddMoney
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
+          m_IntArgument: 1000
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5298,7 +5272,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177509}
         m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
@@ -5505,7 +5479,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177508}
         m_MethodName: RemoveMoney
         m_Mode: 1
         m_Arguments:
@@ -5613,7 +5587,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177508}
         m_MethodName: RemoveTextures
         m_Mode: 1
         m_Arguments:
@@ -5760,7 +5734,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 566670031}
+      - m_Target: {fileID: 275177509}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
