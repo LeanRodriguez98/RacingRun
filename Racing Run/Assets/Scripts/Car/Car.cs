@@ -70,6 +70,9 @@ public class Car : MonoBehaviour {
             {
                 case States.Forward:
                     transform.position += transform.forward * speed * Time.deltaTime;
+
+                        FixCarAngle();
+
 #if UNITY_ANDROID
                     if (Input.acceleration.x > 0 && !rightCollider.isTrigger)
                         transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
