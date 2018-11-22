@@ -7,10 +7,12 @@ public class GlowMovement : MonoBehaviour {
     public float scalingSpeed;
     public float MaxSize;
     public float MinSize;
+    private Camera mainCamera;
     private Vector3 scale;
     private bool scalingUp = true;
     void Start () {
         scale = new Vector3((MaxSize + MinSize) / 2, (MaxSize + MinSize) / 2, (MaxSize + MinSize) / 2);
+        mainCamera = Camera.main;
     }
 	
 	void Update () {
@@ -29,5 +31,7 @@ public class GlowMovement : MonoBehaviour {
             if (transform.localScale.x < MinSize)
                 scalingUp = true;
         }
+
+        transform.LookAt(mainCamera.gameObject.transform);
     }
 }
