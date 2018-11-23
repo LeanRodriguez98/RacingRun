@@ -32,6 +32,7 @@ public class Car : MonoBehaviour {
     public float flickingTime;
     private float auxFlickingTime;
     public TrailRenderer[] skildMarks;
+    private Vector3 accelerationInput;
     private void Awake()
     {
         instance = this;
@@ -84,17 +85,55 @@ public class Car : MonoBehaviour {
 
                     if (Input.acceleration.x < 0 && !leftCollider.isTrigger)
                         transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
+
+                    if (accelerationInput.x > 0)
+	                {
+                        if (accelerationInput.x < Input.acceleration.x)
+                        {
+                            animations.SetTrigger("GoCenterToRight");
+
+                        }
+                        if (accelerationInput.x > Input.acceleration.x)
+                        {
+                            animations.SetTrigger("GoRightToCenter");
+
+                        }
+                    }
+
+                    if (accelerationInput.x < 0)
+                    {
+                        if (accelerationInput.x > Input.acceleration.x)
+                        {
+                            animations.SetTrigger("GoCenterToLeft");
+
+                        }
+                        if (accelerationInput.x < Input.acceleration.x)
+                        {
+                            animations.SetTrigger("GoLeftToCenter");
+
+                        }
+                    }
+
+                    accelerationInput = Input.acceleration;
+                    
 #endif
 
 #if UNITY_EDITOR
                     if (Input.GetKey(KeyCode.RightArrow) && !rightCollider.isTrigger)
                     {
                         transform.Translate(0.5F * speed * Time.deltaTime, 0, 0);
+                        accelerationInput.x += Time.deltaTime;
+
                     }
                     if (Input.GetKey(KeyCode.LeftArrow) && !leftCollider.isTrigger)
                     {
                         transform.Translate(-0.5F * speed * Time.deltaTime, 0, 0);
+                        accelerationInput.x -= Time.deltaTime;
                     }
+
+
+     
+
 #endif
                     break;
                 case States.Turn:
@@ -155,11 +194,11 @@ public class Car : MonoBehaviour {
         {
             rb.AddForce(Vector3.up * jumpForce);
             jumpChargeTime = 0;
-        }
+            animations.SetTrigger("Jump");
 
-       
+        }
     }
-   
+
     private void FixCarAngle()
     {
         float rotationY = transform.rotation.eulerAngles.y;

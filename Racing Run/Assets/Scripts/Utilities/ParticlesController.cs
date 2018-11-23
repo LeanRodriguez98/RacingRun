@@ -49,6 +49,7 @@ public class ParticlesController : MonoBehaviour
             timer = 0;
             lerpTime = originalLerpTime;
             position = transform.position;
+            system.gravityModifier = -3;
             system.Emit(30);
 
         }
