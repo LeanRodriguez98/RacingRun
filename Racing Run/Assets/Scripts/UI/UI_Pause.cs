@@ -12,6 +12,14 @@ public class UI_Pause : MonoBehaviour {
     public Button volumeButon;
     public GameObject PausePanel;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+
     public void Pause()
     {
         if (Time.timeScale != 0)
