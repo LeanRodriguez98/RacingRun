@@ -57,7 +57,7 @@ public class ParticlesController : MonoBehaviour
 
     private void ParticlesGoToPosition()
     {
-        playerPos = carInstance.transform.position  - Vector3.up ;
+        playerPos = carInstance.transform.position - Vector3.up;
 
         // GetParticles is allocation free because we reuse the m_Particles buffer between updates
         int numParticlesAlive = system.GetParticles(particles);

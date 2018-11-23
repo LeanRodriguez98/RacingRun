@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -439,6 +439,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: skildMarks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -471,6 +476,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: skildMarks.Array.data[0]
+      value: 
+      objectReference: {fileID: 845719250}
+    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: skildMarks.Array.data[1]
+      value: 
+      objectReference: {fileID: 996933912}
+    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: skildMarks.Array.data[2]
+      value: 
+      objectReference: {fileID: 845719250}
+    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: skildMarks.Array.data[3]
+      value: 
+      objectReference: {fileID: 996933912}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
   m_IsPrefabAsset: 0
@@ -3208,12 +3233,12 @@ GameObject:
   - component: {fileID: 845719249}
   - component: {fileID: 845719250}
   m_Layer: 0
-  m_Name: Trail
+  m_Name: SkildMarkLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &845719249
 Transform:
   m_ObjectHideFlags: 0
@@ -3266,7 +3291,7 @@ TrailRenderer:
   m_Time: 1
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.35
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -3280,8 +3305,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.98630136
-        value: 0.3650818
+        time: 1
+        value: 0.50442505
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -3323,11 +3348,11 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
 --- !u!1 &986975460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3410,12 +3435,12 @@ GameObject:
   - component: {fileID: 996933911}
   - component: {fileID: 996933912}
   m_Layer: 0
-  m_Name: Trail (1)
+  m_Name: SkildMarkRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &996933911
 Transform:
   m_ObjectHideFlags: 0
@@ -3468,7 +3493,7 @@ TrailRenderer:
   m_Time: 1
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.35
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -3482,8 +3507,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.98630136
-        value: 0.3650818
+        time: 1
+        value: 0.50442505
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -3525,11 +3550,11 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
 --- !u!1 &1004088423
 GameObject:
   m_ObjectHideFlags: 0

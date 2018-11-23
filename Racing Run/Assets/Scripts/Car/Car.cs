@@ -31,6 +31,7 @@ public class Car : MonoBehaviour {
     private GameSaveManager gameSaveManagerInstance;
     public float flickingTime;
     private float auxFlickingTime;
+    public TrailRenderer[] skildMarks;
     private void Awake()
     {
         instance = this;
@@ -48,6 +49,10 @@ public class Car : MonoBehaviour {
         }
         auxJumpChargeTime = jumpChargeTime;
         auxFlickingTime = flickingTime;
+        for (int i = 0; i < skildMarks.Length; i++)
+        {
+            skildMarks[i].emitting = false;
+        }
     }
 
 
@@ -104,6 +109,10 @@ public class Car : MonoBehaviour {
                         //transform.eulerAngles = bezierTurn.GetFixedRotation();
                         FixCarAngle();
                         bezierTurn = null;
+                        for (int i = 0; i < skildMarks.Length; i++)
+                        {
+                            skildMarks[i].emitting = false;
+                        }
                     }
                     break;
                 default:
@@ -185,12 +194,20 @@ public class Car : MonoBehaviour {
             animations.SetTrigger("TurnRight");
             objectPoolerInstance.SpawnForPool("BezierRight", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
             other.gameObject.SetActive(false);
+            for (int i = 0; i < skildMarks.Length; i++)
+            {
+                skildMarks[i].emitting = true;
+            }
         }
         if (other.gameObject.tag == "LeftArrow")
         {
             animations.SetTrigger("TurnLeft");
             objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
             other.gameObject.SetActive(false);
+            for (int i = 0; i < skildMarks.Length; i++)
+            {
+                skildMarks[i].emitting = true;
+            }
         }
         if (other.gameObject.tag == "Nut")
         {
