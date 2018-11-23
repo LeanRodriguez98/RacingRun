@@ -10,7 +10,7 @@ public class BridgeEntity : MonoBehaviour {
     public int FallMultiplier = 2000;
     private ObjectPooler objectPoolerInstance;
     public GameObject particles;
-
+    private bool touchWater = false;
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -30,7 +30,7 @@ public class BridgeEntity : MonoBehaviour {
 
     private void OnEnable()
     {
-
+        touchWater = false;
         if (rb != null)
         {
             rb.AddForce(-Vector3.up * FallMultiplier);
@@ -46,7 +46,7 @@ public class BridgeEntity : MonoBehaviour {
 
     private void OnDisable()
     {
-        if(particles != null && objectPoolerInstance != null)
+        if(particles != null && objectPoolerInstance != null && Application.isPlaying && !touchWater)
             objectPoolerInstance.SpawnForPool(particles.gameObject.name, transform.position, transform.rotation);
 
     }
@@ -55,6 +55,8 @@ public class BridgeEntity : MonoBehaviour {
     {
         if (other.gameObject.tag == "Water")
         {
+            touchWater = true;
+
             gameObject.SetActive(false);
         }
     }
