@@ -19,6 +19,7 @@ public class UI_Manager : MonoBehaviour {
 
     public GameObject gameOverPanel;
     public GameObject inGamePanel;
+    public GameObject pauseButton;
     private void Awake()
     {
         instance = this;
@@ -53,7 +54,6 @@ public class UI_Manager : MonoBehaviour {
             if (playerLife != life)
             {
                 life = playerLife;
-              //  lifeText.text = life.ToString();
             }
 
             if (playerConis != coins)
@@ -66,6 +66,7 @@ public class UI_Manager : MonoBehaviour {
         {
             gameOverPanel.SetActive(true);
             inGamePanel.SetActive(false);
+            pauseButton.SetActive(false);
         }
     }
 }
