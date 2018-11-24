@@ -119,6 +119,7 @@ public class Car : MonoBehaviour {
 #endif
 
 #if UNITY_EDITOR
+
                     if (Input.GetKey(KeyCode.RightArrow) && !rightCollider.isTrigger)
                     {
                         transform.Translate(0.5F * speed * Time.deltaTime, 0, 0);
@@ -130,9 +131,6 @@ public class Car : MonoBehaviour {
                         transform.Translate(-0.5F * speed * Time.deltaTime, 0, 0);
                         accelerationInput.x -= Time.deltaTime;
                     }
-
-
-     
 
 #endif
                     break;
