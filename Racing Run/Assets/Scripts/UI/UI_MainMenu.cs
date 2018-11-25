@@ -21,7 +21,7 @@ public class UI_MainMenu : MonoBehaviour {
 
     private void Start()
     {
-        if(gameSaveManagerInstance != null)
+        if(gameSaveManagerInstance == null)
         gameSaveManagerInstance = GameSaveManager.instance;
     }
 
@@ -59,6 +59,7 @@ public class UI_MainMenu : MonoBehaviour {
 
     public void ReplayTutorial()
     {
+       
         soDoTutorial.doTutorial = true;
         gameSaveManagerInstance.SaveGame(soDoTutorial);
     }

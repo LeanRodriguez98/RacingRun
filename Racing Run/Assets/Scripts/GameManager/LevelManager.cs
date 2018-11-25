@@ -99,6 +99,7 @@ public class LevelManager : MonoBehaviour {
     public void SpawnTutorialBridge()
     {
         objectPoolerInstance.SpawnForPool(bridgesOfTutorial[tutorialStep].gameObject.name, bridgesInstanciePosition, Quaternion.Euler(bridgesInstancieRotation));
+        Debug.Log("Tuto");
         tutorialStep++;
     }
 

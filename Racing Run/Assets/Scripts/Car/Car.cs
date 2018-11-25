@@ -274,7 +274,7 @@ public class Car : MonoBehaviour {
         }
         if (other.gameObject.tag == "Water")
         {
-            gameObject.SetActive(false);
+            life = 0;
             
         }
 

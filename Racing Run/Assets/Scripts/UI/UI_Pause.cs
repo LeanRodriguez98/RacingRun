@@ -11,6 +11,13 @@ public class UI_Pause : MonoBehaviour {
     public Sprite volumeOff;
     public Button volumeButon;
     public GameObject PausePanel;
+    public SO_PlayerStats soPlayerStats;
+    private GameSaveManager gameSaveManagerInstance;
+
+    private void Start()
+    {
+        gameSaveManagerInstance = GameSaveManager.instance;
+    }
 
     private void Update()
     {
@@ -63,6 +70,7 @@ public class UI_Pause : MonoBehaviour {
     public void LoadScene(string name)
     {
         Time.timeScale = 1;
+        gameSaveManagerInstance.SaveGame(soPlayerStats);
         SceneManager.LoadScene(name);
 
     }

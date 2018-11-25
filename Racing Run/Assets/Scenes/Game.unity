@@ -456,7 +456,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1270098335733160, guid: 8a25d3c34c9290c43973abc896586f3c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a25d3c34c9290c43973abc896586f3c, type: 2}
@@ -1147,6 +1147,7 @@ MonoBehaviour:
   volumeOff: {fileID: 21300000, guid: 4db255c0440877f46a2a98e8d26f05ae, type: 3}
   volumeButon: {fileID: 534867892}
   PausePanel: {fileID: 177018001}
+  soPlayerStats: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
 --- !u!1 &323770390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,10 +1359,8 @@ MonoBehaviour:
   carInstance: {fileID: 0}
   startToSpawnDelay: 2
   soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
-  FirstGameBridge: {fileID: 1109890107911026, guid: 3fc035ad29966344fabfaa3ec1825f51,
-    type: 2}
-  FirstTutorialBridge: {fileID: 1270098335733160, guid: 8a25d3c34c9290c43973abc896586f3c,
-    type: 2}
+  FirstGameBridge: {fileID: 612191442}
+  FirstTutorialBridge: {fileID: 1813873025}
 --- !u!4 &329562299
 Transform:
   m_ObjectHideFlags: 0
@@ -2893,6 +2892,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 601164841}
   m_CullTransparentMesh: 0
+--- !u!1 &612191442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1109890107911026, guid: 3fc035ad29966344fabfaa3ec1825f51,
+    type: 2}
+  m_PrefabInternal: {fileID: 1328520456}
 --- !u!1 &661946219
 GameObject:
   m_ObjectHideFlags: 0
@@ -6134,6 +6138,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1801520641}
   m_CullTransparentMesh: 0
+--- !u!1 &1813873025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1270098335733160, guid: 8a25d3c34c9290c43973abc896586f3c,
+    type: 2}
+  m_PrefabInternal: {fileID: 31856157}
 --- !u!1 &1824158170
 GameObject:
   m_ObjectHideFlags: 0
