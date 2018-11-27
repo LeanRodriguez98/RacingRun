@@ -7,6 +7,8 @@ public class UI_AreYouSure : MonoBehaviour {
 
     [HideInInspector] public ShopUITextureItem item;
     [HideInInspector] public Animator animator;
+    private bool IsPurchased = true;
+
 
     private void Start()
     {
@@ -20,9 +22,18 @@ public class UI_AreYouSure : MonoBehaviour {
 
     public void YesPurchase()
     {
-        animator.SetTrigger("Close");
-
-        item.Buy();
+        if (IsPurchased)
+        {
+            animator.SetTrigger("Close");
+            item.Buy();
+            IsPurchased = false;
+            Invoke("ResetPurchasePosibility", 3.0f);
+        }
     }
 
+
+    private void ResetPurchasePosibility()
+    {
+        IsPurchased = true;
+    }
 }
