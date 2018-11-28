@@ -16,11 +16,12 @@ public class ShopUITextureItem : MonoBehaviour {
     private GameSaveManager gameSaveManagerInstance;
     public GameObject areYouSurePrefab;
     public UI_AreYouSure areYouSureScript;
+    private AudioManager audioManagerInstance;
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateStoreItems;
         gameSaveManagerInstance = GameSaveManager.instance;
-
+        audioManagerInstance = AudioManager.instance;
     }
 
     private void OnDestroy()
@@ -95,7 +96,7 @@ public class ShopUITextureItem : MonoBehaviour {
     public void EquipItem()
     {
         soPlayerStats.materialName = soItemTextue.materialName;
-
+        audioManagerInstance.PlaySound("ApplyColor");
     }
 
     public void SetItemTextureSO(SO_ItemTexture other)
