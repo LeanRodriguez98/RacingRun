@@ -8,6 +8,7 @@ public class ParticlesController : MonoBehaviour
     public float timeToGoToPosition;
 
     public float lerpTime;
+    public float lerpRandom = 2.0f;
     private float originalLerpTime;
     public float distanceIntensifier;
 
@@ -19,9 +20,13 @@ public class ParticlesController : MonoBehaviour
     private Vector3 playerPos;
 
     private float timer;
-
+    public float lefpMultiply = 25;
     private Car carInstance;
     private Vector3 position;
+    private AudioManager audioManagerInstance;
+    public float soundTimer = 3.0f;
+    private float auxSoundTimer;
+    private string soundName;
     private void Awake()
     {
         system = GetComponent<ParticleSystem>();
@@ -30,11 +35,14 @@ public class ParticlesController : MonoBehaviour
         originalLerpTime = lerpTime;
         timer = 0;
         position = transform.position;
+        auxSoundTimer = soundTimer;
     }
 
     private void Start()
     {
+        audioManagerInstance = AudioManager.instance;
     }
+
 
    
     private void Update()
@@ -53,6 +61,7 @@ public class ParticlesController : MonoBehaviour
             system.Emit(30);
 
         }
+        soundTimer += Time.deltaTime;
     }
 
 
@@ -69,15 +78,22 @@ public class ParticlesController : MonoBehaviour
         {
             float d = Vector3.Distance(particles[i].position, playerPos);
             system.gravityModifier = 0;
-            particles[i].position = Vector3.Lerp(particles[i].position, playerPos, lerpTime * Time.unscaledDeltaTime);
+            particles[i].position = Vector3.Lerp(particles[i].position, playerPos, (lerpTime + Random.Range(-lerpRandom,lerpRandom)) * Time.unscaledDeltaTime);
 
             if (d < distanceToDestroy)
             {
                 particles[i].remainingLifetime = 0;
-
-            }           
+                /*if (soundTimer > auxSoundTimer)
+                {
+                    if (soundName != null)
+                        audioManagerInstance.StopSound(soundName);
+                    soundName = "TakeNut" + Random.Range(1, 4).ToString();
+                    audioManagerInstance.PlaySound(soundName);
+                    soundTimer = 0;
+                }*/
+            }
         }
-        lerpTime += Time.unscaledDeltaTime*25;
+        lerpTime += Time.unscaledDeltaTime * lefpMultiply;
 
         // Apply the particle changes to the particle system
         system.SetParticles(particles, numParticlesAlive);

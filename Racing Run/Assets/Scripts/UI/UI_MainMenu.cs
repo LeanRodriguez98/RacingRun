@@ -18,23 +18,27 @@ public class UI_MainMenu : MonoBehaviour {
     public Animator animations;
 
     private GameSaveManager gameSaveManagerInstance;
-
+    private AudioManager audioManagerInstance;
     private void Start()
     {
         if(gameSaveManagerInstance == null)
-        gameSaveManagerInstance = GameSaveManager.instance;
+           gameSaveManagerInstance = GameSaveManager.instance;
+        if(audioManagerInstance == null)        
+           audioManagerInstance = AudioManager.instance;
     }
 
     public void OpenShop()
     {
         shopPanel.SetActive(true);
         shopAnimator.SetTrigger("StoreOpen");
+        audioManagerInstance.PlaySound("OpenStore");
     }
 
     public void CloseShop()
     {
         shopAnimator.SetTrigger("StoreClose");
         Invoke("TurnOffPanel", 3.0f);
+        audioManagerInstance.PlaySound("CloseStore");
 
     }
 
@@ -46,6 +50,7 @@ public class UI_MainMenu : MonoBehaviour {
     public void TriggerButton()
     {
         animations.SetTrigger("trigger");
+        audioManagerInstance.PlaySound("PushButton");
     }
 
     public void Exit()

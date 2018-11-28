@@ -33,6 +33,7 @@ public class Car : MonoBehaviour {
     private float auxFlickingTime;
     public TrailRenderer[] skildMarks;
     private Vector3 accelerationInput;
+    private AudioManager audioManagerInstance;
     private void Awake()
     {
         instance = this;
@@ -42,6 +43,8 @@ public class Car : MonoBehaviour {
         gameSaveManagerInstance = GameSaveManager.instance;
         gameSaveManagerInstance.LoadGame(soPlayerStats);
         objectPoolerInstance = ObjectPooler.instance;
+        audioManagerInstance = AudioManager.instance;
+        audioManagerInstance.PlaySound("MotorIdle");
         metersTraveled = 0;
         rb = GetComponent<Rigidbody>();
         for (int i = 0; i < meshParts.Length; i++)
@@ -179,6 +182,7 @@ public class Car : MonoBehaviour {
         if (life <= 0)
         {
             gameSaveManagerInstance.SaveGame(soPlayerStats);
+            audioManagerInstance.StopSound("MotorIdle");
 
             gameObject.SetActive(false);
              
@@ -248,6 +252,7 @@ public class Car : MonoBehaviour {
         }
         if (other.gameObject.tag == "Nut")
         {
+            audioManagerInstance.PlaySound("TakeNut" + Random.Range(1,4).ToString());
             other.gameObject.SetActive(false);
             nuts++;
             soPlayerStats.nuts++;
@@ -258,6 +263,24 @@ public class Car : MonoBehaviour {
             {
                 life--;
                 flickingTime = 0;
+                switch (other.gameObject.name)
+                {
+                    case "Cone(Clone)":
+                        audioManagerInstance.PlaySound("HitCone");
+                        break;
+                    case "Barricade(Clone)":
+                        audioManagerInstance.PlaySound("HitBarrier");
+                        break;
+                    case "CrashBox(Clone)":
+                        audioManagerInstance.PlaySound("HitCrashBox");
+                        break;
+                    case "StopSignal(Clone)":
+                        audioManagerInstance.PlaySound("HitSign");
+                        break;
+                    default:
+                        Debug.LogWarning("The obstacle " + other.gameObject.name + " have not assigned a sound when the car crash whith them");
+                        break;
+                }
             }
             animations.SetTrigger("Crash");
 #if UNITY_ANDROID
@@ -267,15 +290,14 @@ public class Car : MonoBehaviour {
         if (other.gameObject.tag == "LifePickUp")
         {
             other.gameObject.SetActive(false);
-            if (life < 3)
-            {
-                life++;
-            }
+            audioManagerInstance.PlaySound("TakeToolBox");
+            if (life < 3)            
+                life++;            
         }
         if (other.gameObject.tag == "Water")
         {
-            life = 0;
-            
+            audioManagerInstance.PlaySound("WaterSplash");
+            life = 0;            
         }
 
         if (other.gameObject.tag == "TutorialEnd")

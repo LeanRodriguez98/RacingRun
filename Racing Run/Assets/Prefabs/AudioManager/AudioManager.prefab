@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1315810110505302}
+  m_IsPrefabAsset: 1
+--- !u!1 &1315810110505302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4033265899561490}
+  - component: {fileID: 114081924814984000}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4033265899561490
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315810110505302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 301.39462, y: 228.47221, z: -1.114583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114081924814984000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315810110505302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b778720a13f856e45a8674e942593972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TakeNut1
+    clip: {fileID: 8300000, guid: b723488a08248694daaf1fa1a19db2da, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: TakeNut2
+    clip: {fileID: 8300000, guid: 0265436ffca23874e90619625e85cfc7, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: TakeNut3
+    clip: {fileID: 8300000, guid: 7cc143437a19a0643b7340990589d33f, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: TakeToolBox
+    clip: {fileID: 8300000, guid: 46b0034e5040b6845b7c7dc40ea9c95f, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: WaterSplash
+    clip: {fileID: 8300000, guid: 78608ed774a256240bbc61dbed1341c1, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: PushButton
+    clip: {fileID: 8300000, guid: 7bc964d0ccc2187488b29054ceac70bb, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: OpenStore
+    clip: {fileID: 8300000, guid: 0f7d2b92bd1c5c44b8bdb06c2033e029, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: CloseStore
+    clip: {fileID: 8300000, guid: 7bfe524165d12294ca50e5d0af4a5f8a, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: ApplyColor
+    clip: {fileID: 8300000, guid: 7dca7975bf89d3945aebf91471e34fb4, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: MotorIdle
+    clip: {fileID: 8300000, guid: 4631201bf22ce0d4388c9a482c594102, type: 3}
+    loop: 1
+    volume: 2
+    source: {fileID: 0}
+  - name: HitBarrier
+    clip: {fileID: 8300000, guid: 834eb217279c8b64ba7a2455146ef615, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: HitCone
+    clip: {fileID: 8300000, guid: 62e3c658d1481e0409b072563135e605, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: HitCrashBox
+    clip: {fileID: 8300000, guid: e14a4c42e35329d4fa9db8a93126e6fe, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}
+  - name: HitSign
+    clip: {fileID: 8300000, guid: 33edf1a53941fc6448910f458f1fa7b1, type: 3}
+    loop: 0
+    volume: 2
+    source: {fileID: 0}

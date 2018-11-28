@@ -904,6 +904,58 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402927953}
   m_CullTransparentMesh: 0
+--- !u!1001 &421127239
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 301.39462
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 228.47221
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.114583
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114081924814984000, guid: 242e9b49761d1c9418e66d872ae4e9b1,
+        type: 2}
+      propertyPath: sounds.Array.data[3].volume
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114081924814984000, guid: 242e9b49761d1c9418e66d872ae4e9b1,
+        type: 2}
+      propertyPath: sounds.Array.data[9].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &679418690
 GameObject:
   m_ObjectHideFlags: 0
