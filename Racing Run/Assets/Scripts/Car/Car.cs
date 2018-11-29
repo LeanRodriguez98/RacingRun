@@ -182,7 +182,6 @@ public class Car : MonoBehaviour {
         if (life <= 0)
         {
             gameSaveManagerInstance.SaveGame(soPlayerStats);
-            audioManagerInstance.StopSound("MotorIdle");
 
             gameObject.SetActive(false);
              
@@ -306,5 +305,13 @@ public class Car : MonoBehaviour {
         }
     }
 
-    
+    private void OnDisable()
+    {
+            audioManagerInstance.StopSound("MotorIdle");
+
+    }
+
+
 } 
+
+
