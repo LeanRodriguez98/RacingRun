@@ -35,7 +35,7 @@ public class AudioManager : MonoBehaviour {
             return;
         }
         s.source.Play();
-    }
+    } 
 
     public void StopSound(string name)
     {
