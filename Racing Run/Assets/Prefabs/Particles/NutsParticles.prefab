@@ -48,7 +48,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1562598009599362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fa5311cc6645374e9554d7b10a09ae1, type: 3}
   m_Name: 
@@ -56,8 +56,11 @@ MonoBehaviour:
   particleSpeed: 1000
   timeToGoToPosition: 0.5
   lerpTime: 5
+  lerpRandom: 2
   distanceIntensifier: 0.5
   distanceToDestroy: 1
+  lefpMultiply: 25
+  soundTimer: 3
 --- !u!198 &198219649704036762
 ParticleSystem:
   m_ObjectHideFlags: 1
