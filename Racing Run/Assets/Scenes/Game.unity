@@ -4052,6 +4052,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 845492531}
   m_CullTransparentMesh: 0
+--- !u!1001 &877937442
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &940466183
 Prefab:
   m_ObjectHideFlags: 0
@@ -4335,153 +4377,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1004088423}
   m_CullTransparentMesh: 0
---- !u!1001 &1008549138
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: nutsSounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -3.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4301977783247412, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: motorIdleSound.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4631201bf22ce0d4388c9a482c594102, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: motorIdleSound.Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: nutsSounds.Array.data[0].Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: nutsSounds.Array.data[1].Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: nutsSounds.Array.data[2].Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: nutsSounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b723488a08248694daaf1fa1a19db2da, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: nutsSounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0265436ffca23874e90619625e85cfc7, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: nutsSounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7cc143437a19a0643b7340990589d33f, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: HitConeSound.Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: HitConeSound.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 62e3c658d1481e0409b072563135e605, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: HitBarrierSound.Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: HitBarrierSound.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 834eb217279c8b64ba7a2455146ef615, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: HitCrashBoxSound.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e14a4c42e35329d4fa9db8a93126e6fe, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: HitCrashBoxSound.Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: HitStopSignalSound.Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: HitStopSignalSound.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 33edf1a53941fc6448910f458f1fa7b1, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: TakeToolBoxSound.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 46b0034e5040b6845b7c7dc40ea9c95f, type: 3}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: TakeToolBoxSound.Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: WaterSplashSound.Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
-        type: 2}
-      propertyPath: WaterSplashSound.clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 78608ed774a256240bbc61dbed1341c1, type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1048189440
 GameObject:
   m_ObjectHideFlags: 0
@@ -5612,7 +5507,7 @@ CanvasRenderer:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114072844750212038, guid: 754e51b8b10f5284082623917133c7d7,
     type: 2}
-  m_PrefabInternal: {fileID: 1008549138}
+  m_PrefabInternal: {fileID: 877937442}
   m_Script: {fileID: 11500000, guid: 5a49b7868b4c7e24da53ae2c4eb756c6, type: 3}
 --- !u!1001 &1328520456
 Prefab:

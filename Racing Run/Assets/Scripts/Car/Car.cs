@@ -321,7 +321,8 @@ public class Car : MonoBehaviour {
 
     private void OnDisable()
     {
-        audioManagerInstance.StopLoopSound();
+        if(audioManagerInstance != null)
+            audioManagerInstance.StopLoopSound();
     }
 
 } 
