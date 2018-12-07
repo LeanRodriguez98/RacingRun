@@ -5,13 +5,25 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour {
 
-    public GameObject itemUIPrefab;       
-    public SO_ItemTexture[] itemData;
-    public Text nutsText;
-    public SO_PlayerStats soNuts;
-    public GameObject ShopItemsCanvas;
-    private int nutsDisplayed;
     private GameSaveManager gameSaveManagerInstance;
+    private int nutsDisplayed;
+
+    [Header("ItemPrefab")]
+    [Space(10)]
+    public GameObject itemUIPrefab;
+    [Header("ItemsData")]
+    [Space(10)]
+    public SO_ItemTexture[] itemData;
+    [Header("ShopItemsCanvas")]
+    [Space(10)]
+    public GameObject ShopItemsCanvas;
+    [Header("NutsText")]
+    [Space(10)]
+    public Text nutsText;
+    [Header("PlayerStats")]
+    [Space(10)]
+    public SO_PlayerStats soPlayerStats;
+
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateText;
@@ -42,7 +54,7 @@ public class Shop : MonoBehaviour {
 
     public void UpdateText()
     {
-        gameSaveManagerInstance.LoadGame(soNuts);
-        nutsText.text = soNuts.nuts.ToString();
+        gameSaveManagerInstance.LoadGame(soPlayerStats);
+        nutsText.text = soPlayerStats.nuts.ToString();
     }
 }

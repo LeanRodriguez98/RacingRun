@@ -720,9 +720,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 102c6ffc83912764b9cdf8a052e1c26d, type: 2}
   - {fileID: 11400000, guid: d423b9f19a65ff94faf6eb6af861cc3a, type: 2}
   - {fileID: 11400000, guid: d18e222e9cea24a419d5bfc52ef537dc, type: 2}
-  nutsText: {fileID: 1634607220}
-  soNuts: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
   ShopItemsCanvas: {fileID: 1355490595}
+  nutsText: {fileID: 1634607220}
+  soPlayerStats: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
 --- !u!114 &362294015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,16 +942,6 @@ Prefab:
     - target: {fileID: 4033265899561490, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114081924814984000, guid: 242e9b49761d1c9418e66d872ae4e9b1,
-        type: 2}
-      propertyPath: sounds.Array.data[3].volume
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114081924814984000, guid: 242e9b49761d1c9418e66d872ae4e9b1,
-        type: 2}
-      propertyPath: sounds.Array.data[9].volume
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 242e9b49761d1c9418e66d872ae4e9b1, type: 2}
@@ -2840,13 +2830,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855697982f654644c9c95d9a7970ff04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopAnimator: {fileID: 362294017}
   shopPanel: {fileID: 362294012}
+  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
+  shopAnimator: {fileID: 362294017}
+  animations: {fileID: 142349855}
   volumeOn: {fileID: 21300000, guid: 9512dc9ef3aba594caad3e700b86e60f, type: 3}
   volumeOff: {fileID: 21300000, guid: 4db255c0440877f46a2a98e8d26f05ae, type: 3}
   volumeButon: {fileID: 985749759}
-  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
-  animations: {fileID: 142349855}
+  OpenStoreSound:
+    Volume: 1
+    clip: {fileID: 8300000, guid: 0f7d2b92bd1c5c44b8bdb06c2033e029, type: 3}
+  CloseStoreSound:
+    Volume: 1
+    clip: {fileID: 8300000, guid: 7bfe524165d12294ca50e5d0af4a5f8a, type: 3}
+  PushButtonSound:
+    Volume: 1
+    clip: {fileID: 8300000, guid: 7bc964d0ccc2187488b29054ceac70bb, type: 3}
 --- !u!1 &1946073486
 GameObject:
   m_ObjectHideFlags: 0

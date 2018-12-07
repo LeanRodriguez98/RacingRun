@@ -16,7 +16,12 @@ public class ShopUITextureItem : MonoBehaviour {
     private GameSaveManager gameSaveManagerInstance;
     public GameObject areYouSurePrefab;
     public UI_AreYouSure areYouSureScript;
+
+
+    [Header("AudioClips")]
+    [Space(10)]
     private AudioManager audioManagerInstance;
+    public AudioManager.Clip ApplyColorSound;
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateStoreItems;
@@ -96,7 +101,7 @@ public class ShopUITextureItem : MonoBehaviour {
     public void EquipItem()
     {
         soPlayerStats.materialName = soItemTextue.materialName;
-        audioManagerInstance.PlaySound("ApplyColor");
+        audioManagerInstance.PlaySoundTrigger(ApplyColorSound.clip, ApplyColorSound.Volume);
     }
 
     public void SetItemTextureSO(SO_ItemTexture other)

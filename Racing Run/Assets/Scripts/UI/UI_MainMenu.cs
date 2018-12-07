@@ -5,20 +5,30 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI_MainMenu : MonoBehaviour {
+    private GameSaveManager gameSaveManagerInstance;
+    private AudioManager audioManagerInstance;
 
-    public Animator shopAnimator;
+    [Header("ShopPanel")]
+    [Space(10)]
     public GameObject shopPanel;
-
+    [Header("Tutorial")]
+    [Space(10)]
+    public SO_DoTutorial soDoTutorial;
+    [Header("Animations")]
+    [Space(10)]
+    public Animator shopAnimator;
+    public Animator animations;
+    [Header("VolumeButton")]
+    [Space(10)]
     public Sprite volumeOn;
     public Sprite volumeOff;
     public Button volumeButon;
+    [Header("AudioClips")]
+    [Space(10)]
+    public AudioManager.Clip OpenStoreSound;
+    public AudioManager.Clip CloseStoreSound;
+    public AudioManager.Clip PushButtonSound;
 
-    public SO_DoTutorial soDoTutorial;
-
-    public Animator animations;
-
-    private GameSaveManager gameSaveManagerInstance;
-    private AudioManager audioManagerInstance;
     private void Start()
     {
         if(gameSaveManagerInstance == null)
@@ -31,14 +41,14 @@ public class UI_MainMenu : MonoBehaviour {
     {
         shopPanel.SetActive(true);
         shopAnimator.SetTrigger("StoreOpen");
-        audioManagerInstance.PlaySound("OpenStore");
+        audioManagerInstance.PlaySoundTrigger(OpenStoreSound.clip, OpenStoreSound.Volume);
     }
 
     public void CloseShop()
     {
         shopAnimator.SetTrigger("StoreClose");
         Invoke("TurnOffPanel", 3.0f);
-        audioManagerInstance.PlaySound("CloseStore");
+        audioManagerInstance.PlaySoundTrigger(CloseStoreSound.clip, CloseStoreSound.Volume);
 
     }
 
@@ -50,7 +60,7 @@ public class UI_MainMenu : MonoBehaviour {
     public void TriggerButton()
     {
         animations.SetTrigger("trigger");
-        audioManagerInstance.PlaySound("PushButton");
+        audioManagerInstance.PlaySoundTrigger(PushButtonSound.clip, PushButtonSound.Volume);
     }
 
     public void Exit()

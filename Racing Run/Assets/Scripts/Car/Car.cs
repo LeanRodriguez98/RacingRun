@@ -33,7 +33,19 @@ public class Car : MonoBehaviour {
     private float auxFlickingTime;
     public TrailRenderer[] skildMarks;
     private Vector3 accelerationInput;
+
+
     private AudioManager audioManagerInstance;
+    [Header("AudioClips")]
+    [Space(10)]
+    public AudioManager.Clip motorIdleSound;
+    public AudioManager.Clip[] nutsSounds;
+    public AudioManager.Clip HitConeSound;
+    public AudioManager.Clip HitBarrierSound;
+    public AudioManager.Clip HitCrashBoxSound;
+    public AudioManager.Clip HitStopSignalSound;
+    public AudioManager.Clip TakeToolBoxSound;
+    public AudioManager.Clip WaterSplashSound;
     private void Awake()
     {
         instance = this;
@@ -44,7 +56,7 @@ public class Car : MonoBehaviour {
         gameSaveManagerInstance.LoadGame(soPlayerStats);
         objectPoolerInstance = ObjectPooler.instance;
         audioManagerInstance = AudioManager.instance;
-        audioManagerInstance.PlaySound("MotorIdle");
+        audioManagerInstance.PlayLoopSound(motorIdleSound.clip, motorIdleSound.Volume);
         metersTraveled = 0;
         rb = GetComponent<Rigidbody>();
         for (int i = 0; i < meshParts.Length; i++)
@@ -251,7 +263,8 @@ public class Car : MonoBehaviour {
         }
         if (other.gameObject.tag == "Nut")
         {
-            audioManagerInstance.PlaySound("TakeNut" + Random.Range(1,4).ToString());
+            int index = Random.Range(0, nutsSounds.Length);
+            audioManagerInstance.PlaySoundTrigger(nutsSounds[index].clip, nutsSounds[index].Volume);
             other.gameObject.SetActive(false);
             nuts++;
             soPlayerStats.nuts++;
@@ -265,16 +278,16 @@ public class Car : MonoBehaviour {
                 switch (other.gameObject.name)
                 {
                     case "Cone(Clone)":
-                        audioManagerInstance.PlaySound("HitCone");
+                        audioManagerInstance.PlaySoundTrigger(HitConeSound.clip, HitConeSound.Volume);
                         break;
                     case "Barricade(Clone)":
-                        audioManagerInstance.PlaySound("HitBarrier");
+                        audioManagerInstance.PlaySoundTrigger(HitBarrierSound.clip,HitBarrierSound.Volume);
                         break;
                     case "CrashBox(Clone)":
-                        audioManagerInstance.PlaySound("HitCrashBox");
+                        audioManagerInstance.PlaySoundTrigger(HitCrashBoxSound.clip,HitCrashBoxSound.Volume);
                         break;
                     case "StopSignal(Clone)":
-                        audioManagerInstance.PlaySound("HitSign");
+                        audioManagerInstance.PlaySoundTrigger(HitStopSignalSound.clip,HitStopSignalSound.Volume);
                         break;
                     default:
                         Debug.LogWarning("The obstacle " + other.gameObject.name + " have not assigned a sound when the car crash whith them");
@@ -289,13 +302,13 @@ public class Car : MonoBehaviour {
         if (other.gameObject.tag == "LifePickUp")
         {
             other.gameObject.SetActive(false);
-            audioManagerInstance.PlaySound("TakeToolBox");
+            audioManagerInstance.PlaySoundTrigger(TakeToolBoxSound.clip, TakeToolBoxSound.Volume);
             if (life < 3)            
                 life++;            
         }
         if (other.gameObject.tag == "Water")
         {
-            audioManagerInstance.PlaySound("WaterSplash");
+            audioManagerInstance.PlaySoundTrigger(WaterSplashSound.clip, WaterSplashSound.Volume);
             life = 0;            
         }
 
@@ -305,12 +318,11 @@ public class Car : MonoBehaviour {
         }
     }
 
+
     private void OnDisable()
     {
-            audioManagerInstance.StopSound("MotorIdle");
-
+        audioManagerInstance.StopLoopSound();
     }
-
 
 } 
 

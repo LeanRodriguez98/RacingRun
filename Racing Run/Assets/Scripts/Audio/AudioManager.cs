@@ -2,49 +2,72 @@
 using UnityEngine.Audio;
 using System;
 
-public class AudioManager : MonoBehaviour {
-    public Sound[] sounds;
+public class AudioManager : MonoBehaviour
+{
     public static AudioManager instance;
+    [Range(0.0f,1.0f)]
+    public float musicVolume;
+    [Range(0.0f, 1.0f)]
+    public float SoundsVolume;
+    private AudioSource music;
+    private AudioSource loopSound;
+    private AudioSource triggerSound;
+
+    [System.Serializable]
+    public struct Clip
+    {
+        [Range(0.0f, 1.0f)]
+        public float Volume;
+        public AudioClip clip;
+    };
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        foreach (Sound sound in sounds)
-        {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
-            sound.source.loop = sound.loop;
-        }
+ 
+        music = gameObject.AddComponent<AudioSource>();
+        loopSound = gameObject.AddComponent<AudioSource>();
+        triggerSound = gameObject.AddComponent<AudioSource>();
+
     }
 
-    public void PlaySound(string name)
+    public void PlaySoundTrigger(AudioClip a, float volume)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.LogError("Sound " + name + "dosen't exist");
-            return;
-        }
-        s.source.Play();
-    } 
-
-    public void StopSound(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.LogWarning("The sound " + name + " does not exist");
-            return;
-        }
-        s.source.Stop();
+        triggerSound.PlayOneShot(a, volume * SoundsVolume);
     }
+
+    public void PlayLoopSound(AudioClip a, float volume)
+    {
+        if (loopSound.isPlaying)
+            loopSound.Stop();
+        loopSound.volume = volume * SoundsVolume;
+        loopSound.clip = a;
+        loopSound.loop = true;
+        loopSound.Play();
+    }
+
+
+    public void StopLoopSound()
+    {
+        loopSound.Stop();
+    }
+
+    public void PlayMusic(AudioClip a, float volume)
+    {
+        if (music.isPlaying)
+            music.Stop();
+        music.volume = volume * musicVolume;
+        music.clip = a;
+        music.loop = true;
+        music.Play();
+    }
+
+    public void StopMusic()
+    {
+        music.Stop();
+    }
+
 }
