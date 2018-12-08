@@ -38,7 +38,13 @@ public class Car : MonoBehaviour {
     private AudioManager audioManagerInstance;
     [Header("AudioClips")]
     [Space(10)]
-    public AudioManager.Clip motorIdleSound;
+    public AudioManager.Clip engineStart;
+    public AudioManager.Clip engineAcceleration;
+    public AudioManager.Clip engineOnTurn;
+    public AudioManager.Clip engineOnAir;
+    public AudioManager.Clip engineSlowdown;
+    public AudioManager.Clip engineTopSpeed;
+    [Space(5)]
     public AudioManager.Clip[] nutsSounds;
     public AudioManager.Clip HitConeSound;
     public AudioManager.Clip HitBarrierSound;
@@ -51,13 +57,35 @@ public class Car : MonoBehaviour {
         instance = this;
     }
 
+    public void PlayEngineTopSpeedSound()
+    {
+        audioManagerInstance.PlayLoopSound(engineTopSpeed.clip, engineTopSpeed.Volume);
+    }
+
+    public void PlayEngineSlowdownSound()
+    {
+        audioManagerInstance.StopLoopSound();
+        audioManagerInstance.PlayTriggerSound(engineTopSpeed.clip, engineTopSpeed.Volume);
+        this.Invoke("PlayTriggerSound", engineAcceleration, engineTopSpeed.clip.length);
+    }
+
+    public void PlayTriggerSound(AudioManager.Clip audioClip)
+    {
+        audioManagerInstance.StopLoopSound();
+        audioManagerInstance.PlayTriggerSound(audioClip.clip, audioClip.Volume);
+        Invoke("PlayEngineTopSpeedSound", audioClip.clip.length);
+    }
+
+  
+
     void Start () {
         gameSaveManagerInstance = GameSaveManager.instance;
         gameSaveManagerInstance.LoadGame(soPlayerStats);
         objectPoolerInstance = ObjectPooler.instance;
         audioManagerInstance = AudioManager.instance;
-        audioManagerInstance.PlayLoopSound(motorIdleSound.clip, motorIdleSound.Volume);
         metersTraveled = 0;
+        audioManagerInstance.PlayTriggerSound(engineStart.clip, engineStart.Volume);
+        Invoke("PlayEngineTopSpeedSound", engineStart.clip.length);
         rb = GetComponent<Rigidbody>();
         for (int i = 0; i < meshParts.Length; i++)
         {
@@ -173,7 +201,8 @@ public class Car : MonoBehaviour {
 
             CheckLife();
             if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
+                Jump();
+
             if (jumpChargeTime <= auxJumpChargeTime)
             {
                 jumpChargeTime += Time.deltaTime;
@@ -208,7 +237,7 @@ public class Car : MonoBehaviour {
             rb.AddForce(Vector3.up * jumpForce);
             jumpChargeTime = 0;
             animations.SetTrigger("Jump");
-
+            PlayTriggerSound(engineOnAir);
         }
     }
 
@@ -250,6 +279,7 @@ public class Car : MonoBehaviour {
             {
                 skildMarks[i].emitting = true;
             }
+            PlayTriggerSound(engineOnTurn);
         }
         if (other.gameObject.tag == "LeftArrow")
         {
@@ -260,11 +290,13 @@ public class Car : MonoBehaviour {
             {
                 skildMarks[i].emitting = true;
             }
+            PlayTriggerSound(engineOnTurn);
+
         }
         if (other.gameObject.tag == "Nut")
         {
             int index = Random.Range(0, nutsSounds.Length);
-            audioManagerInstance.PlaySoundTrigger(nutsSounds[index].clip, nutsSounds[index].Volume);
+            audioManagerInstance.PlayTriggerSound(nutsSounds[index].clip, nutsSounds[index].Volume);
             other.gameObject.SetActive(false);
             nuts++;
             soPlayerStats.nuts++;
@@ -275,19 +307,20 @@ public class Car : MonoBehaviour {
             {
                 life--;
                 flickingTime = 0;
+                PlayEngineSlowdownSound();
                 switch (other.gameObject.name)
                 {
                     case "Cone(Clone)":
-                        audioManagerInstance.PlaySoundTrigger(HitConeSound.clip, HitConeSound.Volume);
+                        audioManagerInstance.PlayTriggerSound(HitConeSound.clip, HitConeSound.Volume);
                         break;
                     case "Barricade(Clone)":
-                        audioManagerInstance.PlaySoundTrigger(HitBarrierSound.clip,HitBarrierSound.Volume);
+                        audioManagerInstance.PlayTriggerSound(HitBarrierSound.clip,HitBarrierSound.Volume);
                         break;
                     case "CrashBox(Clone)":
-                        audioManagerInstance.PlaySoundTrigger(HitCrashBoxSound.clip,HitCrashBoxSound.Volume);
+                        audioManagerInstance.PlayTriggerSound(HitCrashBoxSound.clip,HitCrashBoxSound.Volume);
                         break;
                     case "StopSignal(Clone)":
-                        audioManagerInstance.PlaySoundTrigger(HitStopSignalSound.clip,HitStopSignalSound.Volume);
+                        audioManagerInstance.PlayTriggerSound(HitStopSignalSound.clip,HitStopSignalSound.Volume);
                         break;
                     default:
                         Debug.LogWarning("The obstacle " + other.gameObject.name + " have not assigned a sound when the car crash whith them");
@@ -302,13 +335,13 @@ public class Car : MonoBehaviour {
         if (other.gameObject.tag == "LifePickUp")
         {
             other.gameObject.SetActive(false);
-            audioManagerInstance.PlaySoundTrigger(TakeToolBoxSound.clip, TakeToolBoxSound.Volume);
+            audioManagerInstance.PlayTriggerSound(TakeToolBoxSound.clip, TakeToolBoxSound.Volume);
             if (life < 3)            
                 life++;            
         }
         if (other.gameObject.tag == "Water")
         {
-            audioManagerInstance.PlaySoundTrigger(WaterSplashSound.clip, WaterSplashSound.Volume);
+            audioManagerInstance.PlayTriggerSound(WaterSplashSound.clip, WaterSplashSound.Volume);
             life = 0;            
         }
 
@@ -321,8 +354,11 @@ public class Car : MonoBehaviour {
 
     private void OnDisable()
     {
-        if(audioManagerInstance != null)
-            audioManagerInstance.StopLoopSound();
+        if (audioManagerInstance != null)
+        {
+            audioManagerInstance.SilenceSounds();
+            CancelInvoke();
+        }
     }
 
 } 

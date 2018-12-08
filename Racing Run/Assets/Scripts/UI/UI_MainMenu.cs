@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class UI_MainMenu : MonoBehaviour {
     private GameSaveManager gameSaveManagerInstance;
     private AudioManager audioManagerInstance;
-
-    [Header("ShopPanel")]
+    private Color fadePanelColor;
+    [Header("Panels")]
     [Space(10)]
     public GameObject shopPanel;
+    public Image fadePanel;
     [Header("Tutorial")]
     [Space(10)]
     public SO_DoTutorial soDoTutorial;
@@ -28,27 +29,52 @@ public class UI_MainMenu : MonoBehaviour {
     public AudioManager.Clip OpenStoreSound;
     public AudioManager.Clip CloseStoreSound;
     public AudioManager.Clip PushButtonSound;
-
+    public AudioManager.Clip MusicMenuIntro;
+    public AudioManager.Clip MusicMenuLoop;
+    private float lerpStart;
     private void Start()
     {
         if(gameSaveManagerInstance == null)
            gameSaveManagerInstance = GameSaveManager.instance;
         if(audioManagerInstance == null)        
            audioManagerInstance = AudioManager.instance;
+        fadePanelColor.r = fadePanelColor.g = fadePanelColor.b = 0;
+         fadePanelColor.a = 1;
+        lerpStart = Time.time;
+        audioManagerInstance.PlayTriggerSound(MusicMenuIntro.clip,MusicMenuIntro.Volume);
+        Invoke("PlayLoopMusic", MusicMenuIntro.clip.length - 0.3f);
     }
 
+    private void Update()
+    {
+        if (fadePanel.gameObject.activeSelf)
+        {
+            float progress = Time.time - lerpStart;
+            fadePanelColor.a = Mathf.Lerp(1, 0, progress / MusicMenuIntro.clip.length);
+            fadePanel.color = fadePanelColor;
+            if (fadePanelColor.a <= 0)
+            {
+                fadePanel.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void PlayLoopMusic()
+    {
+        audioManagerInstance.PlayTriggerSound(MusicMenuLoop.clip, MusicMenuLoop.Volume);
+    }
     public void OpenShop()
     {
         shopPanel.SetActive(true);
         shopAnimator.SetTrigger("StoreOpen");
-        audioManagerInstance.PlaySoundTrigger(OpenStoreSound.clip, OpenStoreSound.Volume);
+        audioManagerInstance.PlayTriggerSound(OpenStoreSound.clip, OpenStoreSound.Volume);
     }
 
     public void CloseShop()
     {
         shopAnimator.SetTrigger("StoreClose");
         Invoke("TurnOffPanel", 3.0f);
-        audioManagerInstance.PlaySoundTrigger(CloseStoreSound.clip, CloseStoreSound.Volume);
+        audioManagerInstance.PlayTriggerSound(CloseStoreSound.clip, CloseStoreSound.Volume);
 
     }
 
@@ -60,7 +86,7 @@ public class UI_MainMenu : MonoBehaviour {
     public void TriggerButton()
     {
         animations.SetTrigger("trigger");
-        audioManagerInstance.PlaySoundTrigger(PushButtonSound.clip, PushButtonSound.Volume);
+        audioManagerInstance.PlayTriggerSound(PushButtonSound.clip, PushButtonSound.Volume);
     }
 
     public void Exit()

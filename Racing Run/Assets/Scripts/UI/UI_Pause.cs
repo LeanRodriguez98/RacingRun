@@ -27,6 +27,11 @@ public class UI_Pause : MonoBehaviour {
         }
     }
 
+    private void OnApplicationPause(bool pause)
+    {
+        //Pause();
+    }
+
     public void Pause()
     {
         if (Time.timeScale != 0)

@@ -965,9 +965,24 @@ MonoBehaviour:
   skildMarks:
   - {fileID: 96245138409033042}
   - {fileID: 96137717600454058}
-  motorIdleSound:
-    Volume: 1
-    clip: {fileID: 8300000, guid: 4631201bf22ce0d4388c9a482c594102, type: 3}
+  engineStart:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: 1d56262ac2b4f3f408e47a5cff683eab, type: 3}
+  engineAcceleration:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: 9bdbcdc88b04514498d85a195fa687b1, type: 3}
+  engineOnTurn:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: cbdf2500dd241e64f90fed92cd74dbcf, type: 3}
+  engineOnAir:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: a41a96650ab908e47b50d17c1b6b2cc6, type: 3}
+  engineSlowdown:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: d664d001cf1cde4448f1a8edc905dfb5, type: 3}
+  engineTopSpeed:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: 7230d2318e5d6cf4ba6a87fb4afb9ceb, type: 3}
   nutsSounds:
   - Volume: 1
     clip: {fileID: 8300000, guid: b723488a08248694daaf1fa1a19db2da, type: 3}

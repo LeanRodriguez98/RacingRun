@@ -31,6 +31,14 @@ public class LevelManager : MonoBehaviour {
     public GameObject FirstGameBridge;
     public GameObject FirstTutorialBridge;
 
+    private AudioManager audioManagerInstance;
+    [Header("AudioClips")]
+    [Space(10)]
+    public AudioManager.Clip numberSound;
+    public AudioManager.Clip goSound;
+    public float timeBetweenSounds;
+    private int startAnimationSteps = 3;
+
     private void Awake()
     {
         instance = this; 
@@ -44,7 +52,8 @@ public class LevelManager : MonoBehaviour {
         Application.targetFrameRate = 60;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         carInstance = Car.instance;
-
+        audioManagerInstance = AudioManager.instance;
+        Play321GoSound(numberSound);
         if (soDoTutorial.doTutorial)
         {
             FirstGameBridge.SetActive(false);
@@ -57,8 +66,18 @@ public class LevelManager : MonoBehaviour {
             FirstTutorialBridge.SetActive(false);
         }
     }
-	
-	void Update ()
+    
+    public void Play321GoSound(AudioManager.Clip audioClip)
+    {
+        audioManagerInstance.PlayTriggerSound(audioClip.clip, audioClip.Volume);
+        startAnimationSteps--;
+        if (startAnimationSteps > 0)
+            this.Invoke("Play321GoSound", numberSound, timeBetweenSounds);
+        else if (startAnimationSteps == 0)
+            this.Invoke("Play321GoSound", goSound, timeBetweenSounds);
+    }
+
+    void Update ()
     {
         for (int i = 0; i < spawnEntitiePatern.Length; i++)
         {
@@ -99,7 +118,6 @@ public class LevelManager : MonoBehaviour {
     public void SpawnTutorialBridge()
     {
         objectPoolerInstance.SpawnForPool(bridgesOfTutorial[tutorialStep].gameObject.name, bridgesInstanciePosition, Quaternion.Euler(bridgesInstancieRotation));
-        Debug.Log("Tuto");
         tutorialStep++;
     }
 

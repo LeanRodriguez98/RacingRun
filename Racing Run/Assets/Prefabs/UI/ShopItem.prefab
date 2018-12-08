@@ -374,8 +374,14 @@ MonoBehaviour:
   boughedBackground: {fileID: 2800000, guid: 4dad72404d53cd1489a8a8988d15d9ed, type: 3}
   notBoughedBackground: {fileID: 2800000, guid: 55c0892b37fe6b74ca1001eca574080b,
     type: 3}
-  areYouSurePanel: {fileID: 114092234036512434, guid: 727dd54f81cb1b447a9ec1836688c47c,
-    type: 2}
+  areYouSurePrefab: {fileID: 0}
+  areYouSureScript: {fileID: 0}
+  BuyColorSound:
+    Volume: 1
+    clip: {fileID: 8300000, guid: 4459371e992005342a6d4bfb9a02fa5b, type: 3}
+  ApplyColorSound:
+    Volume: 1
+    clip: {fileID: 8300000, guid: bf068fbfc82933e49b5e59cec44d8e18, type: 3}
 --- !u!222 &222462862008159440
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -14,14 +14,15 @@ public class ShopUITextureItem : MonoBehaviour {
     public Texture boughedBackground;
     public Texture notBoughedBackground;
     private GameSaveManager gameSaveManagerInstance;
-    public GameObject areYouSurePrefab;
-    public UI_AreYouSure areYouSureScript;
+    [HideInInspector] public GameObject areYouSurePrefab;
+    [HideInInspector] public UI_AreYouSure areYouSureScript;
 
-
+    private AudioManager audioManagerInstance;
     [Header("AudioClips")]
     [Space(10)]
-    private AudioManager audioManagerInstance;
+    public AudioManager.Clip BuyColorSound;
     public AudioManager.Clip ApplyColorSound;
+
     private void Awake()
     {
         UI_Events.onStoreButtonPressed += UpdateStoreItems;
@@ -92,16 +93,20 @@ public class ShopUITextureItem : MonoBehaviour {
         }
         else
         {
-            TryEquip();    
+            TryEquip(false);    
             UpdateData();
         }
 
     }
 
-    public void EquipItem()
+    public void EquipItem(bool newItem)
     {
         soPlayerStats.materialName = soItemTextue.materialName;
-        audioManagerInstance.PlaySoundTrigger(ApplyColorSound.clip, ApplyColorSound.Volume);
+        if (newItem)
+            audioManagerInstance.PlayTriggerSound(BuyColorSound.clip, BuyColorSound.Volume);
+        else
+            audioManagerInstance.PlayTriggerSound(ApplyColorSound.clip, ApplyColorSound.Volume);
+
     }
 
     public void SetItemTextureSO(SO_ItemTexture other)
@@ -117,15 +122,15 @@ public class ShopUITextureItem : MonoBehaviour {
 
         soItemTextue.boughted = true;
         soPlayerStats.nuts -= soItemTextue.price;
-        TryEquip();
+        TryEquip(true);
         UpdateData();
     }
 
-    public void TryEquip()
+    public void TryEquip(bool newItem)
     {
         if (soItemTextue.boughted && Resources.Load<Material>(soItemTextue.materialName) != Resources.Load<Material>(soPlayerStats.materialName))
         {
-            EquipItem();
+            EquipItem(newItem);
         }
     }
 

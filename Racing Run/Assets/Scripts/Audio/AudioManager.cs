@@ -4,14 +4,6 @@ using System;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
-    [Range(0.0f,1.0f)]
-    public float musicVolume;
-    [Range(0.0f, 1.0f)]
-    public float SoundsVolume;
-    private AudioSource music;
-    private AudioSource loopSound;
-    private AudioSource triggerSound;
 
     [System.Serializable]
     public struct Clip
@@ -20,6 +12,20 @@ public class AudioManager : MonoBehaviour
         public float Volume;
         public AudioClip clip;
     };
+
+    public static AudioManager instance;
+    [Range(0.0f,1.0f)]
+    public float musicVolume;
+    [Range(0.0f, 1.0f)]
+    public float soundsVolume;
+
+    public float SoundModifyVelocity;
+
+    private AudioSource music;
+    private AudioSource loopSound;
+    private AudioSource triggerSound;
+
+    private bool silenceSounds = false;
 
     private void Awake()
     {
@@ -31,22 +37,29 @@ public class AudioManager : MonoBehaviour
         music = gameObject.AddComponent<AudioSource>();
         loopSound = gameObject.AddComponent<AudioSource>();
         triggerSound = gameObject.AddComponent<AudioSource>();
-
     }
 
-    public void PlaySoundTrigger(AudioClip a, float volume)
+
+
+    public void PlayTriggerSound(AudioClip a, float volume)
     {
-        triggerSound.PlayOneShot(a, volume * SoundsVolume);
+        triggerSound.PlayOneShot(a, volume * soundsVolume);
+    }
+
+    public void StopTriggerSounds()
+    {
+        triggerSound.Stop();
     }
 
     public void PlayLoopSound(AudioClip a, float volume)
     {
         if (loopSound.isPlaying)
             loopSound.Stop();
-        loopSound.volume = volume * SoundsVolume;
+        loopSound.volume = volume * soundsVolume;
         loopSound.clip = a;
         loopSound.loop = true;
         loopSound.Play();
+
     }
 
 
@@ -69,5 +82,17 @@ public class AudioManager : MonoBehaviour
     {
         music.Stop();
     }
+    public void SilenceSounds()
+    {
+        silenceSounds = true;
+    }
 
+    private void Update()
+    {
+        if (silenceSounds)
+        {
+            loopSound.volume -= Time.deltaTime / SoundModifyVelocity;
+            triggerSound.volume -= Time.deltaTime / SoundModifyVelocity;
+        }
+    }
 }

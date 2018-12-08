@@ -1468,6 +1468,13 @@ MonoBehaviour:
   soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
   FirstGameBridge: {fileID: 612191442}
   FirstTutorialBridge: {fileID: 1813873025}
+  numberSound:
+    Volume: 1
+    clip: {fileID: 8300000, guid: bba2a1590bb06af4fb46c38c674aca37, type: 3}
+  goSound:
+    Volume: 1
+    clip: {fileID: 8300000, guid: ad024320129d7334fb3f16895456bfe3, type: 3}
+  timeBetweenSounds: 1.1
 --- !u!4 &329562299
 Transform:
   m_ObjectHideFlags: 0
