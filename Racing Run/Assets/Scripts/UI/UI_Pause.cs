@@ -13,10 +13,12 @@ public class UI_Pause : MonoBehaviour {
     public GameObject PausePanel;
     public SO_PlayerStats soPlayerStats;
     private GameSaveManager gameSaveManagerInstance;
+    private AudioManager audioManagerInstance;
 
     private void Start()
     {
         gameSaveManagerInstance = GameSaveManager.instance;
+        audioManagerInstance = AudioManager.instance;
     }
 
     private void Update()
@@ -29,7 +31,10 @@ public class UI_Pause : MonoBehaviour {
 
     private void OnApplicationPause(bool pause)
     {
-        //Pause();
+        if (Time.timeSinceLevelLoad > 1)
+        {
+            Pause();
+        }
     }
 
     public void Pause()
@@ -38,11 +43,13 @@ public class UI_Pause : MonoBehaviour {
         {
             Time.timeScale = 0;
             PausePanel.SetActive(true);
+            audioManagerInstance.PauseTriggerSound();
         }
         else
         {
             Time.timeScale = 1;
             PausePanel.SetActive(false);
+            audioManagerInstance.UnPauseTriggerSound();
         }
 
     }

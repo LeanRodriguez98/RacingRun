@@ -46,6 +46,17 @@ public class AudioManager : MonoBehaviour
         triggerSound.PlayOneShot(a, volume * soundsVolume);
     }
 
+    public void PauseTriggerSound()
+    {
+        triggerSound.Pause();
+
+    }
+
+    public void UnPauseTriggerSound()
+    {
+        triggerSound.UnPause();
+    }
+
     public void StopTriggerSounds()
     {
         triggerSound.Stop();
