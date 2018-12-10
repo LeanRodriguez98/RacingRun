@@ -234,7 +234,7 @@ public class Car : MonoBehaviour {
     }
 
 
-    public bool Jump()
+    public void Jump()
     {
         if (jumpChargeTime > auxJumpChargeTime)
         {
@@ -242,9 +242,7 @@ public class Car : MonoBehaviour {
             jumpChargeTime = 0;
             animations.SetTrigger("Jump");
             PlayTriggerSound(engineOnAir);
-            return true;
         }
-        return false;
     }
 
     private void FixCarAngle()
