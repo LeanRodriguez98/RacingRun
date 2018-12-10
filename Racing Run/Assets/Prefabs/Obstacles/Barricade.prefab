@@ -170,6 +170,7 @@ MonoBehaviour:
   rotation: 0
   rotationSpeed: 0
   FallMultiplier: 2000
+  particles: {fileID: 0}
 --- !u!114 &114525461017429602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorCollider: {fileID: 1009838083643720}
-  expultionForce: 10000
+  expultionForce: 1500
   minRandomY: 0.2
   maxRandomY: 1
   resetTime: 5

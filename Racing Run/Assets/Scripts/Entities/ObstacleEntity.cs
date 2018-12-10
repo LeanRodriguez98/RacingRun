@@ -8,7 +8,7 @@ public class ObstacleEntity : MonoBehaviour {
     private BoxCollider[] bc;
     private Car carInstance;
     public GameObject floorCollider;
-    public float expultionForce = 10000;
+    public float expultionForce = 100;
     public float minRandomY = 0.2F;
     public float maxRandomY = 1.0F;
     public float resetTime = 5;
@@ -39,10 +39,11 @@ public class ObstacleEntity : MonoBehaviour {
         if (other.gameObject.tag == "Car")
         {
             rb.constraints = RigidbodyConstraints.None;
-            for (int i = 0; i < bc.Length; i++)            
-                bc[i].enabled = false;
-            
-            floorCollider.SetActive(false);
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            //for (int i = 0; i < bc.Length; i++)            
+            //   bc[i].enabled = false;
+
+            //floorCollider.SetActive(false);
             Vector3 direction = Vector3.zero;
             direction = transform.position - carInstance.transform.position;
 

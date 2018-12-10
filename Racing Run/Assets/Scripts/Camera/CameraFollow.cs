@@ -25,6 +25,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (carInstance != null)
         {
+          
             Vector3 wantedPosition;
             if (followBehind)
                 wantedPosition = target.TransformPoint(0, height, -distance);

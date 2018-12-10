@@ -124,7 +124,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463491814147360}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 6
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -170,6 +170,7 @@ MonoBehaviour:
   rotation: 0
   rotationSpeed: 0
   FallMultiplier: 2000
+  particles: {fileID: 0}
 --- !u!114 &114754993166181950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorCollider: {fileID: 1204266123445990}
-  expultionForce: 10000
+  expultionForce: 1500
   minRandomY: 0.2
   maxRandomY: 1
   resetTime: 5
