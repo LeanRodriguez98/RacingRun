@@ -33,7 +33,7 @@ public class Car : MonoBehaviour {
     private float auxFlickingTime;
     public TrailRenderer[] skildMarks;
     private Vector3 accelerationInput;
-
+    public CarLight[] lights;
 
     private AudioManager audioManagerInstance;
     [Header("AudioClips")]
@@ -346,7 +346,16 @@ public class Car : MonoBehaviour {
             other.gameObject.SetActive(false);
             audioManagerInstance.PlayTriggerSound(TakeToolBoxSound.clip, TakeToolBoxSound.Volume);
             if (life < 3)            
-                life++;            
+                life++;
+
+            for (int i = 0; i < lights.Length; i++)
+            {
+                if (lights[i].mesh.enabled == false)
+                {
+                    lights[i].Repair();
+                    break;
+                }
+            }
         }
         if (other.gameObject.tag == "Water")
         {
