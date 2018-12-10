@@ -25,6 +25,6 @@ public class CarLight : MonoBehaviour {
 
     public void Repair()
     {
-        mesh.enabled = false;
+        mesh.enabled = true;
     }
 }
