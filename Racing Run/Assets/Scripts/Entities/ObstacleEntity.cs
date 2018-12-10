@@ -9,6 +9,7 @@ public class ObstacleEntity : MonoBehaviour {
     private Car carInstance;
     public GameObject floorCollider;
     public float expultionForce = 100;
+    public float playerNitroExpultionForceMultipler = 3;
     public float minRandomY = 0.2F;
     public float maxRandomY = 1.0F;
     public float resetTime = 5;
@@ -40,17 +41,20 @@ public class ObstacleEntity : MonoBehaviour {
         {
             rb.constraints = RigidbodyConstraints.None;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
-            //for (int i = 0; i < bc.Length; i++)            
-            //   bc[i].enabled = false;
 
-            //floorCollider.SetActive(false);
             Vector3 direction = Vector3.zero;
             direction = transform.position - carInstance.transform.position;
 
+
+        
             direction.y += Random.Range(minRandomY, maxRandomY);
             direction.Normalize();
 
-            rb.AddForce(direction * expultionForce);
+            if (carInstance.nitro)
+                rb.AddForce(direction * (expultionForce * playerNitroExpultionForceMultipler));
+            else
+                rb.AddForce(direction * expultionForce);
+
             Invoke("RestartObject", resetTime);
         }
 

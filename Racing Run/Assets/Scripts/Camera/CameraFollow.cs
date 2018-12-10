@@ -4,6 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
 
     private Transform target;
+    private Camera thisCamera;
     public float distance;
     public float height;
     public float damping;
@@ -11,12 +12,14 @@ public class CameraFollow : MonoBehaviour
     public bool followBehind;
     public float rotationDamping;
     public Car carInstance;
-
+    public float FOVInCameraMultipler;
+    public float FOVOutCameraMultipler;
 
     private void Start()
     {
         carInstance = Car.instance;
         target = carInstance.transform;
+        thisCamera = GetComponent<Camera>();
     }
 
 
@@ -25,7 +28,15 @@ public class CameraFollow : MonoBehaviour
     {
         if (carInstance != null)
         {
-          
+            if (carInstance.nitro)
+            {
+                thisCamera.fieldOfView = Mathf.Lerp(thisCamera.fieldOfView, 90, FOVOutCameraMultipler *  Time.deltaTime);
+            }
+            else
+            {
+                thisCamera.fieldOfView = Mathf.Lerp(thisCamera.fieldOfView, 60, FOVInCameraMultipler * Time.deltaTime);
+            }
+
             Vector3 wantedPosition;
             if (followBehind)
                 wantedPosition = target.TransformPoint(0, height, -distance);

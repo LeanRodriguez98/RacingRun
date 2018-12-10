@@ -133,8 +133,10 @@ GameObject:
   - component: {fileID: 4854820522775652}
   - component: {fileID: 33667007514910228}
   - component: {fileID: 23083766267968778}
+  - component: {fileID: 65535366115460926}
+  - component: {fileID: 114491264901737106}
   m_Layer: 0
-  m_Name: LightRight (1)
+  m_Name: LightRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,8 +188,10 @@ GameObject:
   - component: {fileID: 4323454441931226}
   - component: {fileID: 33892407748951346}
   - component: {fileID: 23704811752566288}
+  - component: {fileID: 65226306060306588}
+  - component: {fileID: 114037131741382172}
   m_Layer: 0
-  m_Name: LightRight (2)
+  m_Name: LightLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,6 +798,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &65226306060306588
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783795273531120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!65 &65295826080507804
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -806,6 +822,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.39, z: 0.82}
   m_Center: {x: 0.17, y: 0, z: 0}
+--- !u!65 &65535366115460926
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541474924952864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!65 &65653171741839542
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1074,6 +1102,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrigger: 0
+--- !u!114 &114037131741382172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783795273531120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4118f70378377ad4daebcb49ecdd3eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
+  breakProbability: 40
 --- !u!114 &114072844750212038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1087,8 +1128,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 3
   speed: 0
+  nitro: 0
   maxSpeed: 15
+  nitroMaxSpeed: 25
   ascelerationMultipler: 2
+  nitroAscelerationMultipler: 3.5
+  maxNitroAcumulation: 150
+  nitroDesacumulationMultipler: 10
+  nitroAcumulationMultipler: 2
+  minNitroAcumulationToEnabled: 50
+  nitroAcumulation: 0
   states: 0
   bezierTurn: {fileID: 0}
   metersTraveled: 0
@@ -1111,6 +1160,9 @@ MonoBehaviour:
   skildMarks:
   - {fileID: 96245138409033042}
   - {fileID: 96137717600454058}
+  lights:
+  - {fileID: 114491264901737106}
+  - {fileID: 114037131741382172}
   engineStart:
     Volume: 0.2
     clip: {fileID: 8300000, guid: 1d56262ac2b4f3f408e47a5cff683eab, type: 3}
@@ -1166,6 +1218,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrigger: 0
+--- !u!114 &114491264901737106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541474924952864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4118f70378377ad4daebcb49ecdd3eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
+  breakProbability: 40
 --- !u!136 &136131628978816112
 CapsuleCollider:
   m_ObjectHideFlags: 1

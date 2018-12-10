@@ -5,9 +5,17 @@ using UnityEngine;
 public class Car : MonoBehaviour {
 
     public int life = 3;
-    [HideInInspector]public float speed;
+    [HideInInspector] public float speed;
+    [HideInInspector] public bool nitro;
     public float maxSpeed;
+    public float nitroMaxSpeed;
     public float ascelerationMultipler;
+    public float nitroAscelerationMultipler;
+    public float maxNitroAcumulation;
+    public float nitroDesacumulationMultipler;
+    public float nitroAcumulationMultipler;
+    public float minNitroAcumulationToEnabled;
+    [HideInInspector] public float nitroAcumulation;
     public enum States {Forward,Turn};
     public States states = States.Forward;
     public static Car instance;
@@ -103,10 +111,34 @@ public class Car : MonoBehaviour {
     void Update () {
         if (startDelay < 0)
         {
+           // Debug.Log(nitro + " " + nitroAcumulation);
+            if (nitro)
+            {
+                if (speed < nitroMaxSpeed)
+                    speed += Time.deltaTime * nitroAscelerationMultipler;
+
+                nitroAcumulation -= Time.deltaTime * nitroDesacumulationMultipler;
+                if (nitroAcumulation <= 0)                
+                    nitro = false;                
+            }
+            else
+            {
+                if (speed > maxSpeed)
+                {
+                    speed -= Time.deltaTime * nitroAscelerationMultipler;
+                    if (speed < maxSpeed)
+                        speed = maxSpeed;                    
+                }
+                if (speed < maxSpeed)
+                    speed += Time.deltaTime * ascelerationMultipler;
+
+                nitroAcumulation += Time.deltaTime * nitroAcumulationMultipler;
+
+                if (nitroAcumulation < maxNitroAcumulation)                
+                    nitroAcumulation += Time.deltaTime;
+            }
 
 
-            if (speed < maxSpeed)
-                speed += Time.deltaTime * ascelerationMultipler;
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.Z))
             {
@@ -272,6 +304,12 @@ public class Car : MonoBehaviour {
         }
     }
 
+    public void EnableNitro()
+    {
+        if (nitroAcumulation > minNitroAcumulationToEnabled)
+            nitro = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "RightArrow")
@@ -307,7 +345,7 @@ public class Car : MonoBehaviour {
         }
         if (other.gameObject.tag == "Obstacle" )
         {
-            if (!InmortalCheat && flickingTime > auxFlickingTime)
+            if (!InmortalCheat && flickingTime > auxFlickingTime && !nitro)
             {
                 life--;
                 flickingTime = 0;
