@@ -20,8 +20,16 @@ public class LevelManager : MonoBehaviour {
         public int metersToSpawn;
         public PoolSpawner.EntityToSpawn[] entity;
     };
+    [System.Serializable]
+    public struct TrainBarrierPattern
+    {
+        public int metersToSpawn;
+        public float TrainBarrierProbability;
+    }
     public EntitiePatern[] spawnEntitiePatern;
-    private int spawnEntitiePaternIndex = 0;
+    public TrainBarrierPattern[] spawnTrainBarrierPattern;
+    private int spawnEntitiePatternIndex = 0;
+    private int spawnTrainBarrierPatternIndex = 0;
     [HideInInspector] public Car carInstance;
     [HideInInspector] public float startToSpawnDelay = 2.0f;
     private int tutorialStep = 0;
@@ -83,7 +91,15 @@ public class LevelManager : MonoBehaviour {
         {
             if ((int)carInstance.metersTraveled == spawnEntitiePatern[i].metersToSpawn)
             {
-                spawnEntitiePaternIndex = i;
+                spawnEntitiePatternIndex = i;
+            }
+        }
+
+        for (int i = 0; i < spawnTrainBarrierPattern.Length; i++)
+        {
+            if ((int)carInstance.metersTraveled == spawnTrainBarrierPattern[i].metersToSpawn)
+            {
+                spawnTrainBarrierPatternIndex = i;
             }
         }
 
@@ -104,9 +120,13 @@ public class LevelManager : MonoBehaviour {
 
     public PoolSpawner.EntityToSpawn[] getCurrenSpawnEntity()
     {
-        return spawnEntitiePatern[spawnEntitiePaternIndex].entity;
+        return spawnEntitiePatern[spawnEntitiePatternIndex].entity;
     }
 
+    public float getCurrentTrainBarrierSpawnPrbability()
+    {
+        return spawnTrainBarrierPattern[spawnTrainBarrierPatternIndex].TrainBarrierProbability;
+    }
     public void SpawnBridge()
     {
         objectPoolerInstance.SpawnForPool(bridgesInPool[Random.Range(0, bridgesInPool.Length)].gameObject.name, bridgesInstanciePosition, Quaternion.Euler(bridgesInstancieRotation));

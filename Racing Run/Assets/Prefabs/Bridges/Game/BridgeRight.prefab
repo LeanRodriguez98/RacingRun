@@ -140,7 +140,7 @@ GameObject:
   m_Layer: 0
   m_Name: PoolSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 4148327654395720}
   - component: {fileID: 114999459019275698}
   m_Layer: 0
-  m_Name: PoolSpawner (1)
+  m_Name: PoolSpawner
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -530,7 +530,7 @@ GameObject:
   m_Layer: 0
   m_Name: PoolSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -899,7 +899,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507442868287074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -7}
+  m_LocalPosition: {x: 2, y: 3, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4013581283433012}
@@ -1126,7 +1126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1175577968321166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -10}
+  m_LocalPosition: {x: -2, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4766771973081456}
@@ -1277,7 +1277,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393259772114742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0063381, y: 0, z: 0.052282}
+  m_LocalPosition: {x: -66.93276, y: 26.449791, z: 50.968464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4833558105275234}
@@ -2180,6 +2180,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114167851083260364
@@ -2200,6 +2202,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114183461919195138
@@ -2220,6 +2224,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114188066173686454
@@ -2236,10 +2242,12 @@ MonoBehaviour:
   Entity:
   - tagEntity: EmptyObject
     spawnProbability: 100
-  typeEntity: 0
+  typeEntity: 4
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114231781329425644
@@ -2260,6 +2268,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114251733283031004
@@ -2280,6 +2290,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114305752132434242
@@ -2300,6 +2312,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114312820002442228
@@ -2320,6 +2334,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114355379401598592
@@ -2340,6 +2356,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114386738066588010
@@ -2360,6 +2378,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114390400265695676
@@ -2380,6 +2400,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114461983937558568
@@ -2400,6 +2422,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114465139872010846
@@ -2442,6 +2466,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114535205924417496
@@ -2477,6 +2503,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114568880629286826
@@ -2497,6 +2525,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114617341242091456
@@ -2517,6 +2547,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114654084647766758
@@ -2537,6 +2569,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114726582220190860
@@ -2557,6 +2591,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114735375102883718
@@ -2577,6 +2613,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114854435900430510
@@ -2597,6 +2635,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114881480224674556
@@ -2617,6 +2657,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114952512265465574
@@ -2637,6 +2679,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114975435500323350
@@ -2653,10 +2697,12 @@ MonoBehaviour:
   Entity:
   - tagEntity: EmptyObject
     spawnProbability: 100
-  typeEntity: 0
+  typeEntity: 5
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114979714659284716
@@ -2677,6 +2723,8 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6
 --- !u!114 &114999459019275698
@@ -2697,5 +2745,7 @@ MonoBehaviour:
   tutorialTypeEntity: 0
   leftArrowTag: LeftArrow
   rightArrowTag: RightArrow
+  trainBarrierLeftTag: TrainBarrierLeft
+  trainBarrierRightTag: TrainBarrierRight
   minHeightSpawn: -2
   maxHeightSpawn: 6

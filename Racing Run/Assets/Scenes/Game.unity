@@ -1463,6 +1463,31 @@ MonoBehaviour:
       spawnProbability: 4
     - tagEntity: ToolBox
       spawnProbability: 4
+  spawnTrainBarrierPattern:
+  - metersToSpawn: 0
+    TrainBarrierProbability: 0
+  - metersToSpawn: 210
+    TrainBarrierProbability: 5
+  - metersToSpawn: 420
+    TrainBarrierProbability: 10
+  - metersToSpawn: 630
+    TrainBarrierProbability: 15
+  - metersToSpawn: 840
+    TrainBarrierProbability: 20
+  - metersToSpawn: 1050
+    TrainBarrierProbability: 25
+  - metersToSpawn: 1260
+    TrainBarrierProbability: 30
+  - metersToSpawn: 1470
+    TrainBarrierProbability: 35
+  - metersToSpawn: 1680
+    TrainBarrierProbability: 40
+  - metersToSpawn: 1890
+    TrainBarrierProbability: 45
+  - metersToSpawn: 2100
+    TrainBarrierProbability: 50
+  - metersToSpawn: 2310
+    TrainBarrierProbability: 55
   carInstance: {fileID: 0}
   startToSpawnDelay: 2
   soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}

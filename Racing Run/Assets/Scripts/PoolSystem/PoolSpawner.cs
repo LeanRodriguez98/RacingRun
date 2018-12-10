@@ -29,6 +29,7 @@ public class PoolSpawner : MonoBehaviour {
     private ObjectPooler objectPoolerInstance;
     private LevelManager levelManagerInstance;
     private string tagOfObjectToSpawn;
+    private float trainBarrierSpawnProbability = 0;
     public EntityToSpawn[] Entity;
     public Type typeEntity;
     public TutorialEntities tutorialTypeEntity;
@@ -94,14 +95,26 @@ public class PoolSpawner : MonoBehaviour {
                 break;
 
             case Type.TrainBarrierLeft:
-                tagOfObjectToSpawn = trainBarrierLeftTag;
-                Invoke("SpawnObject", 0.1f);
+                if (levelManagerInstance != null)
+                    trainBarrierSpawnProbability = levelManagerInstance.getCurrentTrainBarrierSpawnPrbability();
+                if (Random.Range(0, 100) < trainBarrierSpawnProbability)
+                {
+                    tagOfObjectToSpawn = trainBarrierLeftTag;
+                    Invoke("SpawnObject", 0.1f);
+                }
+                
+                
 
                 break;
 
             case Type.TrainBarrierRight:
-                tagOfObjectToSpawn = trainBarrierRightTag;
-                Invoke("SpawnObject", 0.1f);
+                if (levelManagerInstance != null)
+                    trainBarrierSpawnProbability = levelManagerInstance.getCurrentTrainBarrierSpawnPrbability();
+                if (Random.Range(0, 100) < trainBarrierSpawnProbability)
+                {
+                    tagOfObjectToSpawn = trainBarrierRightTag;
+                    Invoke("SpawnObject", 0.1f);
+                }
 
                 break;
             case Type.Tutorial:
