@@ -14,7 +14,9 @@ public class PoolSpawner : MonoBehaviour {
         Entity,
         LeftArrow,
         RightArrow,
-        Tutorial
+        Tutorial,
+        TrainBarrierLeft,
+        TrainBarrierRight
     };
     public enum TutorialEntities
     {
@@ -32,6 +34,8 @@ public class PoolSpawner : MonoBehaviour {
     public TutorialEntities tutorialTypeEntity;
     public string leftArrowTag;
     public string rightArrowTag;
+    public string trainBarrierLeftTag;
+    public string trainBarrierRightTag;
     public int minHeightSpawn = -2;
     public int maxHeightSpawn = 6;
     private void OnEnable()
@@ -55,7 +59,7 @@ public class PoolSpawner : MonoBehaviour {
 
                 if (probability != 100)
                 {
-                    Debug.LogError(this.gameObject.name + " have a probability summation of all entities higher to 100%");
+                    Debug.LogError(this.gameObject.name + " have a probability summation of all entities diferent to 100%");
                 }
                 else
                 {
@@ -85,6 +89,18 @@ public class PoolSpawner : MonoBehaviour {
 
             case Type.RightArrow:
                 tagOfObjectToSpawn = rightArrowTag;
+                Invoke("SpawnObject", 0.1f);          
+
+                break;
+
+            case Type.TrainBarrierLeft:
+                tagOfObjectToSpawn = trainBarrierLeftTag;
+                Invoke("SpawnObject", 0.1f);
+
+                break;
+
+            case Type.TrainBarrierRight:
+                tagOfObjectToSpawn = trainBarrierRightTag;
                 Invoke("SpawnObject", 0.1f);
 
                 break;

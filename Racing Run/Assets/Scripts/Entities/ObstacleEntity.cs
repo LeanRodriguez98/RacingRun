@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleEntity : MonoBehaviour {
 
     private Rigidbody rb;
-    private BoxCollider bc;
+    private BoxCollider[] bc;
     private Car carInstance;
     public GameObject floorCollider;
     public float expultionForce = 10000;
@@ -14,7 +14,7 @@ public class ObstacleEntity : MonoBehaviour {
     public float resetTime = 5;
     void Start () {
         rb = GetComponent<Rigidbody>();
-        bc = GetComponent<BoxCollider>();
+        bc = GetComponentsInChildren<BoxCollider>();
         carInstance = Car.instance;
         
     }
@@ -39,7 +39,9 @@ public class ObstacleEntity : MonoBehaviour {
         if (other.gameObject.tag == "Car")
         {
             rb.constraints = RigidbodyConstraints.None;
-            bc.enabled = false;
+            for (int i = 0; i < bc.Length; i++)            
+                bc[i].enabled = false;
+            
             floorCollider.SetActive(false);
             Vector3 direction = Vector3.zero;
             direction = transform.position - carInstance.transform.position;
@@ -68,7 +70,8 @@ public class ObstacleEntity : MonoBehaviour {
         }
         transform.eulerAngles = Vector3.zero;
         if (bc != null)
-            bc.enabled = true;
+            for (int i = 0; i < bc.Length; i++)            
+                bc[i].enabled = true;            
         floorCollider.SetActive(true);
     }
 }

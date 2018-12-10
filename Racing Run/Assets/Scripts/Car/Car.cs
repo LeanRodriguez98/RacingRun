@@ -112,6 +112,10 @@ public class Car : MonoBehaviour {
             {
                 speed = maxSpeed = 0;
             }
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                speed = maxSpeed = 15;
+            }
 #endif
             metersTraveled += speed * Time.deltaTime;
 
@@ -316,9 +320,12 @@ public class Car : MonoBehaviour {
                     case "Barricade(Clone)":
                         audioManagerInstance.PlayTriggerSound(HitBarrierSound.clip,HitBarrierSound.Volume);
                         break;
+                    case "BarrierCollider":
                     case "CrashBox(Clone)":
                         audioManagerInstance.PlayTriggerSound(HitCrashBoxSound.clip,HitCrashBoxSound.Volume);
                         break;
+                    case "TrainBarrierRight(Clone)":
+                    case "TrainBarrierLeft(Clone)":
                     case "StopSignal(Clone)":
                         audioManagerInstance.PlayTriggerSound(HitStopSignalSound.clip,HitStopSignalSound.Volume);
                         break;
