@@ -111,7 +111,7 @@ public class Car : MonoBehaviour {
     void Update () {
         if (startDelay < 0)
         {
-           // Debug.Log(nitro + " " + nitroAcumulation);
+            //Debug.Log(nitro + " " + nitroAcumulation);
             if (nitro)
             {
                 if (speed < nitroMaxSpeed)
@@ -132,10 +132,10 @@ public class Car : MonoBehaviour {
                 if (speed < maxSpeed)
                     speed += Time.deltaTime * ascelerationMultipler;
 
-                nitroAcumulation += Time.deltaTime * nitroAcumulationMultipler;
 
-                if (nitroAcumulation < maxNitroAcumulation)                
-                    nitroAcumulation += Time.deltaTime;
+                if (nitroAcumulation < maxNitroAcumulation)
+                    nitroAcumulation += Time.deltaTime * nitroAcumulationMultipler;
+
             }
 
 
