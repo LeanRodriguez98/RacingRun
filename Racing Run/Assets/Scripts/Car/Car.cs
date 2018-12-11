@@ -9,7 +9,7 @@ public class Car : MonoBehaviour {
     [HideInInspector] public bool nitro;
     public float maxSpeed;
     public float nitroMaxSpeed;
-    public float ascelerationMultipler;
+    public float ascelerationMultipler;                                                                                                                                                                                           
     public float nitroAscelerationMultipler;
     public float maxNitroAcumulation;
     public float nitroDesacumulationMultipler;
@@ -42,6 +42,13 @@ public class Car : MonoBehaviour {
     public TrailRenderer[] skildMarks;
     private Vector3 accelerationInput;
     public CarLight[] lights;
+    public ParticleSystem[] tailpipeParticles;
+    public float tailpipeParticlesSpeedMultipler;
+    public float tailpipeParticlesMinTimeOfLife;
+    public ParticleSystem[] wheelParticles;
+    public ParticleSystem[] nitroParticles;
+
+
 
     private AudioManager audioManagerInstance;
     [Header("AudioClips")]
@@ -105,10 +112,23 @@ public class Car : MonoBehaviour {
         {
             skildMarks[i].emitting = false;
         }
+        for (int i = 0; i < nitroParticles.Length; i++)
+        {
+            nitroParticles[i].Stop();
+        }
     }
 
 
     void Update () {
+        for (int i = 0; i < tailpipeParticles.Length; i++)
+        {
+            tailpipeParticles[i].startLifetime = speed * tailpipeParticlesSpeedMultipler;
+
+            if (tailpipeParticles[i].startLifetime < tailpipeParticlesMinTimeOfLife)
+                tailpipeParticles[i].startLifetime = tailpipeParticlesMinTimeOfLife;
+            
+        }
+
         if (startDelay < 0)
         {
             //Debug.Log(nitro + " " + nitroAcumulation);
@@ -118,8 +138,15 @@ public class Car : MonoBehaviour {
                     speed += Time.deltaTime * nitroAscelerationMultipler;
 
                 nitroAcumulation -= Time.deltaTime * nitroDesacumulationMultipler;
-                if (nitroAcumulation <= 0)                
-                    nitro = false;                
+
+                if (nitroAcumulation <= 0)
+                {
+                    nitro = false;
+                    for (int i = 0; i < nitroParticles.Length; i++)
+                    {
+                        nitroParticles[i].Stop();
+                    }
+                }
             }
             else
             {
@@ -138,6 +165,14 @@ public class Car : MonoBehaviour {
 
             }
 
+
+            for (int i = 0; i < wheelParticles.Length; i++)
+            {
+                if (wheelParticles[i].startLifetime > 0)
+                {
+                    wheelParticles[i].startLifetime -= Time.deltaTime * 2;
+                }
+            }
 
 #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.Z))
@@ -251,6 +286,12 @@ public class Car : MonoBehaviour {
         else
         {
             startDelay -= Time.deltaTime;
+
+            for (int i = 0; i < wheelParticles.Length; i++)
+            {
+                wheelParticles[i].startLifetime += Time.deltaTime;
+            }
+
         }
     }
 
@@ -307,7 +348,13 @@ public class Car : MonoBehaviour {
     public void EnableNitro()
     {
         if (nitroAcumulation > minNitroAcumulationToEnabled)
+        {
             nitro = true;
+            for (int i = 0; i < nitroParticles.Length; i++)
+            {
+                nitroParticles[i].Play(); 
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
