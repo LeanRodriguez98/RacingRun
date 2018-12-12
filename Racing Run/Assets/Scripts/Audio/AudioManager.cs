@@ -5,6 +5,15 @@ using System;
 public class AudioManager : MonoBehaviour
 {
 
+
+    private AudioSource music;
+    private AudioSource loopSound;
+    private AudioSource triggerSound;
+    private GameSaveManager gameSaveManagerInstance;
+    private bool silenceSounds = false;
+
+
+    public static AudioManager instance;
     [System.Serializable]
     public struct Clip
     {
@@ -12,20 +21,16 @@ public class AudioManager : MonoBehaviour
         public float Volume;
         public AudioClip clip;
     };
+    public SO_AudioSettings audioSettings;
 
-    public static AudioManager instance;
+
     [Range(0.0f,1.0f)]
     public float musicVolume;
     [Range(0.0f, 1.0f)]
     public float soundsVolume;
 
     public float SoundModifyVelocity;
-    public SO_AudioSettings audioSettings;
-    private AudioSource music;
-    private AudioSource loopSound;
-    private AudioSource triggerSound;
-    private GameSaveManager gameSaveManagerInstance;
-    private bool silenceSounds = false;
+
 
     private void Awake()
     {
