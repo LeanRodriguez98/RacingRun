@@ -42,6 +42,8 @@ public class LevelManager : MonoBehaviour {
     private AudioManager audioManagerInstance;
     [Header("AudioClips")]
     [Space(10)]
+    public AudioManager.Clip musicIntro;
+    public AudioManager.Clip musicLoop;
     public AudioManager.Clip numberSound;
     public AudioManager.Clip goSound;
     public float timeBetweenSounds;
@@ -62,6 +64,8 @@ public class LevelManager : MonoBehaviour {
         carInstance = Car.instance;
         audioManagerInstance = AudioManager.instance;
         Play321GoSound(numberSound);
+        audioManagerInstance.PlayTriggerMusic(musicIntro.clip, musicIntro.Volume);
+        this.Invoke("PlayGameplayLoopMusic", musicLoop, musicIntro.clip.length - 0.35f);
         if (soDoTutorial.doTutorial)
         {
             FirstGameBridge.SetActive(false);
@@ -74,7 +78,13 @@ public class LevelManager : MonoBehaviour {
             FirstTutorialBridge.SetActive(false);
         }
     }
-    
+
+    public void PlayGameplayLoopMusic(AudioManager.Clip audioClip)
+    {
+        audioManagerInstance.PlayMusic(audioClip.clip, audioClip.Volume);
+    }
+
+
     public void Play321GoSound(AudioManager.Clip audioClip)
     {
         audioManagerInstance.PlayTriggerSound(audioClip.clip, audioClip.Volume);
