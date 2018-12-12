@@ -38,12 +38,15 @@ public class CameraFollow : MonoBehaviour
             }
 
             Vector3 wantedPosition;
+            float totalHeight = Mathf.Lerp(height, height + carInstance.floorDistance, Time.deltaTime);
+            float totalDistance = Mathf.Lerp(distance, distance - carInstance.floorDistance, Time.deltaTime);
+            float totalDamping = Mathf.Lerp(damping, damping + carInstance.floorDistance, Time.deltaTime);
             if (followBehind)
-                wantedPosition = target.TransformPoint(0, height, -distance);
+                wantedPosition = target.TransformPoint(0, totalHeight, -totalDistance);
             else
-                wantedPosition = target.TransformPoint(0, height, distance);
+                wantedPosition = target.TransformPoint(0, totalHeight, totalDistance);
 
-            transform.position = Vector3.Lerp(transform.position, wantedPosition, Time.deltaTime * damping);
+            transform.position = Vector3.Lerp(transform.position, wantedPosition, Time.deltaTime * totalDamping);
     
             if (smoothRotation)
             {

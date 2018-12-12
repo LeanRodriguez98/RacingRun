@@ -48,7 +48,9 @@ public class Car : MonoBehaviour {
     public ParticleSystem[] wheelParticles;
     public ParticleSystem[] nitroParticles;
 
-
+    private Ray floorDistanceRay;
+    private RaycastHit floorDistanceRaycastHit;
+    [HideInInspector] public float floorDistance;
 
     private AudioManager audioManagerInstance;
     [Header("AudioClips")]
@@ -129,6 +131,10 @@ public class Car : MonoBehaviour {
             
         }
 
+        floorDistanceRay = new Ray(transform.position, -Vector3.up);
+        if (Physics.Raycast(floorDistanceRay, out floorDistanceRaycastHit))
+            floorDistance = floorDistanceRaycastHit.distance;
+
         if (startDelay < 0)
         {
             //Debug.Log(nitro + " " + nitroAcumulation);
@@ -193,7 +199,7 @@ public class Car : MonoBehaviour {
 
                         FixCarAngle();
 
-//#if UNITY_ANDROID
+#if UNITY_ANDROID
                     if (Input.acceleration.x > 0 && !rightCollider.isTrigger)
                         transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
 
@@ -205,7 +211,7 @@ public class Car : MonoBehaviour {
 
                     accelerationInput = Input.acceleration;
                     
-//#endif
+#endif
 
 #if UNITY_EDITOR
 
