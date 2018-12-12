@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1119,7 +1119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &711528754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,7 +1431,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8706c3be3d920924aa852a2cfc82d103, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35b523ffa0a187249bfbab0788385c97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2057,7 +2057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e71020623275054c9d551ffa306f602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMaterial: {fileID: 2100000, guid: 170272f89238e9640a028bbb4f8896c4, type: 2}
 --- !u!4 &1150938470
 Transform:
   m_ObjectHideFlags: 0
