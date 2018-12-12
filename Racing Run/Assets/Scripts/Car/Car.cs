@@ -74,20 +74,20 @@ public class Car : MonoBehaviour {
 
     public void PlayEngineTopSpeedSound()
     {
-        audioManagerInstance.PlayLoopSound(engineTopSpeed.clip, engineTopSpeed.Volume);
+        audioManagerInstance.PlayTriggerMusic(engineTopSpeed.clip, engineTopSpeed.Volume);
     }
 
     public void PlayEngineSlowdownSound()
     {
         audioManagerInstance.StopLoopSound();
-        audioManagerInstance.PlayTriggerSound(engineTopSpeed.clip, engineTopSpeed.Volume);
+        audioManagerInstance.PlayTriggerMusic(engineTopSpeed.clip, engineTopSpeed.Volume);
         this.Invoke("PlayTriggerSound", engineAcceleration, engineTopSpeed.clip.length);
     }
 
     public void PlayTriggerSound(AudioManager.Clip audioClip)
     {
         audioManagerInstance.StopLoopSound();
-        audioManagerInstance.PlayTriggerSound(audioClip.clip, audioClip.Volume);
+        audioManagerInstance.PlayTriggerMusic(audioClip.clip, audioClip.Volume);
         Invoke("PlayEngineTopSpeedSound", audioClip.clip.length);
     }
 

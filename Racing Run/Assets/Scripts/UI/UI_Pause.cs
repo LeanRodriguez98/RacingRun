@@ -7,9 +7,12 @@ using UnityEngine.UI;
 public class UI_Pause : MonoBehaviour {
 
 
-    public Sprite volumeOn;
-    public Sprite volumeOff;
-    public Button volumeButon;
+    public Sprite soundsOn;
+    public Sprite soundsOff;
+    public Sprite musicOn;
+    public Sprite musicOff;
+    public Button soundsButton;
+    public Button musicButon;
     public GameObject PausePanel;
     public SO_PlayerStats soPlayerStats;
     private GameSaveManager gameSaveManagerInstance;
@@ -19,6 +22,17 @@ public class UI_Pause : MonoBehaviour {
     {
         gameSaveManagerInstance = GameSaveManager.instance;
         audioManagerInstance = AudioManager.instance;
+
+        if(audioManagerInstance.musicVolume == 0)
+            musicButon.image.sprite = musicOff;
+        else
+            musicButon.image.sprite = musicOn;
+
+        if (audioManagerInstance.soundsVolume == 0)
+            soundsButton.image.sprite = soundsOff;
+        else
+            soundsButton.image.sprite = soundsOn;
+
     }
 
     private void Update()
@@ -65,18 +79,40 @@ public class UI_Pause : MonoBehaviour {
     }
 
 
-    public void ChangeVolume()
+    public void ChangeSoundsVolume()
     {
-        if (AudioListener.volume > 0)
+        if (audioManagerInstance.soundsVolume > 0)
         {
-            AudioListener.volume = 0;
-            volumeButon.image.sprite = volumeOff;
+            audioManagerInstance.soundsVolume = 0;
+            audioManagerInstance.audioSettings.soundsVolume = 0;
+            soundsButton.image.sprite = soundsOff;
         }
         else
         {
-            AudioListener.volume = 1;
-            volumeButon.image.sprite = volumeOn;
+            audioManagerInstance.soundsVolume = 1;
+            soundsButton.image.sprite = soundsOn;
+            audioManagerInstance.audioSettings.soundsVolume = 1;
         }
+        audioManagerInstance.SaveAudioSettings();
+    }
+
+    public void ChangeMusicVolume()
+    {
+        if (audioManagerInstance.musicVolume> 0)
+        {
+            audioManagerInstance.musicVolume = 0;
+            musicButon.image.sprite = musicOff;      
+            audioManagerInstance.audioSettings.musicVolume = 0;
+
+        }
+        else
+        {
+            audioManagerInstance.musicVolume = 1;
+            musicButon.image.sprite = musicOn;
+            audioManagerInstance.audioSettings.musicVolume = 1;
+
+        }
+        audioManagerInstance.SaveAudioSettings();
     }
 
     public void LoadScene(string name)

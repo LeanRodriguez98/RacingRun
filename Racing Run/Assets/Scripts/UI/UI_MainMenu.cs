@@ -15,15 +15,18 @@ public class UI_MainMenu : MonoBehaviour {
     [Header("Tutorial")]
     [Space(10)]
     public SO_DoTutorial soDoTutorial;
-    [Header("Animations")]
+    [Header("Animators")]
     [Space(10)]
     public Animator shopAnimator;
     public Animator animations;
-    [Header("VolumeButton")]
+    [Header("AudioButtons")]
     [Space(10)]
-    public Sprite volumeOn;
-    public Sprite volumeOff;
-    public Button volumeButon;
+    public Sprite soundsOn;
+    public Sprite soundsOff;
+    public Sprite musicOn;
+    public Sprite musicOff;
+    public Button soundsButton;
+    public Button musicButon;
     [Header("AudioClips")]
     [Space(10)]
     public AudioManager.Clip OpenStoreSound;
@@ -41,8 +44,19 @@ public class UI_MainMenu : MonoBehaviour {
         fadePanelColor.r = fadePanelColor.g = fadePanelColor.b = 0;
          fadePanelColor.a = 1;
         lerpStart = Time.time;
-        audioManagerInstance.PlayTriggerSound(MusicMenuIntro.clip,MusicMenuIntro.Volume);
+        audioManagerInstance.PlayMusicOneShot(MusicMenuIntro.clip,MusicMenuIntro.Volume);
         Invoke("PlayLoopMusic", MusicMenuIntro.clip.length - 0.3f);
+
+
+        if (audioManagerInstance.musicVolume == 0)
+            musicButon.image.sprite = musicOff;
+        else
+            musicButon.image.sprite = musicOn;
+
+        if (audioManagerInstance.soundsVolume == 0)
+            soundsButton.image.sprite = soundsOff;
+        else
+            soundsButton.image.sprite = soundsOn;
     }
 
     private void Update()
@@ -61,7 +75,7 @@ public class UI_MainMenu : MonoBehaviour {
 
     public void PlayLoopMusic()
     {
-        audioManagerInstance.PlayTriggerSound(MusicMenuLoop.clip, MusicMenuLoop.Volume);
+        audioManagerInstance.PlayMusic(MusicMenuLoop.clip, MusicMenuLoop.Volume);
     }
     public void OpenShop()
     {
@@ -105,18 +119,40 @@ public class UI_MainMenu : MonoBehaviour {
         gameSaveManagerInstance.SaveGame(soDoTutorial);
     }
 
-    public void ChangeVolume()
+    public void ChangeSoundsVolume()
     {
-        if (AudioListener.volume > 0)
+        if (audioManagerInstance.soundsVolume > 0)
         {
-            AudioListener.volume = 0;
-            volumeButon.image.sprite = volumeOff;
+            audioManagerInstance.soundsVolume = 0;
+            audioManagerInstance.audioSettings.soundsVolume = 0;
+            soundsButton.image.sprite = soundsOff;
         }
         else
         {
-            AudioListener.volume = 1;
-            volumeButon.image.sprite = volumeOn;
+            audioManagerInstance.soundsVolume = 1;
+            soundsButton.image.sprite = soundsOn;
+            audioManagerInstance.audioSettings.soundsVolume = 1;
         }
+        audioManagerInstance.SaveAudioSettings();
+    }
+
+    public void ChangeMusicVolume()
+    {
+        if (audioManagerInstance.musicVolume > 0)
+        {
+            audioManagerInstance.musicVolume = 0;
+            musicButon.image.sprite = musicOff;
+            audioManagerInstance.audioSettings.musicVolume = 0;
+
+        }
+        else
+        {
+            audioManagerInstance.musicVolume = 1;
+            musicButon.image.sprite = musicOn;
+            audioManagerInstance.audioSettings.musicVolume = 1;
+
+        }
+        audioManagerInstance.SaveAudioSettings();
     }
 
     public void LoadScene(string name)

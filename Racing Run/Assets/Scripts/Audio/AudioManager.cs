@@ -20,11 +20,11 @@ public class AudioManager : MonoBehaviour
     public float soundsVolume;
 
     public float SoundModifyVelocity;
-
+    public SO_AudioSettings audioSettings;
     private AudioSource music;
     private AudioSource loopSound;
     private AudioSource triggerSound;
-
+    private GameSaveManager gameSaveManagerInstance;
     private bool silenceSounds = false;
 
     private void Awake()
@@ -33,18 +33,36 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
         }
- 
         music = gameObject.AddComponent<AudioSource>();
         loopSound = gameObject.AddComponent<AudioSource>();
         triggerSound = gameObject.AddComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+        gameSaveManagerInstance = GameSaveManager.instance;
+        gameSaveManagerInstance.LoadGame(audioSettings);
+        musicVolume = audioSettings.musicVolume;
+        soundsVolume = audioSettings.soundsVolume;
+    }
+
+    public void SaveAudioSettings()
+    {
+        gameSaveManagerInstance.SaveGame(audioSettings);
+
+        triggerSound.volume = soundsVolume;
+        loopSound.volume = soundsVolume;
+        music.volume = musicVolume;
+
+    }
 
 
     public void PlayTriggerSound(AudioClip a, float volume)
     {
         triggerSound.PlayOneShot(a, volume * soundsVolume);
+
     }
+
 
     public void PauseTriggerSound()
     {
@@ -73,6 +91,15 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void PlayTriggerMusic(AudioClip a, float volume)
+    {
+        if (triggerSound.isPlaying)
+            triggerSound.Stop();
+        triggerSound.volume = volume * soundsVolume;
+        triggerSound.clip = a;
+        triggerSound.loop = false;
+        triggerSound.Play();
+    } 
 
     public void StopLoopSound()
     {
@@ -87,6 +114,12 @@ public class AudioManager : MonoBehaviour
         music.clip = a;
         music.loop = true;
         music.Play();
+    }
+
+    public void PlayMusicOneShot(AudioClip a, float volume)
+    {
+        music.PlayOneShot(a, volume * musicVolume);
+
     }
 
     public void StopMusic()
