@@ -193,44 +193,19 @@ public class Car : MonoBehaviour {
 
                         FixCarAngle();
 
-#if UNITY_ANDROID
+//#if UNITY_ANDROID
                     if (Input.acceleration.x > 0 && !rightCollider.isTrigger)
                         transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
 
                     if (Input.acceleration.x < 0 && !leftCollider.isTrigger)
                         transform.Translate(Input.acceleration.x * speed * Time.deltaTime, 0, 0);
 
-                    if (accelerationInput.x > 0)
-	                {
-                        if (accelerationInput.x < Input.acceleration.x)
-                        {
-                            animations.SetTrigger("GoCenterToRight");
+                    animations.SetFloat("Inclination",Input.acceleration.x);
 
-                        }
-                        if (accelerationInput.x > Input.acceleration.x)
-                        {
-                            animations.SetTrigger("GoRightToCenter");
-
-                        }
-                    }
-
-                    if (accelerationInput.x < 0)
-                    {
-                        if (accelerationInput.x > Input.acceleration.x)
-                        {
-                            animations.SetTrigger("GoCenterToLeft");
-
-                        }
-                        if (accelerationInput.x < Input.acceleration.x)
-                        {
-                            animations.SetTrigger("GoLeftToCenter");
-
-                        }
-                    }
 
                     accelerationInput = Input.acceleration;
                     
-#endif
+//#endif
 
 #if UNITY_EDITOR
 
