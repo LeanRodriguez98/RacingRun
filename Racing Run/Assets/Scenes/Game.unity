@@ -1445,10 +1445,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a18d577c780e14690b469db041889a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  metersText: {fileID: 1614462674}
-  coinsText: {fileID: 1528855988}
   playerScore: 0
   playerConis: 0
+  metersText: {fileID: 1614462674}
+  coinsText: {fileID: 1528855988}
   gameOverPanel: {fileID: 1801520641}
   inGamePanel: {fileID: 1665928003}
   pauseButton: {fileID: 1824158170}
@@ -1561,7 +1561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c792ad1ea81c4241aff7fee2f7f7594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carInstance: {fileID: 0}
   soItemTextures:
   - {fileID: 11400000, guid: 6952b354c7e8465408010b019a9ca70f, type: 2}
   - {fileID: 11400000, guid: 45174a1ef8a9791489e34ecfe9c5b17f, type: 2}
@@ -1580,6 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fad0bb83333e2049ac120dd666d6c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soPlayerStats: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
   soundsOn: {fileID: 21300000, guid: 9512dc9ef3aba594caad3e700b86e60f, type: 3}
   soundsOff: {fileID: 21300000, guid: 4db255c0440877f46a2a98e8d26f05ae, type: 3}
   musicOn: {fileID: 21300000, guid: a809091cc3747a145acc7aefa40c615a, type: 3}
@@ -1587,7 +1587,6 @@ MonoBehaviour:
   soundsButton: {fileID: 534867892}
   musicButon: {fileID: 1894604189}
   PausePanel: {fileID: 177018001}
-  soPlayerStats: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
 --- !u!1 &316298767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,8 +1728,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9055626404c609d48a985fbdef497bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startToSpawnDelay: 2
   bridgesInstanciePosition: {x: 0, y: 0, z: 0}
   bridgesInstancieRotation: {x: 0, y: 0, z: 0}
+  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
+  FirstTutorialBridge: {fileID: 1813873025}
   bridgesOfTutorial:
   - {fileID: 114233164027615588, guid: 8a25d3c34c9290c43973abc896586f3c, type: 2}
   - {fileID: 114321994890849058, guid: 187744c6084f8e1489024f9c336cbff4, type: 2}
@@ -1739,6 +1741,7 @@ MonoBehaviour:
   - {fileID: 114485961442444378, guid: a9acdb52c137a4b47ae1a77ecb96fd43, type: 2}
   - {fileID: 114321994890849058, guid: 187744c6084f8e1489024f9c336cbff4, type: 2}
   - {fileID: 114797518513682066, guid: e999c8c044d15cd4a909ac435e4f6bdb, type: 2}
+  FirstGameBridge: {fileID: 612191442}
   bridgesInPool:
   - {fileID: 114644382227727788, guid: 3fc035ad29966344fabfaa3ec1825f51, type: 2}
   - {fileID: 114086016565699726, guid: 7da171798db75554baf23c41866d0f01, type: 2}
@@ -1891,11 +1894,6 @@ MonoBehaviour:
     TrainBarrierProbability: 50
   - metersToSpawn: 2310
     TrainBarrierProbability: 55
-  carInstance: {fileID: 0}
-  startToSpawnDelay: 2
-  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
-  FirstGameBridge: {fileID: 612191442}
-  FirstTutorialBridge: {fileID: 1813873025}
   musicIntro:
     Volume: 1
     clip: {fileID: 8300000, guid: 3fc553d082c756a40bb2b8975ebbe2e1, type: 3}
@@ -2525,10 +2523,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3744278640aa44b4daeea625ff8c4607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
   time: 4.5
   nextGameObject: {fileID: 725151168}
   nextUIShowOnlyOnTutorial: 0
-  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
 --- !u!114 &442530481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3198,10 +3196,9 @@ MonoBehaviour:
   distance: 3.37
   height: 2.1
   damping: 3.91
+  rotationDamping: 10
   smoothRotation: 1
   followBehind: 1
-  rotationDamping: 10
-  carInstance: {fileID: 1327598738}
   FOVInCameraMultipler: 2
   FOVOutCameraMultipler: 5
 --- !u!1 &534867890
@@ -4032,10 +4029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3744278640aa44b4daeea625ff8c4607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
   time: 6
   nextGameObject: {fileID: 0}
   nextUIShowOnlyOnTutorial: 0
-  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
 --- !u!114 &725151171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4427,9 +4424,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e265a79196dcb304ea4b799d3329d2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateRateSeconds: 4
   formatedString: '{value} FPS'
   txtFps: {fileID: 762716761}
-  updateRateSeconds: 4
 --- !u!222 &762716763
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4509,10 +4506,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3744278640aa44b4daeea625ff8c4607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
   time: 4.5
   nextGameObject: {fileID: 1312676808}
   nextUIShowOnlyOnTutorial: 1
-  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
 --- !u!114 &814648405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6444,10 +6441,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3744278640aa44b4daeea625ff8c4607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
   time: 7
   nextGameObject: {fileID: 1439312937}
   nextUIShowOnlyOnTutorial: 0
-  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
 --- !u!114 &1312676811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6856,10 +6853,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3744278640aa44b4daeea625ff8c4607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
   time: 4.5
   nextGameObject: {fileID: 442530478}
   nextUIShowOnlyOnTutorial: 0
-  soDoTutorial: {fileID: 11400000, guid: f082886470c0241458f536c2a99be29c, type: 2}
 --- !u!114 &1439312940
 MonoBehaviour:
   m_ObjectHideFlags: 0

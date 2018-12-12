@@ -45,7 +45,7 @@ public class BridgeEntity : MonoBehaviour {
             rb.AddForce(-Vector3.up * FallMultiplier);
 
         }
-
+    
     }
 
 

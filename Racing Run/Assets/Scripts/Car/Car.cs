@@ -363,7 +363,7 @@ public class Car : MonoBehaviour {
         {
             animations.SetTrigger("TurnRight");
             objectPoolerInstance.SpawnForPool("BezierRight", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
-            other.gameObject.SetActive(false);
+            other.gameObject.transform.parent.gameObject.SetActive(false);
             for (int i = 0; i < skildMarks.Length; i++)
             {
                 skildMarks[i].emitting = true;
@@ -374,7 +374,8 @@ public class Car : MonoBehaviour {
         {
             animations.SetTrigger("TurnLeft");
             objectPoolerInstance.SpawnForPool("BezierLeft", transform.position + this.transform.forward, Quaternion.Euler(0, transform.eulerAngles.y - 180, 0));
-            other.gameObject.SetActive(false);
+            other.gameObject.transform.parent.gameObject.SetActive(false);
+
             for (int i = 0; i < skildMarks.Length; i++)
             {
                 skildMarks[i].emitting = true;
