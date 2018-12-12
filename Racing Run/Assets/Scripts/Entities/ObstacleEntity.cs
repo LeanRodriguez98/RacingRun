@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleEntity : MonoBehaviour {
-
+    private Car carInstance;
     private Rigidbody rb;
     private BoxCollider[] bc;
-    private Car carInstance;
+    [Header("FloorCollider")]
+    [Space(10)]
     public GameObject floorCollider;
+    [Header("ExpultionSettings")]
+    [Space(10)]
     public float expultionForce = 100;
     public float playerNitroExpultionForceMultipler = 3;
+    [Header("SpawnSettings")]
+    [Space(10)]
     public float minRandomY = 0.2F;
     public float maxRandomY = 1.0F;
+    [Header("ResetTime")]
+    [Space(10)]
     public float resetTime = 5;
     void Start () {
         rb = GetComponent<Rigidbody>();

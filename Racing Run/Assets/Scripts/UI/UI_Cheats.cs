@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class UI_Cheats : MonoBehaviour {
     private GameSaveManager gameSaveManagerInstance;
-    [HideInInspector] public Car carInstance;
+    private Car carInstance;
+    [Header("CarTextures")]
+    [Space(10)]
     public SO_ItemTexture[] soItemTextures;
+    [Header("InmortalCheatButtonText")]
+    [Space(10)]
     public Text inmortalCheatText;
     private void Start()
     {

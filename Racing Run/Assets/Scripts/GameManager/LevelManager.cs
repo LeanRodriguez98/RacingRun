@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
-    
+    private AudioManager audioManagerInstance;
+    private ObjectPooler objectPoolerInstance;
+    private GameSaveManager gameSaveManagerInstance;
+    private Car carInstance;
+
 
     public static LevelManager instance;
 
-    [HideInInspector] public Vector3 bridgesInstanciePosition = Vector3.zero;
-    [HideInInspector] public Vector3 bridgesInstancieRotation = Vector3.zero;
-
-    private ObjectPooler objectPoolerInstance;
-    public Bridge[] bridgesOfTutorial;
-    public Bridge[] bridgesInPool;
     [System.Serializable]
     public struct EntitiePatern
     {
@@ -26,24 +24,32 @@ public class LevelManager : MonoBehaviour {
         public int metersToSpawn;
         public float TrainBarrierProbability;
     }
+    [HideInInspector] public float startToSpawnDelay = 2.0f;
+    [HideInInspector] public Vector3 bridgesInstanciePosition = Vector3.zero;
+    [HideInInspector] public Vector3 bridgesInstancieRotation = Vector3.zero;
+
+    [Header("Tutorial")]
+    [Space(10)]
+    public SO_DoTutorial soDoTutorial;
+    public GameObject FirstTutorialBridge;
+    public Bridge[] bridgesOfTutorial;
+    private int tutorialStep = 0;
+    [Header("Gameplay")]
+    [Space(10)]
+    public GameObject FirstGameBridge;
+    public Bridge[] bridgesInPool;
     public EntitiePatern[] spawnEntitiePatern;
     public TrainBarrierPattern[] spawnTrainBarrierPattern;
     private int spawnEntitiePatternIndex = 0;
     private int spawnTrainBarrierPatternIndex = 0;
-    [HideInInspector] public Car carInstance;
-    [HideInInspector] public float startToSpawnDelay = 2.0f;
-    private int tutorialStep = 0;
-    private GameSaveManager gameSaveManagerInstance;
-    public SO_DoTutorial soDoTutorial;
-
-    public GameObject FirstGameBridge;
-    public GameObject FirstTutorialBridge;
-
-    private AudioManager audioManagerInstance;
     [Header("AudioClips")]
     [Space(10)]
+    [Header("       AudioClips - Music")]
+    [Space(5)]
     public AudioManager.Clip musicIntro;
     public AudioManager.Clip musicLoop;
+    [Header("       AudioClips - 321GOSounds")]
+    [Space(5)]
     public AudioManager.Clip numberSound;
     public AudioManager.Clip goSound;
     public float timeBetweenSounds;

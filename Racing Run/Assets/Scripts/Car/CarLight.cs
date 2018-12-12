@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CarLight : MonoBehaviour {
+
     [HideInInspector] public MeshRenderer mesh;
+    [Header("BreakLightProbability")]
+    [Space(10)]
     public int breakProbability;
 
 

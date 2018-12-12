@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GlowMovement : MonoBehaviour {
+
+    private Camera mainCamera;
+    private Vector3 scale;
+    private bool scalingUp = true;
+
+    [Header("MovementSettings")]
+    [Space(10)]
     public float rotationSpeed;
     public float scalingSpeed;
     public float MaxSize;
     public float MinSize;
-    private Camera mainCamera;
-    private Vector3 scale;
-    private bool scalingUp = true;
+
     void Start () {
         scale = new Vector3((MaxSize + MinSize) / 2, (MaxSize + MinSize) / 2, (MaxSize + MinSize) / 2);
         mainCamera = Camera.main;

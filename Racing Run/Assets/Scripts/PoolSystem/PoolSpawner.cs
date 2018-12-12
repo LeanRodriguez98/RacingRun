@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolSpawner : MonoBehaviour {
+
+    private ObjectPooler objectPoolerInstance;
+    private LevelManager levelManagerInstance;
     [System.Serializable]
     public struct EntityToSpawn
     {
@@ -26,19 +29,27 @@ public class PoolSpawner : MonoBehaviour {
         ToolBox,
         Nut
     };
-    private ObjectPooler objectPoolerInstance;
-    private LevelManager levelManagerInstance;
+
     private string tagOfObjectToSpawn;
     private float trainBarrierSpawnProbability = 0;
+    [Header("Entities")]
+    [Space(10)]
     public EntityToSpawn[] Entity;
+    [Header("       Entities - Type")]
+    [Space(5)]
     public Type typeEntity;
     public TutorialEntities tutorialTypeEntity;
+    [Header("       Entities - Tags")]
+    [Space(5)]
     public string leftArrowTag;
     public string rightArrowTag;
     public string trainBarrierLeftTag;
     public string trainBarrierRightTag;
+    [Header("       Entities - SpawnSettings")]
+    [Space(5)]
     public int minHeightSpawn = -2;
     public int maxHeightSpawn = 6;
+
     private void OnEnable()
     {
         if(objectPoolerInstance == null)

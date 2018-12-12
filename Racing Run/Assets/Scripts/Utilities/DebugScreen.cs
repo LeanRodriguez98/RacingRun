@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DebugScreen : MonoBehaviour {
-
+    [Header("DebugScreenElements")]
+    [Space(10)]
     public GameObject[] screenElements;
+
     private bool screenEnabled = false;
 	// Use this for initialization
 	void Start () {

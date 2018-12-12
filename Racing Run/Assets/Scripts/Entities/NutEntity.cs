@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class NutEntity : MonoBehaviour {
+    private ObjectPooler objectPoolerInstance;
     private Rigidbody rb;
     private BoxCollider bc;
+    [Header("FloorCollider")]
+    [Space(10)]
     public GameObject floorCollider;
-    public float expultionForce = 10000;
+    [Header("ResetTime")]
+    [Space(10)]
     public float resetTime = 5;
-    public GameObject particles;
-    private Camera cam;
-    private ObjectPooler objectPoolerInstance;
     void Start () {
-        cam = Camera.main;
         rb = GetComponent<Rigidbody>();
         bc = GetComponent<BoxCollider>();
         objectPoolerInstance = ObjectPooler.instance;
@@ -22,17 +22,8 @@ public class NutEntity : MonoBehaviour {
     private void OnEnable()
     {
         RestartObject();
-
     }
 
-    private void OnDisable()
-    {
-
-    }
-
-    void Update () {
-		
-	}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,7 +33,6 @@ public class NutEntity : MonoBehaviour {
             bc.enabled = false;
             floorCollider.SetActive(false);
 
-            objectPoolerInstance.SpawnForPool(particles.gameObject.name, transform.position, transform.rotation);
 
 
             Invoke("RestartObject", resetTime);

@@ -5,7 +5,11 @@ using UnityEngine;
 public class TriggerCollider : MonoBehaviour {
 
     [HideInInspector] public bool isTrigger = false;
+    [Header("TagsToCollide")]
+    [Space(10)]
     public string[] tagsToCollide;
+    [Header("CanDisable")]
+    [Space(10)]
     public bool canDisable = false;
         
     public void OnTriggerEnter(Collider other)

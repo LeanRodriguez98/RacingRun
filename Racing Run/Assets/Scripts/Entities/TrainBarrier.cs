@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TrainBarrier : MonoBehaviour {
-    [Header("Barrier Animator")]
+    [Header("BarrierAnimator")]
     [Space(10)]
     public Animator barrierAnimator;
-    [Header("Movement Time")]
+    [Header("MovementTime")]
     [Space(10)]
     public float MinMovementTime;
     public float MaxMovementTime;

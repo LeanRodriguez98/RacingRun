@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class BezierTurn : MonoBehaviour {
 
+    private Car carInstance;
     private float t = 0;
     private Vector3 p;
     private float carRotation;
-    [HideInInspector] public Car carInstance;
+    public enum Direction { Left, Right };
+
+    [Header("BezierPoints")]
+    [Space(10)]
     public GameObject p0;
     public GameObject p1;
     public GameObject p2;
     public GameObject p3;
+    [Header("CurveSmoothness")]
+    [Space(10)]
     public int CurveSmoothness;
-    public enum Direction {Left, Right};
+    [Header("DirectionArrow")]
+    [Space(10)]
     public Direction direction;
     private void Awake()
     {
@@ -22,23 +29,16 @@ public class BezierTurn : MonoBehaviour {
 
     public void OnTriggerStay(Collider other)
     {
-   
          if (other.tag == "CarCenter")
          {
             carInstance.bezierTurn = this;
             p0.transform.position = Car.instance.transform.position;
-          /*  if(direction == Direction.Left)
-            carRotation = carInstance.transform.rotation.eulerAngles.y - 90;
-            if(direction == Direction.Right)
-            carRotation = carInstance.transform.rotation.eulerAngles.y + 90;*/
             TurnOn();
          }
-        
     }
     private void OnEnable()
     {
         t = 0;
-
     }
     public Vector3 CalculateCubicBezierPoint( float speed)
     {
@@ -76,13 +76,5 @@ public class BezierTurn : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    /*public Vector3 GetFixedRotation()
-    {
-        Vector3 r = carInstance.transform.rotation.eulerAngles;
-        r.y = carRotation;
-        return r;
-    }*/
-
-   
 
 }

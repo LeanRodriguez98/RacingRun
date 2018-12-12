@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BridgeEntity : MonoBehaviour {
-      
+
+    private ObjectPooler objectPoolerInstance;
+    private Rigidbody rb;
+    private bool touchWater = false;
+    [Header("RotationSettings")]
+    [Space(10)]
     public bool rotation;
     public float rotationSpeed;
-    private Rigidbody rb;
+    [Header("FallSettings")]
+    [Space(10)]
     public int FallMultiplier = 2000;
-    private ObjectPooler objectPoolerInstance;
-    public GameObject particles;
-    private bool touchWater = false;
+  
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -44,12 +48,7 @@ public class BridgeEntity : MonoBehaviour {
 
     }
 
-    private void OnDisable()
-    {
-        if(particles != null && objectPoolerInstance != null && Application.isPlaying && !touchWater)
-            objectPoolerInstance.SpawnForPool(particles.gameObject.name, transform.position, transform.rotation);
 
-    }
 
     private void OnTriggerEnter(Collider other)
     {

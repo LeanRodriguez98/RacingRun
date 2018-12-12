@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TurnOffOnTime : MonoBehaviour {
+    [Header("TutorialData")]
+    [Space(10)]
+    public SO_DoTutorial soDoTutorial;
+    [Header("NextGameObject")]
+    [Space(10)]
     public float time;
     public GameObject nextGameObject;
     public bool nextUIShowOnlyOnTutorial;
-    public SO_DoTutorial soDoTutorial;
 	void Start () {
         Invoke("TurnOff",time);
 	}

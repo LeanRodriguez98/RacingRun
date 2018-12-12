@@ -6,7 +6,13 @@ using UnityEngine.UI;
 public class UI_GameOver : MonoBehaviour {
 
     private UI_Manager uI_ManagerInstance;
+    [Header("Texts")]
+    [Space(10)]
+    [Header("       Texts - Ponts")]
+    [Space(5)]
     public Text pointsText;
+    [Header("       Texts - Nuts")]
+    [Space(5)]
     public Text nutsText;
 
 

@@ -4,63 +4,83 @@ using UnityEngine;
 
 public class Car : MonoBehaviour {
 
-    public int life = 3;
+    private ObjectPooler objectPoolerInstance;
+    private GameSaveManager gameSaveManagerInstance;
+    private AudioManager audioManagerInstance;
+    private Rigidbody rb;
+    private Vector3 accelerationInput;
+
+    private Ray floorDistanceRay;
+    private RaycastHit floorDistanceRaycastHit;
+    [HideInInspector] public float floorDistance;
+
+    public enum States { Forward, Turn };
+    [HideInInspector]public States states = States.Forward;
     [HideInInspector] public float speed;
     [HideInInspector] public bool nitro;
+    [HideInInspector] public float metersTraveled;
+    [HideInInspector] public int nuts;
+    [HideInInspector] public BezierTurn bezierTurn;
+    [HideInInspector] public bool InmortalCheat = false;
+    [HideInInspector] public bool tutorialEnded = false;
+
+    public static Car instance;
+    [Header("Stats")]
+    [Space(10)]
+    public SO_PlayerStats soPlayerStats;
+    [Header("Life")]
+    [Space(10)]
+    public int life = 3;
+    public float flickingTime;
+    private float auxFlickingTime;
+    [Header("SpeedSettings")]
+    [Space(10)]
     public float maxSpeed;
+    public float ascelerationMultipler;
+    public float horizontalSpeedMultipler;
+    public float startDelay;
+    [Header("NitroSettings")]
+    [Space(10)]
     public float nitroMaxSpeed;
-    public float ascelerationMultipler;                                                                                                                                                                                           
     public float nitroAscelerationMultipler;
     public float maxNitroAcumulation;
     public float nitroDesacumulationMultipler;
     public float nitroAcumulationMultipler;
     public float minNitroAcumulationToEnabled;
     [HideInInspector] public float nitroAcumulation;
-    public enum States {Forward,Turn};
-    public States states = States.Forward;
-    public static Car instance;
-    [HideInInspector] public BezierTurn bezierTurn;
-    [HideInInspector] public float metersTraveled;
-    private ObjectPooler objectPoolerInstance;
-    [HideInInspector] public int nuts;
-    public SO_PlayerStats soPlayerStats;
-    public float startDelay;
-    public Animator animations;
-    public int jumpForce;
-    private Rigidbody rb;
-    public float horizontalSpeedMultipler;
-    public Renderer[] meshParts;
-    [HideInInspector] public bool tutorialEnded = false;
-    public bool InmortalCheat = false;
+    [Header("JumpSettings")]
+    [Space(10)]
     public float jumpChargeTime;
     private float auxJumpChargeTime;
+    public int jumpForce;
+    [Header("Animations")]
+    [Space(10)]
+    public Animator animations;
+    [Header("CarParts")]
+    [Space(10)]
+    public Renderer[] meshParts;
     public RalingsColliders leftCollider;
     public RalingsColliders rightCollider;
-    private GameSaveManager gameSaveManagerInstance;
-    public float flickingTime;
-    private float auxFlickingTime;
     public TrailRenderer[] skildMarks;
-    private Vector3 accelerationInput;
     public CarLight[] lights;
-    public ParticleSystem[] tailpipeParticles;
-    public float tailpipeParticlesSpeedMultipler;
-    public float tailpipeParticlesMinTimeOfLife;
+    [Header("Particles")]
+    [Space(10)]
+    public ParticleSystem[] tailpipeParticles;    
     public ParticleSystem[] wheelParticles;
     public ParticleSystem[] nitroParticles;
-
-    private Ray floorDistanceRay;
-    private RaycastHit floorDistanceRaycastHit;
-    [HideInInspector] public float floorDistance;
-
-    private AudioManager audioManagerInstance;
+    public float tailpipeParticlesSpeedMultipler;
+    public float tailpipeParticlesMinTimeOfLife;
     [Header("AudioClips")]
     [Space(10)]
+    [Header("       AudioClips - EngineSounds")]
+    [Space(5)]
     public AudioManager.Clip engineStart;
     public AudioManager.Clip engineAcceleration;
     public AudioManager.Clip engineOnTurn;
     public AudioManager.Clip engineOnAir;
     public AudioManager.Clip engineSlowdown;
     public AudioManager.Clip engineTopSpeed;
+    [Header("       AudioClips - OnCrashSounds")]
     [Space(5)]
     public AudioManager.Clip[] nutsSounds;
     public AudioManager.Clip HitConeSound;
@@ -238,7 +258,6 @@ public class Car : MonoBehaviour {
                     transform.LookAt(new Vector3(bezierTurn.LookAtPoint().x, transform.position.y, bezierTurn.LookAtPoint().z));
                     if (states == States.Forward)
                     {
-                        //transform.eulerAngles = bezierTurn.GetFixedRotation();
                         FixCarAngle();
                         bezierTurn = null;
                         for (int i = 0; i < skildMarks.Length; i++)

@@ -375,51 +375,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 14233448}
   m_CullTransparentMesh: 0
---- !u!1 &16992769
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 16992771}
-  - component: {fileID: 16992770}
-  m_Layer: 0
-  m_Name: Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &16992770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 16992769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac04922d661dcaa46a5ec5230a3ceca1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  b1: {fileID: 1109890107911026, guid: 3fc035ad29966344fabfaa3ec1825f51, type: 2}
-  b2: {fileID: 1842935335605048, guid: 7da171798db75554baf23c41866d0f01, type: 2}
-  b3: {fileID: 1260732225287870, guid: b03651763eb09374a8e93fa60437568d, type: 2}
-  b4: {fileID: 1393259772114742, guid: 35f04cb07cb84124d97e1713f615b2ab, type: 2}
-  b5: {fileID: 1699448503821990, guid: c8b4a99679c53b1419ecdefaace63eed, type: 2}
---- !u!4 &16992771
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 16992769}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.605785, y: -8.060643, z: -26.19539}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &23393564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4735,6 +4690,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 23704811752566288, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 013a2e09473f27f44855190c2e6d0ab3, type: 2}
+    - target: {fileID: 23083766267968778, guid: 754e51b8b10f5284082623917133c7d7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 013a2e09473f27f44855190c2e6d0ab3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 754e51b8b10f5284082623917133c7d7, type: 2}
   m_IsPrefabAsset: 0

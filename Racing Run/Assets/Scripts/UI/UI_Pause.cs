@@ -6,17 +6,26 @@ using UnityEngine.UI;
 
 public class UI_Pause : MonoBehaviour {
 
+    private GameSaveManager gameSaveManagerInstance;
+    private AudioManager audioManagerInstance;
 
+    [Header("PlayerStats")]
+    [Space(10)]
+    public SO_PlayerStats soPlayerStats;
+    [Header("AudioSprites")]
+    [Space(10)]
     public Sprite soundsOn;
     public Sprite soundsOff;
     public Sprite musicOn;
     public Sprite musicOff;
+    [Header("Buttons")]
+    [Space(10)]
     public Button soundsButton;
     public Button musicButon;
+    [Header("Panels")]
+    [Space(10)]
     public GameObject PausePanel;
-    public SO_PlayerStats soPlayerStats;
-    private GameSaveManager gameSaveManagerInstance;
-    private AudioManager audioManagerInstance;
+    
 
     private void Start()
     {

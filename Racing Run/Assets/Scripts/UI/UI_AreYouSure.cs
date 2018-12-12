@@ -7,6 +7,8 @@ public class UI_AreYouSure : MonoBehaviour {
 
     [HideInInspector] public ShopUITextureItem item;
     [HideInInspector] public Animator animator;
+    [Header("IsPurchased")]
+    [Space(10)]
     private bool IsPurchased = true;
 
 

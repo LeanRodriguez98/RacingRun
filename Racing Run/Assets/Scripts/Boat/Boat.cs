@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Boat : MonoBehaviour {
+    private Car carInstance;
+    private float auxRotationSpeed = 0;
 
+    [Header("MovementSettings")]
+    [Space(10)]
     public float speed;
     public float rotationSpeed;
     public float maxDistanceToPlayer;
     public float offsetBackToReturnTolayer;
     public float TimerToChangeDirection;
-    private float auxRotationSpeed = 0;
 
-    private Car carInstance;
     void Start ()
     {
         carInstance = Car.instance;

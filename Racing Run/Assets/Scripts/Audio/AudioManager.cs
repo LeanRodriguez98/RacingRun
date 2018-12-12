@@ -21,14 +21,13 @@ public class AudioManager : MonoBehaviour
         public float Volume;
         public AudioClip clip;
     };
+    [Header("AudioSettings")]
+    [Space(10)]
     public SO_AudioSettings audioSettings;
-
-
     [Range(0.0f,1.0f)]
     public float musicVolume;
     [Range(0.0f, 1.0f)]
     public float soundsVolume;
-
     public float SoundModifyVelocity;
 
 

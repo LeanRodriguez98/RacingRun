@@ -8,6 +8,8 @@ public class UI_MainMenu : MonoBehaviour {
     private GameSaveManager gameSaveManagerInstance;
     private AudioManager audioManagerInstance;
     private Color fadePanelColor;
+    private float lerpStart;
+
     [Header("Panels")]
     [Space(10)]
     public GameObject shopPanel;
@@ -34,7 +36,6 @@ public class UI_MainMenu : MonoBehaviour {
     public AudioManager.Clip PushButtonSound;
     public AudioManager.Clip MusicMenuIntro;
     public AudioManager.Clip MusicMenuLoop;
-    private float lerpStart;
     private void Start()
     {
         if(gameSaveManagerInstance == null)

@@ -5,13 +5,19 @@ public class CameraFollow : MonoBehaviour
 
     private Transform target;
     private Camera thisCamera;
+    private Car carInstance;
+
+    [Header("CameraFollowSettings")]
+    [Space(10)]
     public float distance;
     public float height;
     public float damping;
+    public float rotationDamping;
     public bool smoothRotation;
     public bool followBehind;
-    public float rotationDamping;
-    public Car carInstance;
+
+    [Header("OnCarNitroFOVsettings")]
+    [Space(10)]
     public float FOVInCameraMultipler;
     public float FOVOutCameraMultipler;
 

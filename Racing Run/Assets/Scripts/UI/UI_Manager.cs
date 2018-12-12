@@ -4,21 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour {
-    public static UI_Manager instance;
-   // public Text lifeText;
-    public Text metersText;
-    public Text coinsText;
-    [HideInInspector]public int playerScore;
+
+    private Car carInstance;
+    private LevelManager levelManagerInstance;
     private int meters;
     private int playerLife;
     private int life;
-    [HideInInspector] public int playerConis;
     private int coins;
-    private Car carInstance;
-    private LevelManager levelManagerInstance;
+    public static UI_Manager instance;
+    [HideInInspector] public int playerScore;
+    [HideInInspector] public int playerConis;
 
+
+    [Header("Texts")]
+    [Space(10)]
+    public Text metersText;
+    public Text coinsText;
+    [Header("Panels")]
+    [Space(10)]
     public GameObject gameOverPanel;
     public GameObject inGamePanel;
+    [Header("Buttons")]
+    [Space(10)]
     public GameObject pauseButton;
     public GameObject nitroButton;
     private void Awake()

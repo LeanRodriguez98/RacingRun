@@ -4,20 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopUITextureItem : MonoBehaviour {
+    private GameSaveManager gameSaveManagerInstance;
+    private AudioManager audioManagerInstance;
+
+    [HideInInspector] public GameObject areYouSurePrefab;
+    [HideInInspector] public UI_AreYouSure areYouSureScript;
     [HideInInspector]public SO_ItemTexture soItemTextue;
+    [Header("PlayerStats")]
+    [Space(10)]
     public SO_PlayerStats soPlayerStats;
+    [Header("Item")]
+    [Space(10)]
+    [Header("       Item - References")]
+    [Space(5)]
     public RawImage itemReference;
     public RawImage backgroundIntemReference;
     public Text priceTextReference;
+    [Header("       Item - GameObjects")]
+    [Space(5)]
     public GameObject nutIcon;
     public GameObject equipedIcon;
+    [Header("       Item - Backgrounds")]
+    [Space(5)]
     public Texture boughedBackground;
     public Texture notBoughedBackground;
-    private GameSaveManager gameSaveManagerInstance;
-    [HideInInspector] public GameObject areYouSurePrefab;
-    [HideInInspector] public UI_AreYouSure areYouSureScript;
-
-    private AudioManager audioManagerInstance;
     [Header("AudioClips")]
     [Space(10)]
     public AudioManager.Clip BuyColorSound;

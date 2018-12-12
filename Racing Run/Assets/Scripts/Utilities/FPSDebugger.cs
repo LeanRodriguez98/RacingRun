@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class FPSDebugger : MonoBehaviour
 {
+    private int frameCount = 0;
+    private float dt = 0.0F;
+    private float fps = 0.0F;
 
+    [Header("UpdateRateSeconds")]
+    [Space(10)]
+    public float updateRateSeconds = 4.0F;
+    [Header("TextFormat")]
+    [Space(10)]
     public string formatedString = "{value} FPS";
+    [Header("Text")]
+    [Space(10)]
     public Text txtFps;
 
-    public float updateRateSeconds = 4.0F;
-
-    int frameCount = 0;
-    float dt = 0.0F;
-    float fps = 0.0F;
 
     void Update()
     {

@@ -3,30 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bridge : MonoBehaviour {
+    private Vector3 position;
+    private Vector3 rotation;
+    private LevelManager levelManagerInstance;
+    private bool nextInstance;
+
     public enum NextBridgeType
     {
         Game,
         Tutorial
     };
-    public NextBridgeType nextBridgeType;
-    public Transform endPosition;
-    public TriggerCollider endBridgeCollider;
-    public TriggerCollider nextBridgeCollider;
-    public float exitRotationY;
+    [Header("SpawnSettings")]
+    [Space(10)]
     public float startHeight;
     public float endHeight;
     public float fallSpeed;
-
+    [Header("NextBridgeSettings")]
+    [Space(10)]
+    public NextBridgeType nextBridgeType;
+    public Transform endPosition;
+    public float exitRotationY;
+    [Header("TriggerColliders")]
+    [Space(10)]
+    public TriggerCollider endBridgeCollider;
+    public TriggerCollider nextBridgeCollider;  
+    [Header("Railings")]
+    [Space(10)]
     public bool haveRailings;
     public GameObject[] railings;
-
-    private Vector3 position;
-    private Vector3 rotation;
-    private LevelManager levelManagerInstance;
-    private bool nextInstance;
-    
-
-
 
     private void Start()
     {
