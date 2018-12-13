@@ -21,7 +21,7 @@ This is a game developed by students from <a href="https://www.imagecampus.edu.a
 Mail: barrero_alejandro@hotmail.com
 - **Octavio Uriel Elia** - *Art* - <a href="https://www.artstation.com/octadc"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
 Mail: eliaoctavio@gmail.com
-- **Ricardo  Jiménez** - *Audio*
+- **Ricardo  Jiménez** - *Audio* - 
 Mail: ricardojc03@gmail.com
 - **Leandro Sebastian Rodriguez** - *Programming* - <a href="https://www.linkedin.com/in/leandro-sebastian-rodriguez-7a8636174/"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="https://github.com/LeanRodriguez98"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a>
 mail: leandro.s.rodriguez@outlook.com
