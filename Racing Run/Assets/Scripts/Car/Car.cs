@@ -77,6 +77,10 @@ public class Car : MonoBehaviour {
     public AudioManager.Clip engineStart;
     public AudioManager.Clip engineAcceleration;
     public AudioManager.Clip engineOnTurn;
+    public AudioManager.Clip engineJump;
+    public AudioManager.Clip engineNutroUp;
+    public AudioManager.Clip engineNitroTopSpeed;
+    public AudioManager.Clip engineNitroDown;
     public AudioManager.Clip engineOnAir;
     public AudioManager.Clip engineSlowdown;
     public AudioManager.Clip engineTopSpeed;
@@ -172,6 +176,8 @@ public class Car : MonoBehaviour {
                     {
                         nitroParticles[i].Stop();
                     }
+                    PlayTriggerSound(engineNitroDown);
+                    Invoke("PlayEngineTopSpeedSound", engineNitroDown.clip.length);
                 }
             }
             else
@@ -314,6 +320,7 @@ public class Car : MonoBehaviour {
             rb.AddForce(Vector3.up * jumpForce);
             jumpChargeTime = 0;
             animations.SetTrigger("Jump");
+            PlayTriggerSound(engineJump);
             PlayTriggerSound(engineOnAir);
         }
     }
@@ -354,6 +361,8 @@ public class Car : MonoBehaviour {
             {
                 nitroParticles[i].Play(); 
             }
+            PlayTriggerSound(engineNutroUp);
+            this.Invoke("PlayTriggerSound", engineNitroTopSpeed, engineNutroUp.clip.length);
         }
     }
 

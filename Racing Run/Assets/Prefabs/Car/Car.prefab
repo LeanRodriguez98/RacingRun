@@ -1498,37 +1498,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a49b7868b4c7e24da53ae2c4eb756c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
+  floorDistance: 0
+  states: 0
   speed: 0
   nitro: 0
+  metersTraveled: 0
+  nuts: 0
+  bezierTurn: {fileID: 0}
+  InmortalCheat: 0
+  tutorialEnded: 0
+  soPlayerStats: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
+  life: 3
+  flickingTime: 0.4
   maxSpeed: 15
-  nitroMaxSpeed: 25
   ascelerationMultipler: 2
+  horizontalSpeedMultipler: 3.5
+  startDelay: 4.5
+  nitroMaxSpeed: 25
   nitroAscelerationMultipler: 3.5
   maxNitroAcumulation: 150
   nitroDesacumulationMultipler: 10
   nitroAcumulationMultipler: 2
   minNitroAcumulationToEnabled: 50
   nitroAcumulation: 0
-  states: 0
-  bezierTurn: {fileID: 0}
-  metersTraveled: 0
-  nuts: 0
-  soPlayerStats: {fileID: 11400000, guid: 707a11aa90ac27749ad4b98f3b5e62f9, type: 2}
-  startDelay: 4.5
-  animations: {fileID: 95420708952348990}
+  jumpChargeTime: 1
   jumpForce: 400
-  horizontalSpeedMultipler: 2
+  animations: {fileID: 95420708952348990}
   meshParts:
   - {fileID: 23193687812409508}
   - {fileID: 23444026242698896}
   - {fileID: 23247150174075642}
-  tutorialEnded: 0
-  InmortalCheat: 0
-  jumpChargeTime: 1
   leftCollider: {fileID: 114000517500322844}
   rightCollider: {fileID: 114088051977441826}
-  flickingTime: 0.4
   skildMarks:
   - {fileID: 96245138409033042}
   - {fileID: 96137717600454058}
@@ -1540,8 +1541,6 @@ MonoBehaviour:
   - {fileID: 198057123585868000}
   - {fileID: 198807983983885120}
   - {fileID: 198584453093618898}
-  tailpipeParticlesSpeedMultipler: 0.5
-  tailpipeParticlesMinTimeOfLife: 0.5
   wheelParticles:
   - {fileID: 198890851415819592}
   - {fileID: 198568619188264282}
@@ -1552,6 +1551,8 @@ MonoBehaviour:
   - {fileID: 198009821255933306}
   - {fileID: 198067973724888750}
   - {fileID: 198877077722548748}
+  tailpipeParticlesSpeedMultipler: 0.5
+  tailpipeParticlesMinTimeOfLife: 0.5
   engineStart:
     Volume: 0.2
     clip: {fileID: 8300000, guid: 1d56262ac2b4f3f408e47a5cff683eab, type: 3}
@@ -1561,6 +1562,18 @@ MonoBehaviour:
   engineOnTurn:
     Volume: 0.2
     clip: {fileID: 8300000, guid: cbdf2500dd241e64f90fed92cd74dbcf, type: 3}
+  engineJump:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: 67dee9189376a694f8c49f7434346637, type: 3}
+  engineNutroUp:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: 954c0933dbc9dca49a3d2dae8ee898cb, type: 3}
+  engineNitroTopSpeed:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: b897550b50cd25049a8172dca9a7bba4, type: 3}
+  engineNitroDown:
+    Volume: 0.2
+    clip: {fileID: 8300000, guid: 8a8ece67bb0ff6e4d87b13c0a6e7586a, type: 3}
   engineOnAir:
     Volume: 0.2
     clip: {fileID: 8300000, guid: a41a96650ab908e47b50d17c1b6b2cc6, type: 3}
